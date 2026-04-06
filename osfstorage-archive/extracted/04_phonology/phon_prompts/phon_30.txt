@@ -1,0 +1,43 @@
+Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: ã ẽ ĩ õ ũ a e i o u
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+ã p e p
+n a m a j
+k o n i ʔ
+z a θ o m
+s ŋ o q i u ɦ
+k a r ã n i
+k õ t
+s ã l
+b ĩ k
+n a m
+l u m u n
+b õ n
+ĩ m a s o
+m a n a g u
+m e t e n e m i
+ŋ i s t u p a θ
+n o l a d o k
+f a ŋ u s
+h ã b e s i m
+f ẽ t ẽ l
+b ĩ n a m a r ĩ ŋ o
+θ õ s θ õ ŋ
+m u s ũ l ũ
+ŋ a s i d
+l e p e d
+r i d i m o
+k o l k a t
+s u f t u r
+p a l ã k r a k ã k
+θ e s t i k
+b i f r u l a r ĩ
+õ s m o t r õ
+t r u n a
+h ã q ã t ã ɦ
+b ẽ ɦ n i w e l
+p a m i r ĩ z ĩ
+f a m o
+ð ũ n
+k a m a g a
+l i l u m u

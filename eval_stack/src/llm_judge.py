@@ -11,32 +11,47 @@ from tqdm.asyncio import tqdm_asyncio
 
 JUDGE_SYSTEM = (
     "You are an expert linguistics professor grading a student's formal linguistic analysis. "
-    "Be strict but fair. Only award a pass if the core linguistic analysis is correct."
+    "Be strict but fair. Apply the provided rubric exactly."
 )
 
 JUDGE_TEMPLATE = """\
-Ground truth analysis:
-{ground_truth}
+TASK: {category} — {subtasks}
 
-Student's answer:
+GRADING RUBRIC:
+{judge_criteria}
+
+STUDENT'S ANSWER:
 {response}
 
-Does the student's answer correctly capture the formal linguistic analysis shown in the ground truth?
-Reply with ONLY '1' for Pass or '0' for Fail."""
+Using the rubric above, count how many sub-tasks the student passed (each worth 1 point).
+Reply with ONLY a single integer — the total number of sub-tasks passed (e.g. 0, 1, 2, ...)."""
+
+
+def _count_subtasks(subtasks_str: str) -> int:
+    if not subtasks_str:
+        return 1
+    return len([s for s in subtasks_str.split("|") if s.strip()])
 
 
 async def _judge_one(record: dict, openai_client, semaphore: asyncio.Semaphore) -> dict:
     async with semaphore:
+        n_subtasks = _count_subtasks(record.get("subtasks", ""))
         prompt = JUDGE_TEMPLATE.format(
-            ground_truth=record["ground_truth"],
+            category=record.get("category", "metalinguistics"),
+            subtasks=record.get("subtasks", "overall"),
+            judge_criteria=record.get("ground_truth", ""),  # judge_criteria stored in ground_truth field
             response=record["response"],
         )
         try:
             verdict = await openai_client.complete(prompt, system=JUDGE_SYSTEM)
-            match = re.search(r"[01]", verdict)
-            record["judge_score"] = int(match.group()) if match else 0
+            match = re.search(r"\d+", verdict)
+            raw = int(match.group()) if match else 0
+            # Clamp to valid range and normalise to 0–1
+            record["judge_raw"] = min(raw, n_subtasks)
+            record["judge_score"] = round(record["judge_raw"] / n_subtasks, 4) if n_subtasks else 0
         except Exception as e:
             print(f"Judge error for {record.get('question_id')}: {e}")
+            record["judge_raw"] = 0
             record["judge_score"] = 0
         return record
 

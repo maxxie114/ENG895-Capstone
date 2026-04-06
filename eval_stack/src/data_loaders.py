@@ -162,13 +162,15 @@ def load_begus() -> list[dict]:
             "benchmark": "begus",
             "category": str(row.get("category", "metalinguistics")),
             "prompt": str(row.get("prompt", row.get("question", ""))),
+            "subtasks": str(row.get("subtasks", "overall")),
             "system": (
                 "You are an expert computational linguist. "
                 "Analyze the following linguistic data using formal linguistic notation "
                 "where appropriate (e.g., phrase structure rules, feature matrices, "
                 "phonological derivations)."
             ),
-            "ground_truth": str(row.get("ground_truth", row.get("answer", ""))),
+            # judge_criteria is stored in ground_truth so the judge pipeline can access it
+            "ground_truth": str(row.get("judge_criteria", row.get("ground_truth", ""))),
         })
 
     print(f"[Beguš] Loaded {len(items)} items.")

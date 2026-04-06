@@ -1,0 +1,2 @@
+Consider the sentence below. Provide code for a syntactic tree representing its structure that can be rendered with LaTeX's forest package. Assume X-bar theory. Pay special attention to syntactic movement and represent all instances of movement with (indexed) traces. Do not write code to draw the actual syntactic arrows that connect the traces.
+"When do you think she will arrive?"

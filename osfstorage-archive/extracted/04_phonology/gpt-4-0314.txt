@@ -1,0 +1,1530 @@
+phon_01.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: b d g z v ð ɣ p t k s f θ x
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+d a p
+z u b e
+l a b i
+n a b i
+d e t
+v l o d u
+g u l i d i
+b a m i d i
+b r e k
+d a g i
+i l e g i
+l a s
+b a z u
+v a z e
+a l u f
+b i l e v i
+g o l u v u
+a g a ð a
+z o g u θ
+m u g a ð u
+e ɣ e d e
+a ɣ i t
+g o b u x
+g o r a p
+b i r a b i
+l o b i
+j e d a
+g o l a t
+v e d i
+z o b r a k
+l u g a g i
+i v a g i
+g u l u s
+b u z u n
+j a z u n
+o b u ð i
+m u ð e n
+l i ð a r a θ
+o r o x
+d r o ɣ o
+REPLY: Voiced obstruents (b, d, g, z, v, ð, ɣ) become voiceless obstruents (p, t, k, s, f, θ, x) / _# (i.e., in word-final position).
+
+As evidence, we can observe the following pairs:
+- d a p (word-final t is realized as p)
+- z u b e (word-final d is realized as b)
+- d e t (word-final t remains as t)
+- b a z u (word-final z is realized as s)
+- v a z e (word-final z remains as z)
+- a l u f (word-final f remains as f)
+- z o g u θ (word-final ð is realized as θ)
+- e ɣ e d e (word-final ɣ is realized as d)
+- a ɣ i t (word-final t remains as t)
+- g o b u x (word-final ɣ is realized as x)
+- l a s (word-final s remains as s)
+- o r o x (word-final x remains as x)
+
+
+phon_02.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a e i o u ã ẽ ĩ õ ũ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+a p e p
+n ã m ã j
+k o n ĩ ʔ
+z a θ o m
+s ŋ õ q i u ɦ
+k a r a n ĩ
+k o t
+s a l
+b i k
+n ã m
+l u m ũ n
+b o n
+l i m ã s o
+m ã n ã g u
+m ẽ t e n ẽ m ĩ
+ŋ ĩ s t u p a θ
+n õ l a d o k
+f a ŋ ũ s
+h a b e s i m
+f e t e l
+b i n ã m ã r i ŋ õ
+θ o s θ o ŋ
+m ũ s u l u
+ŋ ã s i d
+l e p e d
+r i d i m õ
+k o l k a t
+s u f t u r
+p a l a k r a k a k
+θ e s t i k
+b i f r u l a r i
+o s m õ t r o
+t r u n ã
+h a q a t a ɦ
+b e ɦ n ĩ w e l
+p a m ĩ r i z i
+f a m õ
+ð u n
+k a m ã g a
+l i l u m ũ
+REPLY: Vowels become nasalized when followed by a nasal consonant:
+
+a → ã / _ {m, n, ŋ}
+e → ẽ / _ {m, n, ŋ}
+i → ĩ / _ {m, n, ŋ}
+o → õ / _ {m, n, ŋ}
+u → ũ / _ {m, n, ŋ}
+
+
+phon_03.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a i u e o y ã ĩ ũ ẽ õ ỹ 
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t ã h a
+ĩ ʔ y
+l ẽ ɦ a w i
+k o l õ h
+p a s ỹ ʔ a
+m a n a
+m ẽ ɦ e
+p a m ĩ h a
+k õ ʔ o ŋ
+t y n e
+p a l ã ʔ
+t a s o k a
+ɦ a r o n
+s y l i n a k
+j ã ʔ
+r ã ʔ ã h e
+w ũ h u l ẽ ʔ
+a r u
+n i m a s
+x a ŋ a l i
+p i x o
+s a ɣ õ h
+n i s i ɣ
+k a s a x
+l ẽ ʔ e x
+ã h u l
+m a l ẽ ɦ
+ɣ ã ʔ
+n õ h
+s ũ ɦ ũ ɦ
+ʔ a m ã ʔ
+t ẽ h i m e
+ɦ ĩ ʔ
+ʔ o m a
+l ũ h i
+ỹ ɦ a m e
+p a l ỹ ʔ y
+n ĩ h
+m a p o t õ ɦ
+ʔ ũ ʔ
+REPLY: Vowels followed by a nasal become nasalized:
+
+V → Ṽ / _ N
+
+
+phon_04.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: k ɡ ŋ x ɣ c ɟ ɲ ç ʝ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+ɑ c e r i
+ç e ɲ e
+m e x k ɑ
+s o ɟ i s k o
+v o ŋ ɑ t ɑ
+x ɑ ɲ i t e
+t i ɣ ɑ m e
+k o ʝ æ
+c e t u m o
+i k a x u
+e ɣ o l æ
+d z e s k ɑ
+t s e ŋ o
+x o c e
+u ɲ i s p e
+n o s c i
+æ s p æ ʝ e
+ɟ æ n o
+e ɡ u r æ
+ɡ o l o m æ
+k u ɲ æ s e
+l e ɡ ɑ
+æ x u d z u
+ɣ ɑ s k o
+n o ɟ i l i
+ɣ o ʝ æ
+ɟ e s c e
+t s u l e ŋ o
+ç i r a n e
+ɡ o ç æ
+ɟ i t s i
+d e ŋ ɑ r u
+v u ŋ o
+o d o ɲ æ
+t s ɑ x ɑ
+r i ɲ e ŋ ɑ
+ʝ i s t u
+x u t æ
+v e x t i
+k o ɡ o n æ
+REPLY: The observed phonological process is velarization, where the dorsal sounds (k, ɡ, ŋ) become palatal (c, ɟ, ɲ) and the fricatives (x, ɣ) become palatal fricatives (ç, ʝ) in the vicinity of high front vowels (i, e). The rule can be stated as:
+
+Dorsal (k ɡ ŋ x ɣ) → Palatal (c ɟ ɲ ç ʝ) / _ (i, e)
+
+
+phon_05.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: b d g β ð ɣ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+b a p
+s a b
+g a p a
+s a β a
+o d
+i ð i d
+m o ð a
+d u ð a
+l o g
+d o k
+g o ɣ o
+s o ɣ e
+g e b l a m
+b i β i d
+a l b a
+o r d a
+m i r g a
+p i l d o
+m o d r e n
+m o ð e m
+m i ɣ a
+h u s b a r
+l o β a d
+d i ɣ e n
+k o β a ð a
+p a g s e n
+p u ɣ e h
+l a β o ð e ɣ a
+b o ð e ɣ a
+p a ʔ d u g
+r a ð u b
+g a ɣ a
+b a ð a b
+p a ŋ g a
+l a d b i
+p a z g a k
+p a l d o β o
+m o ɣ u r a
+r a β a m b a n
+s u β u m
+REPLY: The phonological process operating in this language seems to be intervocalic voicing of voiceless stops, with the following rule:
+
+[p, t, k] → [b, d, g] / V _ V
+
+
+phon_06.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a e i o u aː eː iː oː uː
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+s a p
+b a ː l
+g e ː r i
+p i ː e n
+k a ː w a
+l o ː j
+l o ː j e ː r
+j a m e
+s u
+r u ː a
+s u ː j a
+l i n
+b i ː r i
+a s a
+m a ː l a
+a ː j a ː l a k a
+p e t e
+p e ː r e
+m e ː w e ː i
+m u ː e n e
+h a ː o ː j e
+s o ː i n
+w o ː i ː r i
+p i m i
+w i ː e ː r
+l i ː e s
+r o ː r o
+l u p a ː i
+s u ː r a ː j a ː l
+p a t u k a s
+l e
+b e m e ː w
+w a n a n a
+s a ː r a p
+k a t a ː l
+w a n e ː r a
+p a s e n a
+m i ː a
+m i ː w o n
+m i s a k
+REPLY: The phonological process observed here is vowel lengthening: short vowels (a, e, i, o, u) become long vowels (aː, eː, iː, oː, uː) when followed by another vowel in the next syllable.
+
+V → Vː / _ V
+
+
+phon_07.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: s z t d n ɕ ʑ c ɟ ɲ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+w i ʑ o
+ʔ o s t i
+z e ʑ e m u
+j ə t o
+d ə d ə r i
+d i j ə r æ
+ʔ æ ɟ o
+n e b o t e
+w ə ʔ s i
+m æ ɕ ə n i
+s o ʔ o b i
+g e c k o ʔ
+w æ ɲ æ c u
+b i ɟ o ʔ u
+ʔ æ ɲ g u n t æ
+k u n u d æ
+ʔ æ ʑ u ʔ
+ʔ e ɲ t u
+s æ ɕ ə m i
+n i ɕ n i ʔ
+d u r s e j æ
+b e ɟ ə
+z æ j o r o ʔ
+t i ɲ u t i
+ʔ i c u
+ʔ æ ɕ ə n u s e
+z u s o
+m ə d o d o
+d e ɕ u m e
+n e ɕ p a
+b i ʑ b o d e
+ʔ u z i r o
+k æ j i ɲ t u
+m æ j ə t i
+p i c o n æ
+t u s t e ʑ o
+n i ɲ æ c ə
+g e ɟ o
+s e ɕ o n ə
+ʔ i c ə t æ
+REPLY: Alveolar and palatal fricatives [s z ɕ ʑ] become affricates [t͡s d͡z c͡ç ɟʝ] before another alveolar or palatal stop [t d c ɟ].
+
+s → t͡s / _ [t d]
+z → d͡z / _ [t d]
+ɕ → c͡ç / _ [c ɟ]
+ʑ → ɟʝ / _ [c ɟ]
+
+
+phon_08.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: b d g m n ŋ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+m ã n ã
+b e l e
+m ĩ s i
+k a m õ
+l a b u
+p a w o m ũ
+t e n ĩ
+d a n ã
+d i d
+n õ d o
+n ã m õ
+d u s u
+g a l a d
+ŋ ã l i
+ŋ ũ r a
+ŋ ũ n ẽ m ĩ
+g o b e d a
+p a m ã i
+b a i d a p
+m ã t o r a
+n ĩ s u m ẽ
+a k a ŋ ã
+ã d i a
+n ũ r i o
+r o s a
+ŋ ã l ã t
+ĩ ŋ ã
+ẽ h ũ m ũ
+p e s i d o b o
+m ẽ n ĩ b a
+ũ g a l
+ŋ ũ g u
+m õ b a k
+s u g a
+s u m õ
+r i b i t
+s a ŋ ã l ũ
+m ã d
+g u r
+b i l
+REPLY: The phonological process observed in this language seems to be nasal assimilation, where stops become nasal in the presence of a nasal vowel in the following syllable. The rule can be stated as follows:
+
+{b, d, g} → {m, n, ŋ} / _ Ṽ
+
+This means that the stops b, d, and g are realized as nasals m, n, and ŋ respectively, when they occur before a nasal vowel (Ṽ).
+
+
+phon_09.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: e o ɛ ɔ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t a p e
+k a s o
+u l e
+i l o
+w a r e
+p e ɔ t
+s e o
+k a o
+l o a
+p i ɔ n
+s ɛ s e
+p ɛ p ɛ t
+k ɔ l o
+m ɔ k ɔ m
+k a l ɔ r e
+s a p ɛ k o
+ɔ j a k
+ɛ m i n e
+p ɔ w i p
+s i ɛ w
+k ɛ n ɛ l
+l ɔ w ɛ r
+ɔ w e
+m i d e a l
+k ɔ n e a s
+r e a w ɛ j o
+l o a n e
+s ɔ w ɛ t o
+m a t ɛ l e
+n ɛ n u
+p ɔ l u
+a w e
+ɔ j i n ɛ w a
+k o a r e a
+l a ɛ s e ɔ t
+p u s e
+m ɔ l ɛ r
+n ɛ s a r e
+p ɛ s o
+k ɔ l e
+REPLY: e → ɛ / _ [–back]
+o → ɔ / _ [–back]
+
+
+phon_10.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: p t k ʰp ʰt ʰk
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+b e v k o ʰ t
+ɦ r e v o s t
+l a n t
+p a ʰ t o n
+m a ʰ p
+s i z a r p
+l e s p a g
+d i ʰ p i ʰ t
+s u ʰ p u
+t i n e d
+v e g o m
+o ʰ k r a
+t i ʰ p l i
+l a ʰ t r o w p
+w o ʰ k o j
+j o ʰ k o ʰ p a w t
+s a ŋ k
+t a m p a b
+w i r k a d y ʰ k l
+i d a l t o s
+l a g a b
+w o ʰ t o
+l a ʰ p o ʰ t e ʰ k o
+i ʰ t
+m e w e s t a
+k o ʰ p o w t
+r o j t a ʰ p a
+l a ʰ k r o d
+t o ʰ p k a ʰ p i
+s m a l k
+p l a z d u
+i m p i ʰ t
+l a ʰ k a j a d
+l o b a ʰ t
+s k a ʰ p
+i ʰ k a r u ʰ t
+e b l a w
+t u ʰ t
+l i ʰ p a r i g
+m o n t o ʰ p
+REPLY: Aspirated stops [ʰp ʰt ʰk] occur only at word boundaries or next to other aspirated stops.
+
+p t k → ʰp ʰt ʰk / # _ or _ ʰ(C)#
+
+
+phon_11.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: t d p b k g θ ð f v x ɣ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t e ð k a
+x t ɔ n
+d a ɣ t a
+t l a p w ɛ f t
+m i v d o
+ɣ d ɔ k
+d ɛ b u
+v d a m
+l ɔ v t a
+b a ɣ d
+a g j a
+d n ɔ k
+e g r a
+g w a t a
+k o ð p ɛ l
+m o r a v d
+v d i l a
+i d r a k
+g ɔ ɣ t a
+k ɛ x t ɔ r
+f t a g u r
+θ k e l o b
+k e f d a g
+g n ɔ t ɔ l b
+b e g ɔ θ k
+m e r ɛ x t
+ð g o t
+b i ð g
+t r ɔ g a
+d r e d
+t i f k u m
+d o g r ɛ
+l ɛ ɣ p a
+r i x b u
+g a p l i
+ð b i k a
+g a r a b
+m p a x t
+b ɔ θ p i
+m g ɔ r ɔ f t
+REPLY: Voiceless stops → voiced stops / _ V
+
+t d p b k g → d b g ð θ d / _ V
+
+
+phon_12.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: f v θ ð s z ʃ ʒ x ɣ h ɦ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+r a f a
+f e l i
+d u n v e
+l a m v
+w i s θ
+l o θ o
+i m ð i s
+k a ŋ ð a
+w i s k u
+d i f s a
+i n z i l i
+w a m z u r
+k e l ʃ e k
+m i ʃ
+w a n ʒ u
+l i m ʒ i n
+ŋ a x
+k i r x o l
+l u m ɣ
+w i ŋ ɣ i t
+r a b h a
+w a l h
+p a n ɦ i l
+a m ɦ a l o
+r i f t e s
+h a m v a j
+k o j θ a
+k o ŋ ð o
+w e s t e j
+k u m z
+a r ʃ i l d
+l a m ʒ i k
+d e w x i
+p a n ɣ u l a
+h u s
+i n ɦ i t
+r e l f o j
+k a l a ŋ v a
+d i b θ i
+m u m ð u r
+REPLY: f → v / _ V
+θ → ð / _ V
+s → z / _ V
+ʃ → ʒ / _ V
+x → ɣ / _ V
+h → ɦ / _ V
+
+
+phon_13.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a ɑ ɒ ɛ ʌ ɔ 
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+s a l
+m a ŋ a n
+s a l n i
+t ɑ p
+ɑ m b o
+l ɑ d ɑ k i
+m ɒ s
+p ɒ k
+l ɒ m a ŋ g u
+p o l ɛ
+r a l ɛ
+k a n t ɑ n ɛ
+d i s ʌ
+f l a ʃ ʌ
+p o r p o r ʌ
+d ɔ
+ɑ n w ɔ
+k e s i m ɔ
+w a l ɑ p
+a m a n i t ɛ
+s a v ɒ p
+k ɑ v
+j ɑ b u
+s m ɑ r
+ɒ l ɒ t
+ɒ p r i ɒ m
+ɒ l a m ʌ
+k r ɛ
+l i d i ɛ
+f a ɛ
+l u ʌ
+l a r i ʌ
+m u d u g ʌ
+s i k ɔ
+l e p r ɔ
+m e ɔ
+l a u
+l ɑ j
+w ɒ n
+l o j ʌ
+REPLY: Vowel lowering:
+ɑ → ɒ / _ _
+ɛ → ʌ / _ _
+ɔ → ɤ / _ _
+
+
+phon_14.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: t d n s z r l t̪ d̪ n̪ θ ð r̪ l̪ 
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+b ɑ t
+s u d u
+k o n o
+g ɔ s
+m ɑ z
+f l u r
+k ɑ z ɑ l
+k r ɑ t
+s i t̪ ɛ n̪
+t e d̪
+r ɛ n̪ ɑ t
+h æ θ i l̪
+b i ð æ k
+k e r̪ e j
+n i ð o r i
+d æ w
+n ɛ p s
+s i j ɑ r
+z ɑ k ɑ
+r u ɑ
+l o m o r
+s o t ɑ n
+s e t̪ i l̪
+w e ð e
+s p ɛ θ
+k æ n̪
+g i d̪ ɛ p
+r e t̪ u n
+ɛ l̪ k ɛ w
+w æ r̪ o
+r i θ i ɑ l
+h e n̪ w æ ð
+n ɛ d̪ i ð
+j æ t̪
+u n j a
+ɛ k ɑ s
+e j z e
+n ɑ d r ɛ
+l u l æ
+w æ j d
+REPLY: Alveolar consonants → Dental consonants / _ {i, e}
+
+In more general terms: Alveolar obstruents and nasals become dental when followed by a front vowel (i or e).
+
+
+phon_15.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: p t k ʔp ʔt ʔk
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+p a r i d
+t o n o b
+k i l e g
+v i ɦ a ʔ p
+k i d r e ʔ t
+h a u z a ʔ k
+w e s p
+k a l t u d y
+p u r ɣ
+s e ʔ p e n
+t o ʔ t i r
+p a ʔ k a j
+t o n a j p
+p o g a w t
+d o r a h k
+k o r e ʔ p s
+l a f i ʔ t r a n a u g
+p e ʔ k l e s
+u m p o r
+k a n t a l e
+p a ŋ k a j
+i ʔ p a ʔ t a l
+o ʔ t o d i l
+e ʔ k e ʔ p
+o s p a ʔ t i ʔ k
+i ʔ t a l t a ʔ t
+i ŋ k o r a ʔ p
+p a ʔ p a v a
+m i ʔ t i m p a
+l e ʔ k a ʔ p i ʔ t i
+m e ʔ p r a j t a ʔ k
+l i b i ʔ t
+p o d e ʔ k
+s a ʔ p a ʔ p
+w o ʔ t u m
+t o z a r k
+p a l i ʔ p
+t o ð o ʔ p i s p
+k a ʔ t a r s a ʔ p
+w o ʔ k r a
+REPLY: Voiceless plosives become ejectives after glottal stop: p → ʔp / ʔ_ , t → ʔt / ʔ_ , k → ʔk / ʔ_
+
+
+phon_16.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: k g ŋ x ɣ q ɢ ɴ χ ʁ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+k i k e n
+g e l o
+ŋ ɛ r u l
+x æ m i t
+ɣ i s æ
+q o p a ʁ u
+q u t ɑ
+ɢ o l æ w
+ɴ ɔ m ɔ j
+χ ɑ l d ɑ n
+ʁ u f u k
+ʁ ɑ s o l
+k ɛ s e l
+g æ b i
+l i ŋ i r
+f ɛ x
+t o ɣ
+s u ŋ æ
+t e s k
+b o χ ɑ g
+b u x i n
+q ɔ l ɑ ɣ e
+æ l i q o
+i r ɢ ɔ
+s i m i ɴ ɑ
+d e χ u
+p ɛ ʁ ɔ
+s ɑ q ɔ
+o p ɢ ɑ
+ɛ w ɴ u
+s i l i χ o
+s ɑ k
+m ɑ n ʁ ɔ
+s u k e
+s u ɣ i
+ŋ æ s u l
+q ɔ f æ
+ɢ u ɴ o ɣ
+s ɛ ɴ o x
+ɛ j q ɑ
+REPLY: The phonological process operating in this language appears to be:
+
+Voiceless → Voiced / Vowel _ Vowel
+
+In more specific terms:
+
+{k, x, q, χ} → {g, ɣ, ɢ, ʁ} / Vowel _ Vowel
+
+
+phon_17.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a e i ɤ ɯ ɶ ø y o u
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+p t a l a r
+k e s i m
+r i j a b k e s
+s ɤ n d ɯ m
+ŋ ɯ h t i
+m ɶ s i l e
+b ø k l a
+v y l
+p o m a l
+f u s i l m
+m ø k e r i t
+b y s t e l b y
+v o k i j a
+p u d i t
+f ɶ b y r e
+d e g s e n
+g i f t a t
+l ɤ f u
+i v z ɯ s ɯ
+ŋ a l d a p
+j a m h a n
+h e k e t i m
+l i f y v ø s
+r ɤ b o s
+θ ɯ s i s p y s
+f ɶ m ø n p y
+v ø b y r i l
+p y p ɶ f
+b o s m o l ɯ
+v u s t i t p o s
+a r m ɶ l i
+i l b ø f u
+m ø s t e t
+k a r j a b u
+k r e d v y
+p ø m y
+v y v ø l i r a t r a s
+f o m o r
+v u l i g e s
+p ø p
+REPLY: i → ɯ / _ɯ
+a → ɤ / _ɯ
+o → u / _ɯ
+
+
+phon_18.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: ∅ ʷ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+n o p ʷ
+s t y m ʷ
+p u s ʷ
+j ø l ʷ
+z ʏ n ʷ
+ʃ ʊ r ʷ
+s e n
+t i k l a
+b a g a l
+t e b i t
+l a r a m i n
+b o g ʷ o n ʷ a t
+s y v ʷ y n ʷ
+m u k ʷ
+b ø d ʷ a n
+f l ʏ m ʷ u s ʷ a l
+h ʊ z ʷ
+s a l i n
+p o t ʷ a
+b e l i
+t e b e l i m a
+t a p y t ʷ
+l o m ʷ i s
+d ø k ʷ a n o l ʷ a
+m a r t a l
+w o r ʷ u t ʷ u l ʷ
+b o g ʷ a t u
+s o l ʷ o m ʷ a
+g y k ʷ y f ʷ
+m u h ʷ u s ʷ
+s n ø b ʷ
+ʏ m ʷ
+ʊ m ʷ u m ʷ
+ʊ s ʷ i f u r ʷ
+b a l o g ʷ a r i
+w o n ʷ
+l u s ʷ
+l a m ʏ k ʷ
+d ø l ʷ o p ʷ
+s y t ʷ u m ʷ
+REPLY: ʷ → ∅ / _ V
+
+The phonological process is that the labialization [ʷ] is deleted when it appears before a vowel [V].
+
+
+phon_19.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a i u e o ḁ i̥ u̥ e̥ o̥
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+i d a t
+o z e m
+s a b i g
+k e l o r
+s a d u n
+p o t ḁ k
+s a p e̥ k
+g o t i̥ p
+z u k o̥ t
+t a p u̥ t
+a d e l
+e m u
+i b a r i
+o s t o l
+u b a r
+g i n a
+k e̥ t e
+b a z i
+p o l d o
+g a r u
+i s ḁ k
+s e̥ f a r
+a g r a s i̥ t s
+k o̥ s o m u
+g u l a f u̥ s
+t ḁ k ḁ t o
+i z p e̥ f i̥ s
+s i̥ t i m o
+b a s o̥ p o̥ t
+d e l f u̥ s
+s n o k ḁ t
+p e̥ p a r
+s ḁ t w i s
+w o r t e̥ k
+p o l d u s
+b a g t ḁ s
+w e s t i̥ k
+m i n i g
+s o̥ t r o w
+b a s u̥ p u n
+REPLY: Vowels become voiceless → V̥ / _ [voiceless obstruent]
+
+Where:
+- V = {a, i, u, e, o}
+
+
+phon_20.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: i u e o a i̤ ṳ e̤ o̤ a̤
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+p a l
+t e k
+k i b
+s o r
+ʃ u ŋ
+b i̤ m
+d ṳ d e̤
+g e̤ s a
+z o̤ t a r
+ʒ a̤ k
+θ a l p
+ʃ e b r e
+m i j a
+n o w r i
+ŋ u s t o
+ð i̤ z ṳ
+b i̤ m u l a
+d e̤ s t e g o̤
+g a̤ r b o̤ n d a̤
+ʒ i̤ z ṳ ð e̤ j o
+a k r a d a̤ k
+e m b i̤ n a
+i z w i j a l
+o m b l o v o̤
+u f u l e d e̤
+v i̤
+g ṳ d a̤ r i
+z e̤ ʃ t
+b o̤ p o m
+g a̤ e d a̤
+a n
+l e l
+p i g i̤ r a m
+s o l d a̤
+f r u s k a d i̤
+a j d i̤ z o̤
+m a l a g ṳ
+ʒ e̤ b o̤
+v a̤ ŋ
+d i̤ b z ṳ
+REPLY: The phonological process observed in this language involves nasalization of vowels. We can state the rule as follows:
+
+V → Ṽ / N _
+
+where V stands for any vowel (i, u, e, o, a), Ṽ denotes the nasalized version of V (i̤, ṳ, e̤, o̤, a̤), and N represents any nasal consonant (m, n, ŋ). This rule indicates that a vowel is nasalized when it occurs before a nasal consonant.
+
+
+phon_21.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: b d g z v ð ɣ p t k s f θ x
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t a p
+s u b e
+l a p i
+n a b i
+d e t
+f l o d u
+g u l i d i
+p a m i t i
+p r e k
+t a g i
+i l e k i
+l a s
+b a s u
+f a z e
+a l u f
+b i l e v i
+k o l u f u
+a g a ð a
+s o g u θ
+m u g a θ u
+e x e d e
+a ɣ i t
+k o p u x
+k o r a p
+b i r a b i
+l o p i
+j e d a
+k o l a t
+v e d i
+s o p r a k
+l u g a k i
+i f a g i
+k u l u s
+p u z u n
+j a s u n
+o b u θ i
+m u ð e n
+l i θ a r a θ
+o r o x
+t r o ɣ o
+REPLY: The phonological process observed in this language is devoicing of obstruents (plosives and fricatives) at the end of a word or before voiceless obstruents.
+
+The rule can be stated as: [+obstruent, +voice] → [-voice] / _ ]word, _[-voice]
+
+OR
+
+b d g z v ð ɣ → p t k s f θ x / _#, _[−voice]
+
+
+phon_22.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: a e i o u ã ẽ ĩ õ ũ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+ã p e p
+n ã m ã j
+k o n ĩ ʔ
+z a θ o m
+s ŋ õ q i u ɦ
+k a r ã n ĩ
+k õ t
+s ã l
+b ĩ k
+n ã m
+l u m ũ n
+b õ n
+ĩ m ã s o
+m ã n ã g u
+m ẽ t e n ẽ m ĩ
+ŋ ĩ s t u p a θ
+n õ l a d o k
+f a ŋ ũ s
+h ã b e s i m
+f ẽ t ẽ l
+b ĩ n ã m ã r ĩ ŋ õ
+θ õ s θ õ ŋ
+m ũ s ũ l ũ
+ŋ ã s i d
+l e p e d
+r i d i m õ
+k o l k a t
+s u f t u r
+p a l ã k r a k ã k
+θ e s t i k
+b i f r u l a r ĩ
+õ s m õ t r õ
+t r u n ã
+h ã q ã t ã ɦ
+b ẽ ɦ n ĩ w e l
+p a m ĩ r ĩ z ĩ
+f a m õ
+ð ũ n
+k a m ã g a
+l i l u m ũ
+REPLY: Vowels become nasalized before nasal consonants: V → Ṽ / _N
+
+
+phon_23.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: e o ə ø ɤ i u ɨ y ɯ 
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+d e p
+w o t
+m ə k
+b r ø f
+k l ɤ s
+b a r i p
+i s t i m
+n u t u
+d e s t ɨ k
+h y f
+k a r ɯ s
+l i b a r
+m u d u
+s l ɨ g
+p i v
+r u z a j
+s a l ɨ b
+d y d
+u r i m
+o s u n
+k l u ɨ ŋ
+f y r
+w ɯ l
+a l i w
+u l u j
+p o s k ɨ m
+b a r d y n
+f ɯ ŋ
+g e k
+u z o t
+ɯ z ə p
+u r i d ø s
+o s e t ɤ f
+a s t i k
+p o u t
+i g ɨ p
+f a l y s
+b u d a l ɯ f
+b i d i k
+s y l ɨ f
+REPLY: The observed phonological process can be stated as:
+
+Front Vowels → Rounded / _ Labial
+
+where Front Vowels are {i, e}, Rounded Vowels are {y, ø}, and Labial Consonants are {p, b, m, v, w, f}. This rule states that the front vowels "i" and "e" are realized as "y" and "ø" before a labial consonant.
+
+Evidence for this rule can be found in the following word pairs:
+
+- d e p → d ø p
+- i s t i m → i s t y m
+- u r i m → u r y m
+- p i v → p y v
+- f a l y s → f a l i s
+- b i d i k → b y d y k
+- s y l ɨ f → s i l ɨ f
+
+
+phon_24.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: p t k pʰ tʰ kʰ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+s k ʰ a p
+l o t
+t ʰ e k
+d o p l a
+s a t n a w
+l i k r o
+p ʰ a l
+t ʰ o l a b
+k ʰ i m i
+θ p ʰ a r
+r a n t ʰ a j
+d o s k ʰ e w
+r i s p
+f a l t
+p ʰ e k
+a p j a z
+n e t s a s
+i k w a n
+w a p ʰ m a n
+r a t ʰ s
+b i k ʰ s a r
+p ʰ a t ʰ n a
+l i t ʰ
+w e r k ʰ
+i p ʰ w a r
+n a s t ʰ
+n a p ʰ k ʰ
+p ʰ r a p
+i t ʰ a n t
+i s t ʰ a r k ʰ
+t r e p ʰ t
+t ʰ e n t ʰ s e
+u k ʰ m a l
+i p ʰ s a p
+p ʰ o t ʰ j a m a
+t ʰ a k ʰ
+g a p
+w a t
+k ʰ r i n
+p l i t
+REPLY: The phonological process operating in this language is aspiration. Specifically, the rule can be stated as:
+
+C → Cʰ / # _, where C is a voiceless stop (p t k) and # is the word-initial position.
+
+This means that voiceless stops become aspirated (p → pʰ, t →  tʰ, k →  kʰ) at the beginning of a word.
+
+
+phon_25.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: p t k s f θ x b d g z v ð ɣ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t a b
+s u p e
+l a p i
+n a p i
+t e d
+f l o t u
+k u l i t i
+p a m i t i
+p r e g
+t a k i
+i l e k i
+l a z
+p a s u
+f a s e
+a l u v
+p i l e f i
+k o l u f u
+a k a θ a
+s o k u ð
+m u k a θ u
+e x e t e
+a x i d
+k o p u ɣ
+k o r a b
+p i r a p i
+l o p i
+j e t a
+k o l a d
+f e t i
+s o p r a g
+l u k a k i
+i f a k i
+k u l u z
+p u s u n
+j a s u n
+o p u θ i
+m u θ e n
+l i θ a r a ð
+o r o ɣ
+t r o x o
+REPLY: Voiceless stops (p, t, k) → voiced stops (b, d, g) / _ voiced sound
+
+
+phon_26.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: ã ẽ ĩ õ ũ a e i o u
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+ã p ẽ p
+n a m a j
+k õ n i ʔ
+z ã θ õ m
+s ŋ o q ĩ ũ ɦ
+k ã r ã n i
+k õ t
+s ã l
+b ĩ k
+n a m
+l ũ m u n
+b õ n
+ĩ m a s õ
+m a n a g ũ
+m e t ẽ n e m i
+ŋ i s t ũ p ã θ
+n o l ã d õ k
+f ã ŋ u s
+h ã b ẽ s ĩ m
+f ẽ t ẽ l
+b ĩ n a m a r ĩ ŋ o
+θ õ s θ õ ŋ
+m u s ũ l ũ
+ŋ a s ĩ d
+l ẽ p ẽ d
+r ĩ d ĩ m o
+k õ l k ã t
+s ũ f t ũ r
+p ã l ã k r ã k ã k
+θ ẽ s t ĩ k
+b ĩ f r ũ l ã r ĩ
+õ s m o t r õ
+t r ũ n a
+h ã q ã t ã ɦ
+b ẽ ɦ n i w ẽ l
+p ã m i r ĩ z ĩ
+f ã m o
+ð ũ n
+k ã m a g ã
+l ĩ l ũ m u
+REPLY: ã → a / _ #
+ẽ → e / _ #
+ĩ → i / _ #
+õ → o / _ #
+ũ → u / _ #
+
+Nasal vowels become oral before a word boundary.
+
+
+phon_27.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: i u ɨ e o ə
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+p i t
+t i s
+s i l d
+n u m
+p u d
+b u l o t
+b ɨ l
+n ɨ s t a
+f ɨ r d u
+b u l e r
+d i ʎ e m
+ɬ o d
+ɫ ə ð u b a
+v i ɮ e w
+l e k u r
+ɬ o w i k
+ɮ ə z v i
+ɫ e m i n u
+k a ʎ ə v i n
+n i p a r i
+s u s k i p
+h ɨ z v a
+s i j l ə k
+n ɨ j a l
+l e v i l
+ɮ e z v a r
+ɮ o m u p i
+ɬ o d u p
+ɫ ə s w i l
+ɫ o b t a r
+ɫ e k u r a l ə
+l e j ɨ l e s
+n i p i
+m u l a j i
+w ɨ t u l o
+s i m i s t u l ə s
+l e ɮ o s ɨ ɫ ə
+l a b i t
+s a l e n
+l ə m i b i t
+REPLY: The phonological process observed in this language appears to be vowel harmony. Specifically, it seems like there is a backness harmony within the words. The presence of the front vowels {i, e} in a word appears to prevent the back vowels {o, u} from appearing in the same word. Similarly, the presence of the back vowels {o, u} in a word appears to prevent the front vowels {i, e} from appearing in the same word.
+
+The observation can be represented as the following rule:
+
+Vowels Backness Harmony:
+FRONT → BACK / _ {BACK}
+BACK → FRONT  / _ {FRONT}
+
+where FRONT = {i, e}, BACK = {o, u}, {_} denotes the environment within the same word, and the curly brackets indicate the set of phonemes.
+
+This rule states that a front vowel becomes a back vowel if any back vowel appears within the word, and a back vowel becomes a front vowel if any front vowel appears within the word.
+
+
+phon_28.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: f v s z ʃ ʒ θ ð x ɣ h ɦ ff vv ss zz ʃʃ ʒʒ θθ ðð xx ɣɣ hh ɦɦ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t a f
+v i l
+a s t a
+u z g a n
+ʃ i a t s
+l o ʒ
+θ a b a θ
+ð e k i r
+k u r x
+a b ɣ a
+h a o
+a ɦ t a p o
+a f f o
+u v v i l i s
+k a s s a m
+p o z z i j a
+w i ʃ ʃ i t
+v o l u ʒ ʒ i p
+o θ θ o n
+r e ð w e j
+p a x x o m u
+e ɣ ɣ o m a
+u h h i n t
+l o ɦ ɦ e t
+f r a n
+d a v s a r
+k u s n a
+z l i w o
+g o d o j a
+l i v v i p
+s t i s s a l
+r u n z u b
+l a ʃ ʃ i
+o ʒ ʒ u a n
+m o θ θ o k
+r a d a ð ð i
+b l a x k u
+n a ɣ
+a m e s s i
+i ɦ ɦ a n a
+REPLY: Fricative → geminate / _ V[-stress]
+
+
+phon_29.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: p t k s f θ x b d g z v ð ɣ
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+t a b
+s u b e
+l a p i
+n a b i
+d e d
+f l o d u
+g u l i d i
+p a m i t i
+p r e g
+t a g i
+i l e k i
+l a z
+b a s u
+f a z e
+a l u v
+b i l e v i
+k o l u f u
+a g a ð a
+s o g u ð
+m u g a θ u
+e x e d e
+a ɣ i d
+k o p u ɣ
+k o r a b
+b i r a b i
+l o p i
+j e d a
+k o l a d
+v e d i
+s o p r a g
+l u g a k i
+i f a g i
+k u l u z
+p u z u n
+j a s u n
+o b u θ i
+m u ð e n
+l i θ a r a ð
+o r o ɣ
+t r o ɣ o
+REPLY: Voiceless stops (p, t, k) become voiced (b, d, g) intervocalically. 
+
+We can write this rule as:
+
+p t k → b d g / V _ V
+
+
+phon_30.txt gpt-4-0314 temperature=1.0
+PROMPT: Below, you are given a list of 40 words, which are the surface forms in a language you have not previously encountered. Each surface form is given as a string of phones separated by spaces. What phonological process operating in this language can you observe? Focus on the following phones of interest: ã ẽ ĩ õ ũ a e i o u
+State the phonological process as a rule such as e.g. A → B / _ C, A → B / C _, or A → B / C _ D, where A stands for the underlying phoneme, B for its surface realization, and C (and D) specify the environment where A is realized as B. State your rule in the most general possible terms, i.e. refer to natural classes whenever possible (instead of simply listing the affected phonemes).
+
+ã p e p
+n a m a j
+k o n i ʔ
+z a θ o m
+s ŋ o q i u ɦ
+k a r ã n i
+k õ t
+s ã l
+b ĩ k
+n a m
+l u m u n
+b õ n
+ĩ m a s o
+m a n a g u
+m e t e n e m i
+ŋ i s t u p a θ
+n o l a d o k
+f a ŋ u s
+h ã b e s i m
+f ẽ t ẽ l
+b ĩ n a m a r ĩ ŋ o
+θ õ s θ õ ŋ
+m u s ũ l ũ
+ŋ a s i d
+l e p e d
+r i d i m o
+k o l k a t
+s u f t u r
+p a l ã k r a k ã k
+θ e s t i k
+b i f r u l a r ĩ
+õ s m o t r õ
+t r u n a
+h ã q ã t ã ɦ
+b ẽ ɦ n i w e l
+p a m i r ĩ z ĩ
+f a m o
+ð ũ n
+k a m a g a
+l i l u m u
+REPLY: ã → a / V _
+ẽ → e / V _
+ĩ → i / V _
+õ → o / V _
+ũ → u / V _
+
+The rule states that nasal vowels (ã ẽ ĩ õ ũ) become their oral equivalent (a e i o u), when followed by another vowel (V).
+
+
+Messages generated with 16942 tokens

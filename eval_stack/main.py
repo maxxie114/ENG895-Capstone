@@ -45,6 +45,7 @@ async def run_one(client, model_name: str, item: dict, semaphore: asyncio.Semaph
                 "model": model_name,
                 "question_id": item["id"],
                 "category": item.get("category", ""),
+                "subtasks": item.get("subtasks", ""),
                 "response": response,
                 "ground_truth": item.get("ground_truth", ""),
             }

@@ -1,0 +1,1553 @@
+amb_01.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+A passer-by has heard her pump.
+REPLY Yes, the sentence is syntactically ambiguous. 
+
+Here are two possible parses for the sentence
+
+Parse 1
+\begin{forest}
+[X'
+    [Noun
+        [D
+            [A]
+        ]
+        [Noun
+            [passer]
+        ]
+        [P]
+    ]
+    [X
+        [V'
+            [V
+                [heard]
+            ]
+            [Noun
+                [D
+                    [her]
+                ]
+                [Noun
+                    [pump]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+Parse 2
+\begin{forest}
+[X'
+    [Noun
+        [D
+            [A]
+        ]
+        [Noun
+            [passer]
+        ]
+    ]
+    [X
+        [V'
+            [V
+                [has]
+            ]
+            [Noun
+                [D
+                    [her]
+                ]
+                [Noun
+                    [pump]
+                ]
+            ]
+        ]
+    ]
+    [P]
+    [V'
+        [V
+            [heard]
+        ]
+    ]
+]
+\end{forest}
+
+
+amb_02.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The opposite team had her duck.
+REPLY Yes, the sentence is syntactically ambiguous. It can be interpreted in two different ways
+
+1. The opposite team had her duck (as in a bird)
+   
+\begin{forest}
+[S
+  [NP [D [The]] [N [opposite team]]]
+  [VP [V [had]] [NP [D [her]] [N [duck]]]]
+]
+\end{forest}
+
+2. The opposite team had her duck (as in crouch or bend down quickly)
+   
+\begin{forest}
+[S
+  [NP [D [The]] [N [opposite team]]]
+  [VP [V [had]] [NP [D [her]] [N [duck]]]]
+]
+\end{forest}
+
+
+amb_03.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Eliza wanted her cast out.
+REPLY Yes, the sentence Eliza wanted her cast out. is syntactically ambiguous. 
+
+Here are the two possible parses of the sentence
+
+1. Parse 1
+\begin{forest}
+[S
+  [NP [N [Eliza]]]
+  [VP
+    [V [wanted]]
+    [NP
+      [Det [her]]
+      [N [cast]]]
+    [Prt [out]]]
+\end{forest}
+
+2. Parse 2
+\begin{forest}
+[S
+  [NP [N [Eliza]]]
+  [VP
+    [V [wanted]]
+    [NP
+      [Det [her]]
+      [N
+        [N [cast]]
+        [Prt [out]]]]]
+\end{forest}
+
+
+amb_04.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Tobias kept her wound up.
+REPLY Yes, the sentence Tobias kept her wound up is syntactically ambiguous.
+
+Possible parses
+1. [Tobias [kept [her [wound [up]]]]]
+
+\begin{forest}
+[X$'$
+    [X
+        [Tobias]
+    ]
+    [ZP
+        [kept]
+        [YP
+            [her]
+            [ZP
+                [wound]
+                [up]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+2. [Tobias [kept [her] [wound [up]]]]
+
+\begin{forest}
+[X$'$
+    [X
+        [Tobias]
+    ]
+    [ZP
+        [kept]
+        [YP
+            [her]
+        ]
+        [ZP
+            [wound]
+            [up]
+        ]
+    ]
+]
+\end{forest}
+
+
+amb_05.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The new director has had her set.
+REPLY Yes, the sentence is syntactically ambiguous. It can be interpreted in two ways
+
+1. The new director [has [had [her set]]]
+2. The new director [has [had her] [set]]
+
+Here is the LaTeX code for rendering the two possible parses with the forest package
+
+1. The new director [has [had [her set]]]
+
+documentclass{article}
+usepackage[linguistics]{forest}
+
+begin{document}
+
+\begin{forest}
+[S
+    [NP
+        [Det [The]]
+        [N [new director]]
+    ]
+    [VP
+        [Aux [has]]
+        [VP
+            [V [had]]
+            [NP [Pro [her]]]
+            [N [set]]
+        ]
+    ]
+]
+\end{forest}
+
+end{document}
+
+2. The new director [has [had her] [set]]
+
+documentclass{article}
+usepackage[linguistics]{forest}
+
+begin{document}
+
+\begin{forest}
+[S
+    [NP
+        [Det [The]]
+        [N [new director]]
+    ]
+    [VP
+        [Aux [has]]
+        [VP
+            [V [had]]
+            [NP [Pro [her]]]
+        ]
+        [NP [N [set]]]
+    ]
+]
+\end{forest}
+
+end{document}
+
+
+amb_06.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Without her calling, they will fail.
+REPLY Yes, the sentence Without her calling, they will fail. is syntactically ambiguous. It can be interpreted in two ways
+
+1. Without [her calling], they will fail.
+2. Without her [calling], they will fail.
+
+Here are the code for the two possible syntactic trees in LaTeX using the forest package
+
+1. Without [her [calling]], they will fail.
+
+\begin{forest}
+[TP
+  [AdvP
+    [Without]
+    [DP
+      [her]
+      [NP
+        [V-ing
+          [calling]
+        ]
+      ]
+    ]
+  ]
+  [T'
+    [T
+      [will]
+    ]
+    [VP
+      [V
+        [fail]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+2. Without [her calling], they will fail.
+
+\begin{forest}
+[TP
+  [AdvP
+    [Without]
+    [DP
+      [NP
+        [her]
+        [V-ing
+          [calling]
+        ]
+      ]
+    ]
+  ]
+  [T'
+    [T
+      [will]
+    ]
+    [VP
+      [V
+        [fail]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+
+amb_07.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Her mom was really upset by her whining.
+REPLY Yes, the sentence is syntactically ambiguous. It can be interpreted in two ways
+
+1. Possessor-Subject interpretation
+(S (NP (PossP (Poss (Her)) (NP (N (mom)))) (VP (V (was)) (AdvP (Adv (really)) (AdjP (Adj (upset)) (PP (P (by)) (NP (PossP (Poss (her)) (NP (N (whining)))))))))
+
+2. Possessive modifier interpretation
+(S (NP (PossP (Poss (Her)) (NP (N (mom)))) (VP (V (was)) (AdvP (Adv (really)) (AdjP (Adj (upset)) (PP (P (by)) (NP (PossP (Poss (her)) (NP (N (whining)))))))))
+
+Here are the LaTeX code for each parse tree
+
+1. Possessor-Subject interpretation
+\begin{forest}
+[S [NP [PossP [Poss [Her]] [NP [N [mom]]]] [VP [V [was]] [AdvP [Adv [really]] [AdjP [Adj [upset]] [PP [P [by]] [NP [PossP [Poss [her]] [NP [N [whining]]]]]]]]]
+\end{forest}
+
+2. Possessive modifier interpretation
+\begin{forest}
+[S [NP [PossP [Poss [Her]] [NP [N [mom]]]] [VP [V [was]] [AdvP [Adv [really]] [AdjP [Adj [upset]] [PP [P [by]] [NP [PossP [Poss [her]] [NP [N [whining]]]]]]]]]
+\end{forest}
+
+
+amb_08.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+We'll meet at the Old Stone Hotel.
+REPLY Yes, the sentence is syntactically ambiguous because the prepositional phrase at the Old Stone Hotel can be attached to either meet or we'll. 
+
+1. We'll [meet [at the Old Stone Hotel]]
+2. [We'll meet] [at the Old Stone Hotel]
+
+Here is the code for the two possible parses
+
+1. 
+\begin{forest}
+[S
+  [NP [We'll]]
+  [VP
+    [V [meet]]
+    [PP
+      [P [at]]
+      [NP [D [the] [N [Old] [Stone] [Hotel]]]]
+    ]
+  ]
+]
+\end{forest}
+
+2. 
+\begin{forest}
+[S
+  [NP [We'll] [meet]]
+  [PP
+    [P [at]]
+    [NP [D [the] [N [Old] [Stone] [Hotel]]]]
+  ]
+]
+\end{forest}
+
+
+amb_09.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The wet rodent lab has had a leak.
+REPLY Yes, the sentence is syntactically ambiguous. 
+
+Possible parses
+
+1. The wet [rodent [lab [has [had a leak]]]]
+
+\begin{forest}
+[TP
+  [DP [D [The]] [NP [Adj [wet]] [N [rodent]]]]
+  [T' [T [lab]] [VP [V [has]] [VP [V [had]] [DP [D [a]] [NP [N [leak]]]]]]]
+]
+\end{forest}
+
+2. The wet [rodent [lab]] [has [had [a leak]]]
+
+\begin{forest}
+[TP
+  [DP [D [The]] [NP [Adj [wet]] [N [rodent]]] [T' [T [lab]]]]
+  [T' [T [has]] [VP [V [had]] [DP [D [a]] [NP [N [leak]]]]]]
+]
+\end{forest}
+
+
+amb_10.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The new energy theorem confuses me.
+REPLY Yes, the sentence is syntactically ambiguous. It can be interpreted in two ways
+1. The new energy theorem confuses me.
+2. The new energy theorem confuses me.
+
+Here are the syntactic trees representing each possible parse of the sentence using LaTeX's forest package
+
+Parse 1
+\begin{forest}
+[S
+  [NP [Det [The]] [Adj [new]] [N [energy] [N [theorem]]]]
+  [VP [V [confuses]] [NP [me]]]
+]
+\end{forest}
+
+Parse 2
+\begin{forest}
+[S
+  [NP [Det [The]] [Adj [new]] [N [energy]] [N [theorem]]]
+  [VP [V [confuses]] [NP [me]]]
+]
+\end{forest}
+
+
+amb_11.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Less colorful clothing is acceptable at this party.
+REPLY Yes, the sentence is syntactically ambiguous. It can be parsed as either Less colorful clothing being the subject of the sentence, or less colorful modifying clothing.
+
+1. Less colorful clothing [NP [AdjP Less colorful] [N clothing]] [VP is acceptable at this party]
+2. Less [AdjP less] [NP [Adj colorful] [N clothing]] [VP is acceptable at this party]
+
+Below are the syntax trees for each possible parse
+
+documentclass{article}
+usepackage{forest}
+
+begin{document}
+
+\begin{forest}
+[S
+  [NP
+    [AdjP
+      [Adj
+        [Less]
+      ]
+      [N
+        [clothing]
+      ]
+    ]
+  ]
+  [VP
+    [is]
+    [AdjP
+      [Adj
+        [acceptable]
+      ]
+      [PP
+        [P
+          [at]
+        ]
+        [NP
+          [this party]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+\begin{forest}
+[S
+  [NP
+    [AdjP
+      [Adj
+        [Less]
+      ]
+      [NP
+        [Adj
+          [colorful]
+        ]
+        [N
+          [clothing]
+        ]
+      ]
+    ]
+  ]
+  [VP
+    [is]
+    [AdjP
+      [Adj
+        [acceptable]
+      ]
+      [PP
+        [P
+          [at]
+        ]
+        [NP
+          [this party]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+end{document}
+
+
+amb_12.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+There are more comfortable seats in the lobby.
+REPLY Yes, the sentence is syntactically ambiguous. One possible interpretation is that the seats in the lobby are more comfortable compared to other seats elsewhere. Another possible interpretation is that there are a greater number of comfortable seats in the lobby compared to elsewhere.
+
+Here are the syntactic trees representing each possible parse of the sentence
+
+1. Seats in the lobby are more comfortable
+```
+\begin{forest}
+[S
+  [NP [N [seats]] [PP [P [in]] [NP [D [the]] [N [lobby]]]]]
+  [VP [V [are]] [AP [Deg [more]] [A [comfortable]]]]
+]
+\end{forest}
+```
+
+2. More comfortable seats in the lobby
+```
+\begin{forest}
+[S
+  [NP [Deg [More]] [AP [A [comfortable]]] [N [seats]]]
+  [PP [P [in]] [NP [D [the]] [N [lobby]]]]
+]
+\end{forest}
+```
+
+
+amb_13.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Eric sent his employee agreements.
+REPLY Yes, the sentence Eric sent his employee agreements is syntactically ambiguous because it could be interpreted in two different ways
+
+1. Eric sent agreements to his employee.
+2. Eric sent agreements that belong to his employee.
+
+Here are the syntactic trees representing each possible parse of the sentence
+
+1. Eric sent [his [employee [agreements]]]
+[
+\begin{forest}
+[VP
+  [NP [N' [N [Eric]]]]
+  [V' [V [sent]]
+      [NP [D [his]]
+          [N' [N [employee]]
+              [N' [agreements]]]]]
+\end{forest}
+]
+
+2. Eric sent [his [employee agreements]]
+[
+\begin{forest}
+[VP
+  [NP [N' [N [Eric]]]]
+  [V' [V [sent]]
+      [NP [D [his]]
+          [N' [N [employee agreements]]]]]
+\end{forest}
+]
+
+
+amb_14.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Mary Brown read the monster tales.
+REPLY Yes, the sentence Mary Brown read the monster tales is syntactically ambiguous because it can be parsed in two different ways
+
+1. Mary Brown [read [the monster tales]]
+2. [Mary Brown read] [the monster tales]
+
+Here are the two possible syntactic trees using X-bar theory
+
+\begin{forest}
+[S
+  [NP [N  Mary Brown, name]]
+  [VP
+    [V  read]
+    [NP [Det  the] [N  monster tales]]
+  ]
+]
+\end{forest}
+
+\begin{forest}
+[S
+  [NP [N  Mary Brown, name]]
+  [VP [V  read] [NP [Det  the] [N  monster tales]]]
+]
+\end{forest}
+
+
+amb_15.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Rowan fed his pet chicken.
+REPLY Yes, the sentence Rowan fed his pet chicken. is syntactically ambiguous. It can be interpreted in two ways
+
+1. Rowan fed his (pet chicken).
+2. Rowan (fed his pet) chicken.
+
+Here are the code for the two possible syntactic trees in LaTeX using the forest package
+
+1. Rowan fed his (pet chicken)
+
+\begin{forest}
+[S
+  [NP [N [Rowan]]]
+  [VP
+    [V [fed]]
+    [NP [D [his]] [N [pet chicken]]]
+  ]
+]
+\end{forest}
+
+2. Rowan (fed his pet) chicken
+
+\begin{forest}
+[S
+  [NP [N [Rowan]]]
+  [VP
+    [V [fed]]
+    [NP
+      [D [his]]
+      [N [pet]]
+    ]
+    [N [chicken]]
+  ]
+]
+\end{forest}
+
+
+amb_16.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Susanna called her friend at the hospital.
+REPLY Yes, the sentence Susanna called her friend at the hospital. is syntactically ambiguous because it could mean either of the following interpretations
+
+1. Susanna called her friend who is currently at the hospital.
+2. Susanna called her friend using the phone at the hospital.
+
+Here are the syntactic trees representing each possible parse of the sentence
+
+1. Susanna called [her friend [at [the hospital]]]
+\begin{forest}
+  [TP
+    [DP [Susanna] ]
+    [T$'$
+      [T [called] ]
+      [vP
+        [DP [her friend] ]
+        [v$'$
+          [VP
+            [V [at] ]
+            [DP [the hospital] ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+
+2. [Susanna [called [her friend] [at [the hospital]]]]
+\begin{forest}
+  [TP
+    [DP [Susanna] ]
+    [T$'$
+      [T [called] ]
+      [vP
+        [DP [her friend] ]
+        [vP
+          [v [at] ]
+          [DP [the hospital] ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+
+
+amb_17.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+They visited a household with a child.
+REPLY Yes, the sentence They visited a household with a child. is syntactically ambiguous. It can have two possible parses based on the attachment of the prepositional phrase with a child.
+
+1. They visited (a household) (with a child).
+2. They visited ((a household) with (a child)).
+
+Here is the code for the two possible syntactic trees representing each parse
+
+Parse 1
+\begin{forest}
+[TP
+  [DP [They]]
+  [T$'$
+    [T [visited]]
+    [VP
+      [DP [D [a]][NP [household]]]
+      [PP
+        [P [with]]
+        [DP [D [a]][NP [child]]]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+Parse 2
+\begin{forest}
+[TP
+  [DP [They]]
+  [T$'$
+    [T [visited]]
+    [VP
+      [DP [D [a]][NP [household]]]
+      [PP
+        [P [with]]
+        [DP [D [a]][NP [child]]]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+
+amb_18.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Julius hid the presents for the children.
+REPLY Yes, the sentence is syntactically ambiguous. It can be interpreted in two ways
+
+1. Julius hid the presents that were meant for the children.
+2. Julius hid the presents on behalf of the children.
+
+Here are the code snippets for the two possible parses
+
+1. Julius hid the presents that were meant for the children.
+
+\begin{forest}
+[S
+  [NP
+    [N
+      [Julius]
+    ]
+  ]
+  [VP
+    [V
+      [hid]
+    ]
+    [NP 
+      [Det
+        [the]
+      ]
+      [N 
+        [presents]
+      ]
+      [PP 
+        [P 
+          [for]
+        ]
+        [NP 
+          [Det 
+            [the]
+          ]
+          [N 
+            [children]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+2. Julius hid the presents on behalf of the children.
+
+\begin{forest}
+[S
+  [NP
+    [N
+      [Julius]
+    ]
+  ]
+  [VP
+    [V
+      [hid]
+    ]
+    [NP 
+      [Det
+        [the]
+      ]
+      [N 
+        [presents]
+      ]
+    ]
+    [PP
+      [P
+        [for]
+      ]
+      [NP
+        [Det
+          [the]
+        ]
+        [N
+          [children]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+
+amb_19.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+You shot a pigeon sitting by the roadside.
+REPLY Yes, the sentence is syntactically ambiguous. 
+
+One possible interpretation is that the pigeon is sitting by the roadside when you shoot it
+
+\begin{forest}
+[X$'$
+    [X
+        [You]
+    ]
+    [X$'$
+        [X
+            [shot]
+        ]
+        [X$'$
+            [X
+                [a pigeon]
+            ]
+            [X$'$
+                [X
+                    [sitting]
+                ]
+                [by the roadside]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+Another possible interpretation is that you are sitting by the roadside when you shoot a pigeon
+
+\begin{forest}
+[X$'$
+    [X
+        [You]
+    ]
+    [X$'$
+        [X
+            [shot]
+        ]
+        [X$'$
+            [X
+                [a pigeon]
+            ]
+            [X$'$
+                [X
+                    [sitting by the roadside]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+
+amb_20.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+He glanced at a badger basking in the sunlight.
+REPLY Yes, the sentence is syntactically ambiguous because basking in the sunlight can be analyzed as modifying either a badger or the entire VP glanced at a badger. 
+
+Here are the two possible parses of the sentence
+
+1. He glanced [PP [P at] [NP [Det a] [N' [Adj badger] [N basking in the sunlight]]]]
+
+2. He [VP [V glanced] [PP [P at] [NP [Det a] [N' [Adj badger] [N basking in the sunlight]]]]]
+
+These parses can be visualized with the following LaTeX code using the forest package
+
+1. 
+\begin{forest}
+[NP
+  [N'
+    [Adj [badger]]
+    [N' 
+      [N [basking in the sunlight]]
+    ]
+  ]
+  [PP
+    [P [at]]
+    [NP
+      [Det [a]]
+      [N [badger]]
+    ]
+  ]
+]
+\end{forest}
+
+2. 
+\begin{forest}
+[S
+  [NP [He]]
+  [VP
+    [V [glanced]]
+    [PP
+      [P [at]]
+      [NP
+        [Det [a]]
+        [N'
+          [Adj [badger]]
+          [N [basking in the sunlight]]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+
+amb_21.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The envoy to the duke who offended the emperor was executed.
+REPLY Yes, the sentence is syntactically ambiguous. 
+
+The first possible parse is where who offended the emperor is a relative clause modifying the envoy
+
+[
+\begin{forest}
+[X$'$ [X [X [The] [N [envoy]]] [X$'$ [X [to] [N [the duke]]] [X$'$ [X [who] [X$'$ [V [offended]] [N [the emperor]]]]]] [V [was executed]]]
+\end{forest}
+]
+
+The second possible parse is where who offended the emperor is a relative clause modifying the duke
+
+[
+\begin{forest}
+[X$'$ [X [X [The] [N [envoy]]] [X$'$ [X [to] [N [the duke]]]] [X$'$ [X [who] [X$'$ [V [offended]] [N [the emperor]]]] [V [was executed]]]]
+\end{forest}
+]
+
+
+amb_22.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The critics of the activists who had become controversial were baffled.
+REPLY Yes, the sentence is syntactically ambiguous. 
+
+Possible parses
+1. [The [critics [of [the activists] [who [had [become controversial]]]]] were baffled.]
+
+2. [The [critics [of [the activists [who [had [become controversial]]]]]] were baffled.]
+
+Code for first parse
+\begin{forest}
+[S
+  [DP [D [The]] [NP [N [critics]]]]
+  [VP
+    [V [were]]
+    [AdjP [Adj [baffled]]]]
+  [CP
+    [C [who]]
+    [IP
+      [DP [D [the]] [NP [N [activists]]]]
+      [VP
+        [V [had]]
+        [VP [V [become]] [AdjP [Adj [controversial]]]]]]
+]
+\end{forest}
+
+Code for second parse
+\begin{forest}
+[S
+  [DP [D [The]] [NP [N [critics]]]]
+  [VP
+    [V [were]]
+    [AdjP [Adj [baffled]]]]
+  [CP
+    [C [who]]
+    [IP
+      [DP [D [the]] [NP [N [activists [who [had [become controversial]]]]]]]
+      [VP
+        [V [had]]
+        [VP [V [become]] [AdjP [Adj [controversial]]]]]]
+]
+\end{forest}
+
+
+amb_23.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The girl who was weeping quietly left.
+REPLY Yes, the sentence is syntactically ambiguous. Here are two possible parses of the sentence
+
+1. [The girl [who [was [weeping quietly]]] left]
+
+2. [The girl [who [was weeping]] [quietly] left]
+
+Here is the LaTeX code for the first parse tree
+
+documentclass{standalone}
+usepackage{forest}
+
+begin{document}
+
+\begin{forest}
+[S
+  [NP
+    [D [The]]
+    [N [girl]]
+  ]
+  [CP
+    [C [who]]
+    [TP
+      [T [was]]
+      [VP
+        [V [weeping]]
+        [AdvP
+          [Adv [quietly]]
+        ]
+      ]
+    ]
+  ]
+  [V [left]]
+]
+\end{forest}
+
+end{document}
+
+And here is the LaTeX code for the second parse tree
+
+documentclass{standalone}
+usepackage{forest}
+
+begin{document}
+
+\begin{forest}
+[S
+  [NP
+    [D [The]]
+    [N [girl]]
+  ]
+  [CP
+    [C [who]]
+    [TP
+      [T [was]]
+      [VP
+        [V [weeping]]
+      ]
+    ]
+  ]
+  [AdvP
+    [Adv [quietly]]
+  ]
+  [V [left]]
+]
+\end{forest}
+
+end{document}
+
+
+amb_24.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+The Tesla that was about to explode spontaneously swerved.
+REPLY Yes, the sentence is syntactically ambiguous.
+
+1. One possible parse
+[
+\begin{forest}
+[S
+  [NP [D [The]] [N [Tesla]]]
+  [S'
+    [CP
+      [C  [that]]
+      [S
+        [VP [V [was]] [VP' [VP [V [about]] [PP [P [to]] [VP [V [explode]]]]] [Adv [spontaneously]]]]
+    ]
+    [VP [V [swerved]]]
+  ]
+]
+\end{forest}
+]
+
+2. Another possible parse
+[
+\begin{forest}
+[S
+  [NP [D [The]] [N [Tesla]]]
+  [S'
+    [CP
+      [C  [that]]
+      [S
+        [VP [V [was]] [VP' [V [about]] [VP [VP [V [to]] [V [explode]]] [Adv [spontaneously]]]]]
+    ]
+    [VP [V [swerved]]]
+  ]
+]
+\end{forest}
+]
+
+
+amb_25.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Lara Croft decided in May she would raid more tombs.
+REPLY Yes, the sentence is syntactically ambiguous. One possible interpretation is that Lara Croft made the decision in May to raid more tombs. Another possible interpretation is that Lara Croft would raid more tombs in May.
+
+Parse 1 Lara Croft decided in May [she would raid more tombs].
+```
+\begin{forest}
+  [TP
+    [DP [Lara Croft]]
+    [T$'$
+      [T [decided]]
+      [VP
+        [PP [in May]]
+        [TP
+          [DP [she]]
+          [T$'$
+            [T [would]]
+            [VP [V [raid]] [DP [more tombs]]]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+```
+
+Parse 2 Lara Croft decided [in May she would raid more tombs].
+```
+\begin{forest}
+  [TP
+    [DP [Lara Croft]]
+    [T$'$
+      [T [decided]]
+      [VP
+        [PP [in May]]
+        [TP
+          [DP [she]]
+          [T$'$
+            [T [would]]
+            [VP [V [raid]] [DP [more tombs]]]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+```
+
+
+amb_26.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Alex swore on Saturday he would visit his grandfather.
+REPLY Yes, the sentence is syntactically ambiguous.
+
+1. One possible interpretation is that Alex swore on Saturday, and the purpose of his swearing was to promise that he would visit his grandfather.
+2. Another possible interpretation is that Alex swore on Saturday that he would visit his grandfather.
+
+Here are the syntactic trees for each interpretation
+
+1. Alex swore on Saturday he would visit his grandfather.
+\begin{forest}
+[TP
+  [NP [N Alex]]
+  [T$overline{text{ASPECT}}$
+    [T swore]
+    [PP
+      [P on]
+      [NP [N Saturday]]
+    ]
+    [TP
+      [NP [N he]]
+      [T$overline{text{ASPECT}}$
+        [T would]
+        [VP
+          [V visit]
+          [NP [N his grandfather]]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+2. Alex swore on Saturday he would visit his grandfather.
+\begin{forest}
+[TP
+  [NP [N Alex]]
+  [T$overline{text{ASPECT}}$
+    [T swore]
+    [PP
+      [P on]
+      [NP [N Saturday]]
+    ]
+    [CP
+      [C that]
+      [TP
+        [NP [N he]]
+        [T$overline{text{ASPECT}}$
+          [T would]
+          [VP
+            [V visit]
+            [NP [N his grandfather]]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+
+amb_27.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+He told me he ate the leftovers yesterday.
+REPLY Yes, the sentence is syntactically ambiguous. It could parse as either He [told [me [he [ate [the leftovers] yesterday]]]] or as He [told [me [he [ate [the leftovers yesterday]]]]].
+
+Here are the code for both syntactic trees
+
+1. First parse He [told [me [he [ate [the leftovers] yesterday]]]]
+
+\begin{forest}
+[S
+    [NP [He]]
+    [VP
+        [V [told]]
+        [NP [me]]
+        [S
+            [NP [he]]
+            [VP
+                [V [ate]]
+                [NP [the leftovers]]
+                [AdvP [yesterday]]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+2. Second parse He [told [me [he [ate [the leftovers yesterday]]]]]
+
+\begin{forest}
+[S
+    [NP [He]]
+    [VP
+        [V [told]]
+        [NP [me]]
+        [S
+            [NP [he]]
+            [VP
+                [V [ate]]
+                [NP [the leftovers yesterday]]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+
+amb_28.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+He dreamed that he'd shown up to school late the day of a test.
+REPLY Yes, the sentence is syntactically ambiguous because it can be parsed in two different ways
+
+1. He [ dreamed [ that [ he'd [ shown up [ to school late ] ] ] ] [ the day of [ a test ] ] ]
+
+2. He [ dreamed [ that [ he'd [ shown up [ to [ school late ] ] ] ] ] [ the day of [ a test ] ] ]
+
+Code for the first parse tree
+
+\begin{forest}
+[S
+  [NP
+    [He]
+  ]
+  [VP
+    [V
+      [dreamed]
+    ]
+    [CP
+      [C
+        [that]
+      ]
+      [TP
+        [NP
+          [he'd]
+        ]
+        [VP
+          [V
+            [shown up]
+          ]
+          [PP
+            [P
+              [to]
+            ]
+            [NP
+              [school late]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+  [PP
+    [P
+      [the day of]
+    ]
+    [NP
+      [a test]
+    ]
+  ]
+]
+\end{forest}
+
+Code for the second parse tree
+
+\begin{forest}
+[S
+  [NP
+    [He]
+  ]
+  [VP
+    [V
+      [dreamed]
+    ]
+    [CP
+      [C
+        [that]
+      ]
+      [TP
+        [NP
+          [he'd]
+        ]
+        [VP
+          [V
+            [shown up]
+          ]
+          [PP
+            [P
+              [to]
+            ]
+            [NP
+              [school late]
+            ]
+          ]
+        ]
+      ]
+    ]
+    [PP
+      [P
+        [the day of]
+      ]
+      [NP
+        [a test]
+      ]
+    ]
+  ]
+]
+\end{forest}
+
+
+amb_29.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+I knew I wanted to speak to my lawyer but she was away from the phone.
+REPLY Yes, the sentence is syntactically ambiguous. One possible interpretation is that I wanted to speak to my lawyer but she was away from the phone. Another possible interpretation is that I knew I wanted to speak to my lawyer, but she was away from the phone.
+
+Below are the two possible parse trees for each interpretation
+
+1. I wanted to speak to my lawyer but she was away from the phone.
+\begin{forest}
+[X' 
+    [XI]
+    [X$'$ 
+        [Xwanted]
+        [YP 
+            [Yto]
+            [ZP 
+                [Zmy]
+                [Z$'$ 
+                    [Zlawyer]
+                    [CP 
+                        [Cbut]
+                        [TP 
+                            [NPshe]
+                            [T$'$ 
+                                [Twas]
+                                [VP 
+                                    [away]
+                                    [PP 
+                                        [Pfrom]
+                                        [NPthe phone]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+2. I knew I wanted to speak to my lawyer, but she was away from the phone.
+\begin{forest}
+[X' 
+    [X 
+        [XI]
+        [X$'$ 
+            [Xknew]
+            [CP 
+                [CI]
+                [TP 
+                    [Xwanted]
+                    [VP 
+                        [to speak to my lawyer, but she was away from the phone]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+
+amb_30.txt gpt-3.5-turbo-0125 temperature=1.0
+PROMPT Consider the sentence below. Is it syntactically ambiguous If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+Francisco believed his peers were idiots and they resented him.
+REPLY Yes, the sentence Francisco believed his peers were idiots and they resented him is syntactically ambiguous.
+
+One possible interpretation is that Francisco believed both that his peers were idiots and that they resented him
+
+[
+\begin{forest}
+[S
+  [NP 
+    [N 
+      [N 
+        [Francisco]
+      ]
+    ]
+  ]
+  [VP
+    [V
+      [believed]
+    ]
+    [CP 
+      [C 
+        [that]
+      ]
+      [S
+        [NP 
+          [possessive pronoun
+            [his]
+          ]
+          [N 
+            [peers]
+          ]
+        ]
+        [VP
+          [V
+            [were]
+          ]
+          [Adj
+            [idiots]
+          ]
+        ]
+        [Coord 
+          [and]
+          [S
+            [NP 
+              [they]
+            ]
+            [VP
+              [V
+                [resented]
+              ]
+              [NP 
+                [him]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+]
+
+Another interpretation is that Francisco believed his peers were idiots, and his peers resented him
+
+[
+\begin{forest}
+[S
+  [NP 
+    [N 
+      [N 
+        [Francisco]
+      ]
+    ]
+  ]
+  [VP
+    [V
+      [believed]
+    ]
+    [CP 
+      [C 
+        [that]
+      ]
+      [S
+        [NP 
+          [possessive pronoun
+            [his]
+          ]
+          [N 
+            [peers]
+          ]
+        ]
+        [VP
+          [V
+            [were]
+          ]
+          [Adj
+            [idiots]
+          ]
+        ]
+      ]
+    ]
+  ]
+  [Coord 
+    [and]
+    [S
+      [NP 
+        [they]
+      ]
+      [VP
+        [V
+          [resented]
+        ]
+        [NP 
+          [him]
+        ]
+      ]
+    ]
+  ]
+]
+\end{forest}
+]
+
+
+Messages generated with 9567 tokens

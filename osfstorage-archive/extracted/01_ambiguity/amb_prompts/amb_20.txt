@@ -1,0 +1,2 @@
+Consider the sentence below. Is it syntactically ambiguous? If so, provide code for syntactic trees representing each possible parse of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+"He glanced at a badger basking in the sunlight."

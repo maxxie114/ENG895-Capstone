@@ -1,0 +1,5 @@
+Consider the sentence below and complete the following three tasks:
+1. Does the sentence in question contain an instance of recursion? If so, identify the recursive part and say what kind of recursion it is. Note that there are different types of recursion, e.g. adjectival recursion (an adjective modifying an adjective-modified noun), Saxon Genitive a.k.a. possessive 's recursion (an 's-possessed 's-possessor), prepositional phrase recursion (a prepositional phrase with another prepositional phrase inside), clausal recursion (a clause within another clause), and so on.
+2. Provide code for a syntactic tree representing the structure of the sentence that can be rendered with LaTeX's forest package. Assume X-bar theory.
+3. If you identified that the sentence contains a recursive structure, expand it by adding another layer of recursion (of the same type) to the identified structure.
+"He spotted the infamous manuscript in the wizard's library's dark corner."

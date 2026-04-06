@@ -1,0 +1,4 @@
+model,mmlu_accuracy,mmlu_n,livebench_accuracy,livebench_n,begus_accuracy,begus_n
+gpt-5.4,0.875,480,0.3723,94,0.6604,120
+claude-sonnet-4.6,0.8917,480,0.4,100,0.5813,120
+minimax-m2.7,0.6979,480,0.16,100,0.2771,120

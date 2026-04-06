@@ -65,6 +65,7 @@ def _normalize(text: str) -> str:
 def _extract_enclosed(text: str) -> str | None:
     """Extract answer from common enclosure formats used in LiveBench."""
     patterns = [
+        r"<solution>(.*?)</solution>",  # LiveBench requested format
         r"\[\[(.+?)\]\]",
         r"\\boxed\{(.+?)\}",
         r"<answer>(.*?)</answer>",

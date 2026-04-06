@@ -29,6 +29,13 @@ load_dotenv(Path(__file__).parent / ".env")
 MODELS     = ["gpt-5.4", "claude-sonnet-4.6", "minimax-m2.7"]
 BENCHMARKS = ["mmlu", "livebench", "begus"]
 
+# Already-completed combos (skip to save API costs and time).
+# Remove entries here once you need a full re-run.
+SKIP_COMBOS = {
+    ("gpt-5.4", "mmlu"),   # 480 records saved
+    ("gpt-5.4", "begus"),  # 120 records saved
+}
+
 SANDBOX_CPU    = 1
 SANDBOX_MEMORY = 1   # GB — keep within free tier (10 GiB total / 9 sandboxes)
 EXEC_TIMEOUT   = 10800  # 3 hours per sandbox
@@ -91,16 +98,46 @@ async def run_sandbox(daytona, model: str, benchmark: str) -> list[dict]:
         if r.exit_code != 0:
             raise RuntimeError(f"pip install failed:\n{r.result}")
 
-        # Run the benchmark
-        print(f"[{tag}] Running benchmark (this will take a while)...")
-        r = await sandbox.process.exec(
-            f"python3 src/runner.py --model {model} --benchmark {benchmark}",
+        # Run the benchmark in background — poll for completion to avoid
+        # exec() hanging if the connection drops mid-run.
+        sentinel = f"/eval/results/.done_{tag}"
+        log_file = f"/eval/runner_{tag}.log"
+        print(f"[{tag}] Launching benchmark in background...")
+        await sandbox.process.exec(
+            f"nohup python3 src/runner.py --model {model} --benchmark {benchmark}"
+            f" > {log_file} 2>&1"
+            f" && touch {sentinel}"
+            f" || touch {sentinel}.fail &",
             cwd="/eval",
-            timeout=EXEC_TIMEOUT,
+            timeout=15,
         )
-        print(f"[{tag}] Exit code: {r.exit_code}")
-        if r.exit_code != 0:
-            print(f"[{tag}] STDERR:\n{r.result}")
+
+        # Poll until the sentinel file appears (max EXEC_TIMEOUT seconds)
+        print(f"[{tag}] Waiting for benchmark to complete...")
+        elapsed = 0
+        poll_interval = 30  # seconds
+        while elapsed < EXEC_TIMEOUT:
+            await asyncio.sleep(poll_interval)
+            elapsed += poll_interval
+            r = await sandbox.process.exec(
+                f"test -f {sentinel} && echo done"
+                f" || test -f {sentinel}.fail && echo fail"
+                f" || echo running",
+                timeout=15,
+            )
+            status = r.result.strip()
+            if status == "done":
+                print(f"[{tag}] Benchmark finished ({elapsed}s).")
+                break
+            elif status == "fail":
+                # Print the log
+                log_r = await sandbox.process.exec(f"tail -30 {log_file}", timeout=15)
+                print(f"[{tag}] Benchmark FAILED:\n{log_r.result}")
+                return []
+            elif elapsed % 300 == 0:  # progress every 5 min
+                print(f"[{tag}] Still running... ({elapsed}s elapsed)")
+        else:
+            print(f"[{tag}] TIMEOUT after {EXEC_TIMEOUT}s")
             return []
 
         # Download results
@@ -157,6 +194,27 @@ def build_report(all_records: list[dict]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+# ── Cleanup ───────────────────────────────────────────────────────────────────
+async def cleanup_sandboxes(daytona):
+    """Delete any leftover eval sandboxes so we start with a clean slate."""
+    try:
+        result = await daytona.list()
+        items = result.items
+        stale = [s for s in items if getattr(s, 'name', '').startswith('eval-')]
+        if stale:
+            print(f"Cleaning up {len(stale)} stale sandbox(es)...")
+            for s in stale:
+                try:
+                    await daytona.delete(s)
+                    print(f"  Deleted: {s.name} ({s.memory}GiB)")
+                except Exception as e:
+                    print(f"  Warning: could not delete {s.name}: {e}")
+        else:
+            print("No stale sandboxes found.")
+    except Exception as e:
+        print(f"Warning: sandbox cleanup failed: {e}")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 async def main():
     if not os.getenv("DAYTONA_API_KEY"):
@@ -164,13 +222,15 @@ async def main():
             "DAYTONA_API_KEY not set. Get it from https://app.daytona.io/dashboard/keys"
         )
 
-    combos = [(m, b) for m in MODELS for b in BENCHMARKS]
-    print(f"Total: {len(combos)} sandboxes in {len(combos) // BATCH_SIZE} batches of {BATCH_SIZE}")
+    combos = [(m, b) for m in MODELS for b in BENCHMARKS if (m, b) not in SKIP_COMBOS]
+    print(f"Total: {len(combos)} sandboxes in {-(-len(combos) // BATCH_SIZE)} batches of {BATCH_SIZE}")
     print("  " + "\n  ".join(f"{m} × {b}" for m, b in combos))
     print()
 
     all_combo_results = []
     async with AsyncDaytona() as daytona:
+        await cleanup_sandboxes(daytona)
+        print()
         for i in range(0, len(combos), BATCH_SIZE):
             batch = combos[i:i + BATCH_SIZE]
             print(f"\n--- Batch {i // BATCH_SIZE + 1}/{-(-len(combos)//BATCH_SIZE)} ---")
@@ -184,8 +244,19 @@ async def main():
     results_nested = [r for _, r in all_combo_results]
     combos         = [c for c, _ in all_combo_results]
 
-    # Flatten
+    # Load already-saved checkpoint files for skipped combos
     all_records = []
+    for (m, b) in SKIP_COMBOS:
+        tag = f"{m.replace('.', '-')}-{b}"
+        ckpt = RESULTS_DIR / f"{tag}.jsonl"
+        if ckpt.exists():
+            with open(ckpt) as f:
+                for line in f:
+                    if line.strip():
+                        all_records.append(json.loads(line))
+            print(f"[{m} × {b}] Loaded {sum(1 for r in all_records if r.get('model')==m and r.get('benchmark')==b)} records from checkpoint.")
+
+    # Flatten new results
     for (m, b), result in zip(combos, results_nested):
         if isinstance(result, Exception):
             print(f"[{m} × {b}] Failed with exception: {result}")

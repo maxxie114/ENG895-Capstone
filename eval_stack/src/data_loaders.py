@@ -54,7 +54,10 @@ def load_livebench() -> list[dict]:
     df = pd.read_csv(path)
     items = df.to_dict(orient="records")
     for item in items:
-        item["system"] = item.get("system") or None
+        # NaN from pandas is truthy in Python, so "nan or None" returns nan.
+        # Explicitly convert any non-string system value to None.
+        sys_val = item.get("system")
+        item["system"] = sys_val if isinstance(sys_val, str) else None
         item["subtasks"] = item.get("subtasks", "")
     print(f"[LiveBench] Loaded {len(items)} items.")
     return items

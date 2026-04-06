@@ -29,9 +29,10 @@ load_dotenv(Path(__file__).parent / ".env")
 MODELS     = ["gpt-5.4", "claude-sonnet-4.6", "minimax-m2.7"]
 BENCHMARKS = ["mmlu", "livebench", "begus"]
 
-SANDBOX_CPU    = 2
-SANDBOX_MEMORY = 4   # GB
+SANDBOX_CPU    = 1
+SANDBOX_MEMORY = 1   # GB — keep within free tier (10 GiB total / 9 sandboxes)
 EXEC_TIMEOUT   = 10800  # 3 hours per sandbox
+BATCH_SIZE     = 3   # sandboxes per batch (3 × 1 GiB = 3 GiB, safely within limits)
 
 RESULTS_DIR = Path("results")
 RESULTS_DIR.mkdir(exist_ok=True)
@@ -164,13 +165,24 @@ async def main():
         )
 
     combos = [(m, b) for m in MODELS for b in BENCHMARKS]
-    print(f"Launching {len(combos)} sandboxes in parallel...")
+    print(f"Total: {len(combos)} sandboxes in {len(combos) // BATCH_SIZE} batches of {BATCH_SIZE}")
     print("  " + "\n  ".join(f"{m} × {b}" for m, b in combos))
     print()
 
+    all_combo_results = []
     async with AsyncDaytona() as daytona:
-        tasks = [run_sandbox(daytona, m, b) for m, b in combos]
-        results_nested = await asyncio.gather(*tasks, return_exceptions=True)
+        for i in range(0, len(combos), BATCH_SIZE):
+            batch = combos[i:i + BATCH_SIZE]
+            print(f"\n--- Batch {i // BATCH_SIZE + 1}/{-(-len(combos)//BATCH_SIZE)} ---")
+            print("  " + ", ".join(f"{m}×{b}" for m, b in batch))
+            batch_results = await asyncio.gather(
+                *[run_sandbox(daytona, m, b) for m, b in batch],
+                return_exceptions=True,
+            )
+            all_combo_results.extend(zip(batch, batch_results))
+
+    results_nested = [r for _, r in all_combo_results]
+    combos         = [c for c, _ in all_combo_results]
 
     # Flatten
     all_records = []

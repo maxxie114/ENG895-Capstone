@@ -25,3 +25,7 @@ MiniMax. (2026, March 18). MiniMax M2.7: Early echoes of self-evolution.
 	https://www.minimax.io/news/minimax-m27-en
 OpenAI. (2026, March 5). Introducing GPT-5.4.
 	https://openai.com/index/introducing-gpt-5-4/
+
+Beguš, G., Dąbkowski, M., & Rhodes, R. (2025). Large linguistic models: Investigating
+	LLMs' metalinguistic abilities [Dataset]. OSF.
+	https://doi.org/10.17605/OSF.IO/Y3BPT

@@ -19,7 +19,8 @@ import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
-load_dotenv()
+from pathlib import Path as _Path
+load_dotenv(_Path(__file__).parent.parent / ".env")
 
 from api_clients import OpenAIClient, OpenRouterClient, MiniMaxClient
 from data_loaders import load_mmlu, load_livebench, load_begus

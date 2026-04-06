@@ -23,7 +23,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from daytona import AsyncDaytona, CreateSandboxFromImageParams, Image, Resources
 
-load_dotenv()
+load_dotenv(Path(__file__).parent / ".env")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 MODELS     = ["gpt-5.4", "claude-sonnet-4.6", "minimax-m2.7"]
@@ -45,6 +45,8 @@ UPLOAD_FILES = [
     "src/evaluators.py",
     "src/llm_judge.py",
     "src/runner.py",
+    "data/mmlu_dataset.csv",
+    "data/livebench_dataset.csv",
     "data/begus_dataset.csv",
     "requirements.txt",
     ".env",

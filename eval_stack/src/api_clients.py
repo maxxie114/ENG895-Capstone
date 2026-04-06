@@ -24,11 +24,11 @@ class OpenAIClient:
             messages.append({"role": "system", "content": system})
         messages.append({"role": "user", "content": prompt})
 
+        # GPT-5.4 is a reasoning model: uses max_completion_tokens, not max_tokens
         resp = await self._client.chat.completions.create(
             model=self.model,
             messages=messages,
-            temperature=TEMPERATURE,
-            max_tokens=MAX_TOKENS,
+            max_completion_tokens=MAX_TOKENS,
         )
         return resp.choices[0].message.content.strip()
 

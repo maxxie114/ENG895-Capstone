@@ -30,7 +30,7 @@ from llm_judge import judge_begus_batch
 RESULTS_DIR = Path("results")
 RESULTS_DIR.mkdir(exist_ok=True)
 
-SEMAPHORE_LIMIT = 10
+SEMAPHORE_LIMIT = 5  # 10 was too aggressive for OpenRouter rate limits
 
 MODEL_CLIENTS = {
     "gpt-5.4":           OpenAIClient,

@@ -9,6 +9,12 @@ import asyncio
 import re
 from tqdm.asyncio import tqdm_asyncio
 
+
+def _strip_thinking(text: str) -> str:
+    """Remove <think>...</think> reasoning blocks before judging."""
+    stripped = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+    return stripped if stripped else text
+
 JUDGE_SYSTEM = (
     "You are an expert linguistics professor grading a student's formal linguistic analysis. "
     "Be strict but fair. Apply the provided rubric exactly."
@@ -36,11 +42,18 @@ def _count_subtasks(subtasks_str: str) -> int:
 async def _judge_one(record: dict, openai_client, semaphore: asyncio.Semaphore) -> dict:
     async with semaphore:
         n_subtasks = _count_subtasks(record.get("subtasks", ""))
+        # For Beguš, the linguistic analysis is often inside <think> blocks.
+        # Only strip if there is substantial content outside the think block;
+        # otherwise judge the full response so the analysis isn't lost.
+        raw = record["response"]
+        stripped = _strip_thinking(raw)
+        response_for_judge = stripped if len(stripped) >= 100 else raw
+
         prompt = JUDGE_TEMPLATE.format(
             category=record.get("category", "metalinguistics"),
             subtasks=record.get("subtasks", "overall"),
             judge_criteria=record.get("ground_truth", ""),  # judge_criteria stored in ground_truth field
-            response=record["response"],
+            response=response_for_judge,
         )
         try:
             verdict = await openai_client.complete(prompt, system=JUDGE_SYSTEM)

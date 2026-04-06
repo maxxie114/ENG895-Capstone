@@ -32,8 +32,13 @@ BENCHMARKS = ["mmlu", "livebench", "begus"]
 # Already-completed combos (skip to save API costs and time).
 # Remove entries here once you need a full re-run.
 SKIP_COMBOS = {
-    ("gpt-5.4", "mmlu"),   # 480 records saved
-    ("gpt-5.4", "begus"),  # 120 records saved
+    ("gpt-5.4",            "mmlu"),       # 480 records saved
+    ("gpt-5.4",            "livebench"),  # 94 records saved (6 safety refusals)
+    ("gpt-5.4",            "begus"),      # 120 records saved
+    ("claude-sonnet-4.6",  "mmlu"),       # 480 records saved
+    ("claude-sonnet-4.6",  "livebench"),  # 100 records saved
+    ("claude-sonnet-4.6",  "begus"),      # 120 records saved
+    # All MiniMax re-running: max_tokens=16384 + think-strip in all graders/judge
 }
 
 SANDBOX_CPU    = 1

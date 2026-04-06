@@ -8,24 +8,37 @@ Grading logic for MMLU and LiveBench.
 import re
 
 
+def _strip_thinking(text: str) -> str:
+    """Remove <think>...</think> reasoning blocks before grading."""
+    stripped = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+    return stripped if stripped else text
+
+
 def grade_mmlu(response: str, ground_truth: str) -> int:
     """
     Extract the first A/B/C/D letter from the model response and compare
     against ground_truth (also a single letter A-D).
     Returns 1 for correct, 0 for incorrect.
     """
-    # Look for a standalone answer letter: "Answer: A", "(A)", "A.", or just "A"
-    patterns = [
-        r"(?:answer\s*(?:is|:)?\s*)([A-D])\b",
-        r"\(([A-D])\)",
-        r"^([A-D])[.\)]\s",
-        r"\b([A-D])\b",
+    response = _strip_thinking(response)
+    # Look for a standalone answer letter: "Answer: A", "(A)", "A.", "**A**", or just "A"
+    # NOTE: patterns 1-4 use IGNORECASE; pattern 5 is case-sensitive to avoid matching
+    # the English article "a" as answer choice A.
+    patterns_icase = [
+        r"(?:answer\s*(?:is|:)?\s*\**)\s*([A-D])\b",  # "answer is C" or "answer is **C**"
+        r"\*\*([A-D])\*\*",                             # markdown bold **C**
+        r"\(([A-D])\)",                                 # (C)
+        r"^([A-D])[.\)]\s",                             # "C." or "C)" at line start
     ]
-    for pattern in patterns:
+    for pattern in patterns_icase:
         match = re.search(pattern, response, re.IGNORECASE | re.MULTILINE)
         if match:
-            extracted = match.group(1).upper()
-            return int(extracted == ground_truth.upper())
+            return int(match.group(1).upper() == ground_truth.upper())
+
+    # Case-sensitive fallback: only uppercase A/B/C/D to avoid matching article "a"
+    match = re.search(r"\b([A-D])\b", response)
+    if match:
+        return int(match.group(1) == ground_truth.upper())
     return 0
 
 
@@ -38,6 +51,7 @@ def grade_livebench(response: str, ground_truth: str, category: str = "") -> int
     2. Enclosed-answer patterns: [[answer]], <answer>, boxed{answer}.
     3. Last standalone number/token match (for math/reasoning tasks).
     """
+    response = _strip_thinking(response)
     gt = ground_truth.strip()
 
     # 1. Normalised exact match

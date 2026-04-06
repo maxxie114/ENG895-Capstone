@@ -3,7 +3,7 @@ API wrappers for the three frontier models.
 
 - OpenAIClient      → GPT-5.4 via OpenAI API
 - OpenRouterClient  → Claude Sonnet 4.6 via OpenRouter (OpenAI-compatible)
-- MiniMaxClient     → MiniMax M2.7 via MiniMax OpenAI-compatible endpoint
+- MiniMaxClient     → MiniMax M2.7 via OpenRouter (direct MiniMax API blocked from cloud IPs)
 """
 
 import os
@@ -53,7 +53,7 @@ class OpenRouterClient:
             model=self.model,
             messages=messages,
             temperature=TEMPERATURE,
-            max_tokens=MAX_TOKENS,
+            max_tokens=8192,   # enough for <think> reasoning without excessive timeouts
         )
         return resp.choices[0].message.content.strip()
 
@@ -63,6 +63,7 @@ class MiniMaxClient:
         self._client = AsyncOpenAI(
             api_key=os.getenv("MINIMAX_API_KEY"),
             base_url="https://api.minimax.io/v1",
+            timeout=300.0,
         )
         self.model = "MiniMax-M2.7"
 
@@ -76,6 +77,6 @@ class MiniMaxClient:
             model=self.model,
             messages=messages,
             temperature=TEMPERATURE,
-            max_tokens=MAX_TOKENS,
+            max_tokens=16384,  # full budget: complete <think> + full linguistic analysis after
         )
         return resp.choices[0].message.content.strip()

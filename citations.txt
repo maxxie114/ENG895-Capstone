@@ -1,0 +1,27 @@
+VII. References / Resources
+Hendrycks, Dan, et al. “Measuring Massive Multitask Language Understanding.”
+International Conference on Learning Representations (ICLR), 2021.
+Jimenez, Carlos E., et al. “SWE-bench: Can Language Models Resolve Real-World
+GitHub Issues?” arXiv, 11 Nov. 2024.
+Li, Tianle, et al. “From Crowdsourced Data to High-Quality Benchmarks:
+Arena-Hard and BenchBuilder Pipeline.” arXiv, 14 Oct. 2024.
+Liang, Percy, et al. “Holistic Evaluation of Language Models.” arXiv, 16 Nov.
+2022.
+Wang, Alex, et al. “GLUE: A Multi-Task Benchmark and Analysis Platform for
+Natural Language Understanding.” arXiv preprint 1804.07461, 2018. 
+White, Colin, et al. “LiveBench: A Challenging, Contamination-Limited LLM
+Benchmark.” arXiv, 18 Apr. 2025.
+Zhou, Shuyan, et al. “WebArena: A Realistic Web Environment for Building
+Autonomous Agents.” arXiv, 25 July 2023.
+Begus, G., Dabkowski, M., & Rhodes, R. (2025). Large linguistic models:
+Investigating LLMs’ metalinguistic abilities. IEEE Transactions on Artificial
+Intelligence.
+Anthropic. (2026, February 17). System card: Claude Sonnet 4.6.
+	https://www.anthropic.com/claude-sonnet-4-6-system-card
+GLM-5 Team, Zeng, A., Lv, X., Hou, Z., Du, Z., Zheng, Q., et al. (2026,
+	February 17). GLM-5: From vibe coding to agentic engineering. arXiv
+	preprint arXiv:2602.15763.
+MiniMax. (2026, March 18). MiniMax M2.7: Early echoes of self-evolution.
+	https://www.minimax.io/news/minimax-m27-en
+OpenAI. (2026, March 5). Introducing GPT-5.4.
+	https://openai.com/index/introducing-gpt-5-4/

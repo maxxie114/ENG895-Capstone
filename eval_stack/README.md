@@ -45,7 +45,7 @@ Open `.env` and fill in:
 ```
 OPENAI_API_KEY=sk-...           # from platform.openai.com
 OPENROUTER_API_KEY=sk-or-...    # from openrouter.ai/keys
-MINIMAX_API_KEY=...             # from platform.minimaxi.com
+MINIMAX_API_KEY=...             # from minimax.io (US) → API Keys
 ```
 
 The `OPENROUTER_MODEL` and `BEGUS_DATASET_PATH` fields have working defaults — you don't need to change them unless the Claude model slug changes on OpenRouter or you move the dataset file.

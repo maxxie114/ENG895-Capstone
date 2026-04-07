@@ -1,9 +1,9 @@
 """
-API wrappers for the three frontier models.
+API wrappers for the evaluated models.
 
 - OpenAIClient      → GPT-5.4 via OpenAI API
-- OpenRouterClient  → Claude Sonnet 4.6 via OpenRouter (OpenAI-compatible)
-- MiniMaxClient     → MiniMax M2.7 via OpenRouter (direct MiniMax API blocked from cloud IPs)
+- OpenRouterClient  → Claude Sonnet 4.6 / GLM-5.1 via OpenRouter (OpenAI-compatible)
+- MiniMaxClient     → MiniMax M2.7 via direct MiniMax API
 """
 
 import os
@@ -24,22 +24,24 @@ class OpenAIClient:
             messages.append({"role": "system", "content": system})
         messages.append({"role": "user", "content": prompt})
 
-        # GPT-5.4 is a reasoning model: uses max_completion_tokens, not max_tokens
+        # GPT-5.4 is a reasoning model: uses max_completion_tokens, not max_tokens.
+        # Budget 16384 to give ample room for internal thinking + response.
         resp = await self._client.chat.completions.create(
             model=self.model,
             messages=messages,
-            max_completion_tokens=MAX_TOKENS,
+            max_completion_tokens=16384,
         )
         return resp.choices[0].message.content.strip()
 
 
 class OpenRouterClient:
-    def __init__(self):
+    """Generic OpenRouter client. Set model via constructor or OPENROUTER_MODEL env."""
+    def __init__(self, model: str | None = None):
         self._client = AsyncOpenAI(
             api_key=os.getenv("OPENROUTER_API_KEY"),
             base_url="https://openrouter.ai/api/v1",
         )
-        self.model = os.getenv(
+        self.model = model or os.getenv(
             "OPENROUTER_MODEL", "anthropic/claude-sonnet-4-6"
         )
 
@@ -53,7 +55,7 @@ class OpenRouterClient:
             model=self.model,
             messages=messages,
             temperature=TEMPERATURE,
-            max_tokens=8192,   # enough for <think> reasoning without excessive timeouts
+            max_tokens=8192,
         )
         return resp.choices[0].message.content.strip()
 
@@ -77,6 +79,6 @@ class MiniMaxClient:
             model=self.model,
             messages=messages,
             temperature=TEMPERATURE,
-            max_tokens=16384,  # full budget: complete <think> + full linguistic analysis after
+            max_tokens=16384,
         )
         return resp.choices[0].message.content.strip()

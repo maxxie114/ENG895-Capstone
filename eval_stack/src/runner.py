@@ -5,7 +5,7 @@ Executed INSIDE a Daytona sandbox by run_daytona.py.
 Usage:
     python3 src/runner.py --model gpt-5.4 --benchmark mmlu
     python3 src/runner.py --model claude-sonnet-4.6 --benchmark livebench
-    python3 src/runner.py --model minimax-m2.7 --benchmark begus
+    python3 src/runner.py --model glm-5.1 --benchmark begus
 
 Outputs:
     results/{model}_{benchmark}.jsonl
@@ -30,13 +30,24 @@ from llm_judge import judge_begus_batch
 RESULTS_DIR = Path("results")
 RESULTS_DIR.mkdir(exist_ok=True)
 
-SEMAPHORE_LIMIT = 5  # 10 was too aggressive for OpenRouter rate limits
+SEMAPHORE_LIMIT = 5
 
-MODEL_CLIENTS = {
-    "gpt-5.4":           OpenAIClient,
-    "claude-sonnet-4.6": OpenRouterClient,
-    "minimax-m2.7":      MiniMaxClient,
-}
+
+def _build_client(model_name: str):
+    """Instantiate the right API client for a given model name."""
+    if model_name == "gpt-5.4":
+        return OpenAIClient()
+    elif model_name == "claude-sonnet-4.6":
+        return OpenRouterClient(model="anthropic/claude-sonnet-4-6")
+    elif model_name == "glm-5.1":
+        return OpenRouterClient(model="z-ai/glm-5.1")
+    elif model_name == "minimax-m2.7":
+        return MiniMaxClient()
+    else:
+        raise ValueError(f"Unknown model: {model_name}")
+
+
+SUPPORTED_MODELS = ["gpt-5.4", "claude-sonnet-4.6", "glm-5.1", "minimax-m2.7"]
 
 LOADERS = {
     "mmlu":      load_mmlu,
@@ -66,8 +77,7 @@ async def run_one(client, model_name: str, item: dict, semaphore: asyncio.Semaph
 async def main(model_name: str, benchmark: str):
     print(f"[{model_name} × {benchmark}] Starting...")
 
-    client_cls = MODEL_CLIENTS[model_name]
-    client = client_cls()
+    client = _build_client(model_name)
 
     loader = LOADERS[benchmark]
     items = loader()
@@ -117,7 +127,7 @@ async def main(model_name: str, benchmark: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model",     required=True, choices=list(MODEL_CLIENTS.keys()))
+    parser.add_argument("--model",     required=True, choices=SUPPORTED_MODELS)
     parser.add_argument("--benchmark", required=True, choices=list(LOADERS.keys()))
     args = parser.parse_args()
     asyncio.run(main(args.model, args.benchmark))

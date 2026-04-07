@@ -57,14 +57,17 @@ async def run_one(client, model_name: str, item: dict, semaphore: asyncio.Semaph
 async def main():
     # --- Init clients ---
     openai_client = OpenAIClient()
-    openrouter_client = OpenRouterClient()
-    minimax_client = MiniMaxClient()
+    claude_client = OpenRouterClient(model="anthropic/claude-sonnet-4-6")
+    glm_client = OpenRouterClient(model="z-ai/glm-5.1")
 
     clients = {
         "gpt-5.4": openai_client,
-        "claude-sonnet-4.6": openrouter_client,
-        "minimax-m2.7": minimax_client,
+        "claude-sonnet-4.6": claude_client,
+        "glm-5.1": glm_client,
     }
+
+    # Uncomment to include MiniMax (blocked from some cloud IPs):
+    # clients["minimax-m2.7"] = MiniMaxClient()
 
     # --- Load datasets ---
     print("=" * 50)

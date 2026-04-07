@@ -1,17 +1,19 @@
 """
 Daytona-powered parallel benchmark runner.
 
-Spins up 9 sandboxes simultaneously (3 models × 3 benchmarks),
-runs each combination in isolation, downloads results, and merges
-into a single final_report.csv.
+Spins up sandboxes for each model × benchmark combination, runs each in
+isolation, downloads results, and merges into a single final_report.csv.
 
 Usage:
     pip install daytona
     python run_daytona.py
 
 Requirements:
-    - .env with OPENAI_API_KEY, OPENROUTER_API_KEY, MINIMAX_API_KEY
+    - .env with OPENAI_API_KEY, OPENROUTER_API_KEY
     - DAYTONA_API_KEY set in environment (from app.daytona.io/dashboard/keys)
+
+Note: MiniMax is excluded because its API is blocked from Daytona IPs.
+      Run MiniMax separately via mini_runner.py if needed.
 """
 
 import asyncio
@@ -26,23 +28,14 @@ from daytona import AsyncDaytona, CreateSandboxFromImageParams, Image, Resources
 load_dotenv(Path(__file__).parent / ".env")
 
 # ── Config ────────────────────────────────────────────────────────────────────
-MODELS     = ["gpt-5.4", "claude-sonnet-4.6", "minimax-m2.7"]
+MODELS     = ["gpt-5.4", "claude-sonnet-4.6", "glm-5.1"]
 BENCHMARKS = ["mmlu", "livebench", "begus"]
 
-# Already-completed combos (skip to save API costs and time).
-# Remove entries here once you need a full re-run.
-SKIP_COMBOS = {
-    ("gpt-5.4",            "mmlu"),       # 480 records saved
-    ("gpt-5.4",            "livebench"),  # 94 records saved (6 safety refusals)
-    ("gpt-5.4",            "begus"),      # 120 records saved
-    ("claude-sonnet-4.6",  "mmlu"),       # 480 records saved
-    ("claude-sonnet-4.6",  "livebench"),  # 100 records saved
-    ("claude-sonnet-4.6",  "begus"),      # 120 records saved
-    # All MiniMax re-running: max_tokens=16384 + think-strip in all graders/judge
-}
+# Full re-run: no skips.
+SKIP_COMBOS = set()
 
 SANDBOX_CPU    = 1
-SANDBOX_MEMORY = 1   # GB — keep within free tier (10 GiB total / 9 sandboxes)
+SANDBOX_MEMORY = 1   # GB — keep within free tier (10 GiB total)
 EXEC_TIMEOUT   = 10800  # 3 hours per sandbox
 BATCH_SIZE     = 3   # sandboxes per batch (3 × 1 GiB = 3 GiB, safely within limits)
 

@@ -58,20 +58,58 @@ class OpenRouterClient:
             messages.append({"role": "system", "content": system})
         messages.append({"role": "user", "content": prompt})
 
+        is_reasoning = self.model in self.REASONING_MODELS
+
         kwargs = {
             "model": self.model,
             "messages": messages,
             "temperature": TEMPERATURE,
         }
-        if self.model in self.REASONING_MODELS:
-            kwargs["max_completion_tokens"] = 16384
+        if is_reasoning:
+            kwargs["max_completion_tokens"] = 32768
+            # Stream reasoning models so we capture partial output even if
+            # the token budget runs out before content is produced.
+            kwargs["stream"] = True
+            # Ask OpenRouter to include the reasoning/thinking text.
+            kwargs["extra_body"] = {"include_reasoning": True}
         else:
             kwargs["max_tokens"] = 8192
 
-        resp = await self._client.chat.completions.create(**kwargs)
-        # Reasoning models may return content=None if all tokens went to thinking
-        content = resp.choices[0].message.content
-        return content.strip() if content else ""
+        if not is_reasoning:
+            resp = await self._client.chat.completions.create(**kwargs)
+            return resp.choices[0].message.content.strip()
+
+        # Streaming path for reasoning models — accumulate both content and
+        # reasoning so we never lose data even if content is empty.
+        content_parts = []
+        reasoning_parts = []
+        stream = await self._client.chat.completions.create(**kwargs)
+        async for chunk in stream:
+            delta = chunk.choices[0].delta if chunk.choices else None
+            if not delta:
+                continue
+            if delta.content:
+                content_parts.append(delta.content)
+            # OpenRouter streams reasoning in delta.reasoning or
+            # delta.reasoning_content depending on the provider.
+            reasoning = getattr(delta, "reasoning", None) or getattr(delta, "reasoning_content", None)
+            if reasoning:
+                reasoning_parts.append(reasoning)
+
+        content = "".join(content_parts).strip()
+        reasoning = "".join(reasoning_parts).strip()
+
+        if content:
+            return content
+
+        # Content was empty — the model spent all tokens on reasoning.
+        # Return the reasoning text so we still have a response to grade.
+        # This is suboptimal (reasoning isn't formatted as an answer) but
+        # better than an empty string.
+        if reasoning:
+            return reasoning
+
+        return ""
 
 
 class MiniMaxClient:

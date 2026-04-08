@@ -36,10 +36,17 @@ class OpenAIClient:
 
 class OpenRouterClient:
     """Generic OpenRouter client. Set model via constructor or OPENROUTER_MODEL env."""
+
+    # Models that use internal reasoning tokens (like o1/GPT-5.4).
+    # These need max_completion_tokens instead of max_tokens to budget
+    # for both thinking and response tokens.
+    REASONING_MODELS = {"z-ai/glm-5.1"}
+
     def __init__(self, model: str | None = None):
         self._client = AsyncOpenAI(
             api_key=os.getenv("OPENROUTER_API_KEY"),
             base_url="https://openrouter.ai/api/v1",
+            timeout=300.0,
         )
         self.model = model or os.getenv(
             "OPENROUTER_MODEL", "anthropic/claude-sonnet-4-6"
@@ -51,13 +58,20 @@ class OpenRouterClient:
             messages.append({"role": "system", "content": system})
         messages.append({"role": "user", "content": prompt})
 
-        resp = await self._client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            temperature=TEMPERATURE,
-            max_tokens=8192,
-        )
-        return resp.choices[0].message.content.strip()
+        kwargs = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": TEMPERATURE,
+        }
+        if self.model in self.REASONING_MODELS:
+            kwargs["max_completion_tokens"] = 16384
+        else:
+            kwargs["max_tokens"] = 8192
+
+        resp = await self._client.chat.completions.create(**kwargs)
+        # Reasoning models may return content=None if all tokens went to thinking
+        content = resp.choices[0].message.content
+        return content.strip() if content else ""
 
 
 class MiniMaxClient:

@@ -31,8 +31,12 @@ load_dotenv(Path(__file__).parent / ".env")
 MODELS     = ["gpt-5.4", "claude-sonnet-4.6", "glm-5.1"]
 BENCHMARKS = ["mmlu", "livebench", "begus"]
 
-# Full re-run: no skips.
-SKIP_COMBOS = set()
+# Skip combos that already completed successfully.
+SKIP_COMBOS = {
+    ("gpt-5.4", "mmlu"), ("gpt-5.4", "livebench"), ("gpt-5.4", "begus"),
+    ("claude-sonnet-4.6", "mmlu"), ("claude-sonnet-4.6", "livebench"), ("claude-sonnet-4.6", "begus"),
+    ("glm-5.1", "mmlu"),  # 474 records already saved
+}
 
 SANDBOX_CPU    = 1
 SANDBOX_MEMORY = 1   # GB — keep within free tier (10 GiB total)
@@ -41,6 +45,9 @@ BATCH_SIZE     = 3   # sandboxes per batch (3 × 1 GiB = 3 GiB, safely within li
 
 RESULTS_DIR = Path("results")
 RESULTS_DIR.mkdir(exist_ok=True)
+
+# Expected item counts per benchmark (for progress reporting)
+EXPECTED_COUNTS = {"mmlu": 480, "livebench": 100, "begus": 120}
 
 # Files uploaded to every sandbox
 BASE = Path(__file__).parent
@@ -63,6 +70,7 @@ UPLOAD_FILES = [
 async def run_sandbox(daytona, model: str, benchmark: str) -> list[dict]:
     tag  = f"{model.replace('.', '-')}-{benchmark}"
     name = f"eval-{tag}"
+    jsonl_file = f"/eval/results/{model.replace('.', '-')}_{benchmark}.jsonl"
     print(f"[{tag}] Creating sandbox...")
 
     sandbox = await daytona.create(
@@ -96,65 +104,75 @@ async def run_sandbox(daytona, model: str, benchmark: str) -> list[dict]:
         if r.exit_code != 0:
             raise RuntimeError(f"pip install failed:\n{r.result}")
 
-        # Run the benchmark in background — poll for completion to avoid
-        # exec() hanging if the connection drops mid-run.
-        sentinel = f"/eval/results/.done_{tag}"
-        log_file = f"/eval/runner_{tag}.log"
-        print(f"[{tag}] Launching benchmark in background...")
-        await sandbox.process.exec(
-            f"nohup python3 src/runner.py --model {model} --benchmark {benchmark}"
-            f" > {log_file} 2>&1"
-            f" && touch {sentinel}"
-            f" || touch {sentinel}.fail &",
-            cwd="/eval",
-            timeout=15,
-        )
+        # Run directly with long timeout — Daytona exec doesn't support
+        # backgrounding (&), so we run synchronously. Progress is monitored
+        # via a concurrent polling task.
+        expected = EXPECTED_COUNTS.get(benchmark, "?")
+        print(f"[{tag}] Running benchmark (expecting ~{expected} items, timeout {EXEC_TIMEOUT}s)...")
 
-        # Poll until the sentinel file appears (max EXEC_TIMEOUT seconds)
-        print(f"[{tag}] Waiting for benchmark to complete...")
-        elapsed = 0
-        poll_interval = 30  # seconds
-        while elapsed < EXEC_TIMEOUT:
-            await asyncio.sleep(poll_interval)
-            elapsed += poll_interval
+        # Start a progress monitor that polls the JSONL line count
+        stop_monitor = asyncio.Event()
+
+        async def monitor_progress():
+            elapsed = 0
+            while not stop_monitor.is_set():
+                await asyncio.sleep(30)
+                elapsed += 30
+                try:
+                    r = await sandbox.process.exec(
+                        f"wc -l < {jsonl_file} 2>/dev/null || echo 0",
+                        timeout=10,
+                    )
+                    count = int(r.result.strip())
+                    pct = f"{count}/{expected}" if isinstance(expected, int) else f"{count}"
+                    print(f"[{tag}] {pct} items | {elapsed}s elapsed")
+                except Exception:
+                    pass  # sandbox might be busy, skip this poll
+
+        monitor_task = asyncio.create_task(monitor_progress())
+
+        try:
             r = await sandbox.process.exec(
-                f"test -f {sentinel} && echo done"
-                f" || test -f {sentinel}.fail && echo fail"
-                f" || echo running",
-                timeout=15,
+                f"cd /eval && python3 -u src/runner.py --model {model} --benchmark {benchmark}",
+                cwd="/eval",
+                timeout=EXEC_TIMEOUT,
             )
-            status = r.result.strip()
-            if status == "done":
-                print(f"[{tag}] Benchmark finished ({elapsed}s).")
-                break
-            elif status == "fail":
-                # Print the log
-                log_r = await sandbox.process.exec(f"tail -30 {log_file}", timeout=15)
-                print(f"[{tag}] Benchmark FAILED:\n{log_r.result}")
-                return []
-            elif elapsed % 300 == 0:  # progress every 5 min
-                print(f"[{tag}] Still running... ({elapsed}s elapsed)")
-        else:
-            print(f"[{tag}] TIMEOUT after {EXEC_TIMEOUT}s")
+            stop_monitor.set()
+            await monitor_task
+
+            if r.exit_code == 0:
+                print(f"[{tag}] Benchmark finished successfully")
+                # Show last few lines of output
+                output_lines = r.result.strip().split("\n")
+                for line in output_lines[-5:]:
+                    print(f"[{tag}]   {line}")
+            else:
+                print(f"[{tag}] Benchmark FAILED (exit {r.exit_code})")
+                output_lines = r.result.strip().split("\n")
+                for line in output_lines[-20:]:
+                    print(f"[{tag}]   {line}")
+        except Exception as e:
+            stop_monitor.set()
+            await monitor_task
+            print(f"[{tag}] Exec error: {e}")
+
+        # Download results (even partial)
+        print(f"[{tag}] Downloading results from {jsonl_file}...")
+        try:
+            content = await sandbox.fs.download_file(jsonl_file)
+            records = []
+            for line in content.decode("utf-8").strip().splitlines():
+                if line:
+                    records.append(json.loads(line))
+            print(f"[{tag}] Got {len(records)} records.")
+
+            # Save locally as checkpoint
+            local_out = RESULTS_DIR / f"{tag}.jsonl"
+            local_out.write_text(content.decode("utf-8"))
+            return records
+        except Exception as e:
+            print(f"[{tag}] Could not download results: {e}")
             return []
-
-        # Download results
-        remote_path = f"/eval/results/{model.replace('.', '-')}_{benchmark}.jsonl"
-        print(f"[{tag}] Downloading results from {remote_path}...")
-        content = await sandbox.fs.download_file(remote_path)
-
-        records = []
-        for line in content.decode("utf-8").strip().splitlines():
-            if line:
-                records.append(json.loads(line))
-
-        print(f"[{tag}] Got {len(records)} records.")
-
-        # Also save locally as a checkpoint
-        local_out = RESULTS_DIR / f"{tag}.jsonl"
-        local_out.write_text(content.decode("utf-8"))
-
-        return records
 
     except Exception as e:
         print(f"[{tag}] ERROR: {e}")
@@ -231,8 +249,10 @@ async def main():
         print()
         for i in range(0, len(combos), BATCH_SIZE):
             batch = combos[i:i + BATCH_SIZE]
-            print(f"\n--- Batch {i // BATCH_SIZE + 1}/{-(-len(combos)//BATCH_SIZE)} ---")
-            print("  " + ", ".join(f"{m}×{b}" for m, b in batch))
+            print(f"\n{'='*60}")
+            print(f"  Batch {i // BATCH_SIZE + 1}/{-(-len(combos)//BATCH_SIZE)}")
+            print(f"  {', '.join(f'{m}×{b}' for m, b in batch)}")
+            print(f"{'='*60}")
             batch_results = await asyncio.gather(
                 *[run_sandbox(daytona, m, b) for m, b in batch],
                 return_exceptions=True,
@@ -275,9 +295,9 @@ async def main():
     csv_path = RESULTS_DIR / "final_report.csv"
     df.to_csv(csv_path, index=False)
 
-    print("\n" + "=" * 50)
+    print(f"\n{'='*60}")
     print("FINAL RESULTS")
-    print("=" * 50)
+    print(f"{'='*60}")
     print(df.to_string(index=False))
     print(f"\nSaved: {csv_path}")
 

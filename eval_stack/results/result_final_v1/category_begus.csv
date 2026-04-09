@@ -1,0 +1,5 @@
+Model,ambiguity_acc,ambiguity_n,movement_acc,movement_n,phonology_acc,phonology_n,recursion_acc,recursion_n
+GPT-5.4,0.8167,30,0.0667,30,0.8889,30,0.7000,30
+Claude Sonnet 4.6,0.7000,30,0.1333,30,0.8222,30,0.6417,30
+GLM-5.1,0.7500,30,0.2333,30,0.7889,30,0.7417,30
+MiniMax M2.7,0.4500,30,0.0667,30,0.5667,30,0.4250,30

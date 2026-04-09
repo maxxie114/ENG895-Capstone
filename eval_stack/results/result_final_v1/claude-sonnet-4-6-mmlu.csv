@@ -1,0 +1,2396 @@
+question_id,category,score,ground_truth,response
+mmlu_formal_logic_0,formal_logic,0,D,C
+mmlu_formal_logic_1,formal_logic,1,A,A
+mmlu_formal_logic_2,formal_logic,1,C,C
+mmlu_formal_logic_3,formal_logic,1,A,"I need to construct a truth table for the argument:
+~G ⊃ H
+~H / G
+
+Let me evaluate all combinations of G and H:
+
+| G | H | ~G | ~H | ~G ⊃ H |
+|---|---|----|----|---------|
+| T | T | F  | F  | T       |
+| T | F | F  | T  | T       |
+| F | T | T  | F  | T       |
+| F | F | T  | T  | F       |
+
+For the argument to be valid, every row where ALL premises are true must have a true conclusion (G).
+
+Check each row where both premises (~G ⊃ H) and (~H) are true:
+- Row 1: G=T, H=T: ~G ⊃ H = T, ~H = F → Not all premises true
+- Row 2: G=T, H=F: ~G ⊃ H = T, ~H = T → All premises true, G = T ✓
+- Row 3: G=F, H=T: ~G ⊃ H = T, ~H = F → Not all premises true
+- Row 4: G=F, H=F: ~G ⊃ H = F, ~H = T → Not all premises true
+
+The only row where all premises are true has G=T, so the argument is **Valid**.
+
+The answer is **A**."
+mmlu_formal_logic_4,formal_logic,1,B,B
+mmlu_formal_logic_5,formal_logic,1,D,D
+mmlu_formal_logic_6,formal_logic,1,D,"I need to evaluate the argument: ~K ≡ L / (K · L) ∨ (K · ~L)
+
+Let me construct the truth table for all combinations of K and L.
+
+**When K = T, L = T:**
+- Premise: ~K ≡ L = F ≡ T = **F**
+- Conclusion: (T · T) ∨ (T · F) = T ∨ F = **T**
+- Premise is false, so this row doesn't threaten validity.
+
+**When K = T, L = F:**
+- Premise: ~K ≡ L = F ≡ F = **T**
+- Conclusion: (T · F) ∨ (T · T) = F ∨ T = **T**
+- Premise true, conclusion true. ✓
+
+**When K = F, L = T:**
+- Premise: ~K ≡ L = T ≡ T = **T**
+- Conclusion: (F · T) ∨ (F · F) = F ∨ F = **F**
+- Premise true, conclusion false. ✗ **Counterexample!**
+
+**When K = F, L = F:**
+- Premise: ~K ≡ L = T ≡ F = **F**
+- Conclusion: (F · F) ∨ (F · T) = F ∨ F = **F**
+- Premise is false, so this row doesn't threaten validity.
+
+The argument is invalid. The counterexample is when K is false and L is true.
+
+**Answer: D**"
+mmlu_formal_logic_7,formal_logic,1,B,B
+mmlu_formal_logic_8,formal_logic,1,D,"From ~I and H ⊃ I, by modus tollens, we get ~H.
+
+D"
+mmlu_formal_logic_9,formal_logic,1,D,D
+mmlu_formal_logic_10,formal_logic,1,A,A
+mmlu_formal_logic_11,formal_logic,1,B,"I need to determine the relationship between these two propositions by analyzing their truth tables.
+
+Let me denote:
+- P = (~M ⊃ ~N) ∨ (O ≡ N)
+- Q = (~M · N) · [(~O ∨ ~N) · (O ∨ N)]
+
+First, let me analyze Q:
+Q = (~M · N) · [(~O ∨ ~N) · (O ∨ N)]
+
+The part [(~O ∨ ~N) · (O ∨ N)] means: ~(O · N) · (O ∨ N), which means (O ∨ N) is true but (O · N) is false. This means exactly one of O, N is true (XOR).
+
+So Q requires:
+1. ~M is true (M is false)
+2. N is true
+3. Exactly one of O, N is true
+
+From conditions 2 and 3: N is true, so O must be false (to have exactly one true).
+
+So Q is true only when: M=F, N=T, O=F.
+
+Now let me check P when M=F, N=T, O=F:
+- ~M ⊃ ~N = T ⊃ F = F
+- O ≡ N = F ≡ T = F
+- P = F ∨ F = F
+
+So when Q is true, P is false. They cannot be contradictory (that would require whenever P is true, Q is false, AND whenever Q is true, P is false).
+
+Let me check if P can be false:
+P = (~M ⊃ ~N) ∨ (O ≡ N) is false when both parts are false:
+- ~M ⊃ ~N is false: ~M=T and ~N=F, so M=F and N=T
+- O ≡ N is false: O≠N, so O=F (since N=T)
+
+So P is false only when M=F, N=T, O=F — exactly when Q is true.
+
+So: P is false ↔ Q is true. This means they are contradictory!
+
+Wait, let me verify: Are they contradictory? Contradictory means they always have opposite truth values.
+
+P is false only at M=F, N=T, O=F.
+Q is true only at M=F, N=T, O=F.
+
+So whenever P is false, Q is true ✓
+Whenever Q is false (all other cases), is P true? Yes, since P is only false at that one combination ✓
+Whenever P is true, Q is false ✓
+Whenever Q is true, P is false ✓
+
+They always have opposite truth values — they are **contradictory**.
+
+The answer is **B**."
+mmlu_formal_logic_12,formal_logic,1,D,"Looking at the premises:
+1. E ⊃ ~F
+2. ~F ⊃ G
+3. ~G
+
+From premise 2 (~F ⊃ G) and premise 3 (~G), by Modus Tollens, we can conclude ~~F (since ~G denies the consequent G, so we deny the antecedent ~F, giving ~~F).
+
+The answer is **D**."
+mmlu_formal_logic_13,formal_logic,1,C,"I need to determine if the argument is valid using indirect truth tables.
+
+The argument is:
+- Premise 1: E ⊃ (F ∨ ~G)
+- Premise 2: F ⊃ (~E ∨ ~G)
+- Conclusion: ~(E ≡ F)
+
+For an indirect truth table, I assume the conclusion is false and check if the premises can both be true.
+
+**Assume conclusion is false:** ~(E ≡ F) is false, so (E ≡ F) is true.
+This means E and F have the same truth value: both true or both false.
+
+**Case 1: E = T, F = T**
+
+Check Premise 1: E ⊃ (F ∨ ~G)
+- T ⊃ (T ∨ ~G) = T ⊃ T = T ✓
+
+Check Premise 2: F ⊃ (~E ∨ ~G)
+- T ⊃ (~T ∨ ~G) = T ⊃ (F ∨ ~G)
+- If G = T: T ⊃ (F ∨ F) = T ⊃ F = F ✗
+- If G = F: T ⊃ (F ∨ T) = T ⊃ T = T ✓
+
+So with E = T, F = T, G = F: Both premises are true and conclusion is false.
+
+This is a counterexample! The argument is **invalid**.
+
+The counterexample is E and F true, G false.
+
+The answer is **C**."
+mmlu_formal_logic_14,formal_logic,1,D,"I need to determine if this argument is valid using indirect truth tables.
+
+The argument is:
+- Premise 1: H ≡ (~I ∨ J)
+- Premise 2: H ∨ ~J
+- Conclusion: ~I
+
+**Indirect truth table method:** Assume the argument is invalid (premises true, conclusion false).
+
+If ~I is false, then **I is true**.
+
+With I true: ~I = false, so (~I ∨ J) = (F ∨ J) = J
+
+So Premise 1 becomes: H ≡ J
+
+Premise 2: H ∨ ~J
+
+Now I need H ≡ J to be true and H ∨ ~J to be true.
+
+**Case 1: H = true, J = true**
+- H ≡ J: T ≡ T = True ✓
+- H ∨ ~J: T ∨ F = True ✓
+- Both premises true, conclusion false → **Counterexample found!**
+
+This gives H = true, I = true, J = true.
+
+Looking at the options:
+- C says: Invalid. Counterexample when H and I are true and J is false.
+
+Let me check option C: H=T, I=T, J=F
+- ~I = F, so (~I ∨ J) = F ∨ F = F
+- H ≡ F = T ≡ F = False → Premise 1 is false. Not a valid counterexample.
+
+Let me check option D: I=T, H=F, J=F
+- ~I = F, (~I ∨ J) = F ∨ F = F
+- H ≡ F: F ≡ F = True ✓
+- H ∨ ~J: F ∨ T = True ✓
+- Conclusion ~I = F ✓
+- This works as a counterexample!
+
+So the argument is invalid, with counterexample when I is true and H and J are false.
+
+The answer is **D**."
+mmlu_formal_logic_15,formal_logic,1,B,B
+mmlu_formal_logic_16,formal_logic,1,D,D
+mmlu_formal_logic_17,formal_logic,1,D,D
+mmlu_formal_logic_18,formal_logic,1,B,B
+mmlu_formal_logic_19,formal_logic,1,B,B
+mmlu_formal_logic_20,formal_logic,1,B,"I need to determine if the argument P ⊃ Q, Q · R / ~P · R is valid.
+
+Let me construct a truth table for the key cases.
+
+The argument is valid only if every row where both premises are true also has a true conclusion.
+
+Premises: P ⊃ Q and Q · R
+Conclusion: ~P · R
+
+Let me check when both premises are true:
+- Q · R must be true, so Q = T and R = T
+- P ⊃ Q must be true; since Q = T, this is true regardless of P
+
+So when Q = T, R = T, P can be either T or F.
+
+Case 1: P = T, Q = T, R = T
+- Premise 1: T ⊃ T = T ✓
+- Premise 2: T · T = T ✓
+- Conclusion: ~T · T = F · T = F ✗
+
+This is a counterexample where both premises are true but conclusion is false.
+
+This matches option B: Invalid. Counterexample when P, R, and Q are true.
+
+The answer is **B**."
+mmlu_formal_logic_21,formal_logic,1,D,D
+mmlu_formal_logic_22,formal_logic,1,B,B
+mmlu_formal_logic_23,formal_logic,1,C,"I need to construct a truth table for the argument:
+- Premise 1: J ≡ ~K
+- Premise 2: J ∨ L
+- Premise 3: ~K
+- Conclusion: L
+
+Let me evaluate all combinations of J, K, L:
+
+| J | K | L | ~K | J≡~K | J∨L | ~K | L |
+|---|---|---|----|------|-----|----|---|
+| T | T | T | F  | F    | T   | F  | T |
+| T | T | F | F  | F    | T   | F  | F |
+| T | F | T | T  | T    | T   | T  | T |
+| T | F | F | T  | T    | T   | T  | F |
+| F | T | T | F  | T    | T   | F  | T |
+| F | T | F | F  | T    | F   | F  | F |
+| F | F | T | T  | F    | T   | T  | T |
+| F | F | F | T  | F    | F   | T  | F |
+
+Now I need to find rows where ALL premises are true but conclusion is false:
+
+Row 4: J=T, K=F, L=F
+- J≡~K: T≡T = T ✓
+- J∨L: T∨F = T ✓
+- ~K: T ✓
+- L: F ✗
+
+This is a counterexample! J is true, K is false, L is false.
+
+This matches option C: ""Invalid. Counterexample when J is true and K and L are false""
+
+The answer is **C**."
+mmlu_formal_logic_24,formal_logic,1,D,D
+mmlu_formal_logic_25,formal_logic,1,A,"I need to determine if the set {D ≡ E, F ∨ D, ~E · ~F} is consistent.
+
+For consistency, I need to find values where all three propositions are true simultaneously.
+
+From ~E · ~F: E must be false and F must be false.
+
+From D ≡ E: Since E is false, D must also be false.
+
+From F ∨ D: F is false and D is false, so F ∨ D is false.
+
+This is a contradiction, so the set is **inconsistent**.
+
+The answer is **A**."
+mmlu_formal_logic_26,formal_logic,1,D,D
+mmlu_formal_logic_27,formal_logic,1,A,A
+mmlu_formal_logic_28,formal_logic,1,A,A
+mmlu_formal_logic_29,formal_logic,1,A,"I need to determine if the argument is valid using indirect truth tables.
+
+The argument is:
+- Premise 1: E ⊃ F
+- Premise 2: G ⊃ ~F
+- Conclusion: ~G ∨ ~E
+
+For an indirect truth table, I assume the conclusion is FALSE and check if the premises can both be true.
+
+**Assume conclusion is false:**
+~G ∨ ~E = F (false)
+
+For a disjunction to be false, both disjuncts must be false:
+- ~G = F → G = T
+- ~E = F → E = T
+
+**Now check premises with G = T, E = T:**
+
+Premise 1: E ⊃ F
+- E = T, so F must be T for this to be true
+- F = T
+
+Premise 2: G ⊃ ~F
+- G = T, so ~F must be T, meaning F = F (false)
+- But we just determined F = T
+
+This is a contradiction. F cannot be both T and F.
+
+Therefore, it's impossible for the conclusion to be false while both premises are true. The argument is **valid**.
+
+The answer is **A**."
+mmlu_formal_logic_30,formal_logic,1,B,"I need to find if there's a consistent valuation for all four propositions simultaneously.
+
+Let me test option B: A=T, D=T, B=F, C=F
+
+1. A ⊃ (~B ∨ C): T ⊃ (~F ∨ F) = T ⊃ (T ∨ F) = T ⊃ T = T ✓
+2. C ⊃ D: F ⊃ T = T ✓
+3. A ∨ (B · ~D): T ∨ (F · F) = T ∨ F = T ✓
+4. A ≡ (B ⊃ D): T ≡ (F ⊃ T) = T ≡ T = T ✓
+
+All four are satisfied. The answer is **B**."
+mmlu_formal_logic_31,formal_logic,1,A,"I need to determine if the argument is valid:
+- Premise 1: M ∨ N
+- Premise 2: ~M · O
+- Conclusion: N
+
+Let me construct a truth table for the relevant rows.
+
+For the argument to be invalid, I need premises to be true and conclusion false.
+
+If N is false, then for M ∨ N to be true, M must be true.
+But if M is true, then ~M is false, making ~M · O false.
+
+So whenever N is false, either P1 or P2 is false. The conclusion N cannot be false while both premises are true.
+
+Wait, let me check option B: M and O are true, N is false.
+- P1: M ∨ N = T ∨ F = T ✓
+- P2: ~M · O = F · T = F ✗
+
+P2 is false, so this isn't a counterexample.
+
+The argument appears valid. When both premises are true:
+- ~M · O is true means ~M is true, so M is false
+- M ∨ N is true and M is false, so N must be true
+
+The answer is **A. Valid**"
+mmlu_formal_logic_32,formal_logic,1,D,"From ~Z and (X ≡ ~Y) ⊃ Z, by modus tollens, we get ~(X ≡ ~Y).
+
+Answer: D"
+mmlu_formal_logic_33,formal_logic,1,B,B
+mmlu_formal_logic_34,formal_logic,1,D,D
+mmlu_formal_logic_35,formal_logic,1,C,"I need to determine if this argument is valid using indirect truth tables.
+
+The argument is:
+1. P ⊃ (Q ∨ R)
+2. (Q · S) ⊃ ~P
+3. ~(~Q ∨ R) / ~P
+
+For an indirect truth table, I assume the conclusion is false and see if the premises can all be true.
+
+**Assume ~P is false**, so **P is true**.
+
+**Analyze premise 3:** ~(~Q ∨ R)
+This means ~Q ∨ R is false, so both ~Q and R must be false.
+- ~Q is false → **Q is true**
+- R is false → **R is false**
+
+**Check premise 1:** P ⊃ (Q ∨ R)
+- P is true, Q is true, R is false
+- Q ∨ R = true ∨ false = true
+- P ⊃ true = true ✓
+
+**Check premise 2:** (Q · S) ⊃ ~P
+- P is true, so ~P is false
+- Q is true
+- For this to be true: Q · S must be false
+- Since Q is true, S must be **false**
+- Q · S = true · false = false
+- false ⊃ false = true ✓
+
+So with P = true, Q = true, R = false, S = false, all premises are true and conclusion (~P) is false.
+
+This is a counterexample, making the argument **invalid**.
+
+This matches option C: P and Q are true, R and S are false.
+
+The answer is **C**."
+mmlu_formal_logic_36,formal_logic,1,B,"I need to determine if the argument is valid:
+- Premise 1: T ∨ U
+- Premise 2: W · T
+- Conclusion: U
+
+Let me construct a truth table and look for counterexamples (cases where both premises are true but the conclusion is false).
+
+For the argument to be invalid, I need both premises true and conclusion (U) false.
+
+If U is false:
+- Premise 1 (T ∨ U): T must be true for this to be true
+- Premise 2 (W · T): W must be true and T must be true
+
+So when T = true, W = true, U = false:
+- Premise 1: T ∨ U = T ∨ F = T ✓
+- Premise 2: W · T = T · T = T ✓
+- Conclusion: U = F ✗
+
+This is a counterexample, making the argument invalid.
+
+The answer is **B**. Invalid. Counterexample when T and W are true and U is false."
+mmlu_formal_logic_37,formal_logic,1,D,D
+mmlu_formal_logic_38,formal_logic,1,B,B
+mmlu_formal_logic_39,formal_logic,1,D,D
+mmlu_formal_logic_40,formal_logic,1,A,A
+mmlu_formal_logic_41,formal_logic,1,A,A
+mmlu_formal_logic_42,formal_logic,1,C,"I need to construct truth tables for C ⊃ (D ∨ C) and C · ~D.
+
+Let me evaluate both propositions for all combinations of C and D:
+
+| C | D | D∨C | C⊃(D∨C) | ~D | C·~D |
+|---|---|-----|---------|-----|------|
+| T | T | T   | T       | F   | F    |
+| T | F | T   | T       | T   | T    |
+| F | T | T   | T       | F   | F    |
+| F | F | F   | T       | T   | F    |
+
+C ⊃ (D ∨ C): T, T, T, T
+C · ~D: F, T, F, F
+
+Analysis:
+- They are not logically equivalent (different truth values in rows 1, 3, 4)
+- They are not contradictory (both true in row 2)
+- They are consistent (there exists a row where both are true - row 2)
+
+The answer is **C**."
+mmlu_formal_logic_43,formal_logic,1,A,"I need to construct truth tables for ~O ⊃ P and O ∨ P.
+
+| O | P | ~O | ~O ⊃ P | O ∨ P |
+|---|---|----|---------|-------|
+| T | T | F  | T       | T     |
+| T | F | F  | T       | T     |
+| F | T | T  | T       | T     |
+| F | F | T  | F       | F     |
+
+The two columns are identical in all rows, so the statements are **logically equivalent**.
+
+**A**"
+mmlu_formal_logic_44,formal_logic,1,A,"I need to determine if the argument is valid using indirect truth tables.
+
+The argument is:
+1. (T · ~U) ⊃ ~W
+2. ~W ⊃ X
+3. ~Z ⊃ W
+4. ~(X · Z)
+∴ T ⊃ U
+
+For indirect truth table, assume the conclusion is false:
+T ⊃ U is false, so T = true, U = false.
+
+Now work through the premises with T = true, U = false:
+
+From premise 1: (T · ~U) ⊃ ~W
+- T = true, ~U = true, so (T · ~U) = true
+- For premise 1 to be true: ~W must be true, so W = false
+
+From premise 2: ~W ⊃ X
+- W = false, so ~W = true
+- For premise 2 to be true: X = true
+
+From premise 4: ~(X · Z)
+- X = true, so ~(true · Z) = ~Z must be true... wait
+- ~(X · Z) = true means X · Z = false
+- Since X = true, Z must be false
+
+From premise 3: ~Z ⊃ W
+- Z = false, so ~Z = true
+- For premise 3 to be true: W must be true
+- But we established W = false — CONTRADICTION
+
+So all four premises cannot be true simultaneously when the conclusion is false. The argument is **valid**.
+
+The answer is **A**."
+mmlu_formal_logic_45,formal_logic,1,A,A
+mmlu_formal_logic_46,formal_logic,1,D,D
+mmlu_formal_logic_47,formal_logic,1,A,A
+mmlu_formal_logic_48,formal_logic,1,D,"I need to determine if the argument is valid using indirect truth tables.
+
+The argument is:
+- Premise 1: (A ∨ B) ⊃ C
+- Premise 2: C ⊃ ~D
+- Conclusion: D ⊃ A
+
+For an indirect truth table, I assume the argument is **invalid**: premises true and conclusion false.
+
+**Conclusion false:** D ⊃ A is false, so D = T and A = F.
+
+**With D = T and A = F:**
+
+**Premise 2:** C ⊃ ~D = C ⊃ ~T = C ⊃ F, so C must be F for this to be true.
+
+**Premise 1:** (A ∨ B) ⊃ C = (F ∨ B) ⊃ F = B ⊃ F
+For this to be true, B must be F.
+
+So: A = F, B = F, C = F, D = T
+
+Check all premises:
+- P1: (F ∨ F) ⊃ F = F ⊃ F = T ✓
+- P2: F ⊃ ~T = F ⊃ F = T ✓
+- Conclusion: T ⊃ F = F ✓ (conclusion is false)
+
+This is a valid counterexample with A = F, B = F, C = F, D = T.
+
+This matches option **D**: Invalid. Counterexample when A, B, and C are false and D is true.
+
+**D**"
+mmlu_formal_logic_49,formal_logic,1,B,B
+mmlu_formal_logic_50,formal_logic,1,B,B
+mmlu_formal_logic_51,formal_logic,0,A,"Looking at this problem, I need to find what follows in one step from these premises:
+
+1. (N ⊃ ~O) ⊃ (O ∨ Q)
+2. P ⊃ (N ⊃ ~O)
+3. N ⊃ P
+
+I need to find a one-step consequence using a standard inference rule.
+
+Using Hypothetical Syllogism on premises 3 and 2:
+- N ⊃ P (premise 3)
+- P ⊃ (N ⊃ ~O) (premise 2)
+- Therefore: N ⊃ (N ⊃ ~O) — but this isn't one of the options.
+
+Let me try another approach. Using Hypothetical Syllogism on premises 2 and 1:
+- P ⊃ (N ⊃ ~O) (premise 2)
+- (N ⊃ ~O) ⊃ (O ∨ Q) (premise 1)
+- Therefore: P ⊃ (O ∨ Q) — not listed.
+
+Let me try combining all three with Hypothetical Syllogism:
+- N ⊃ P (premise 3)
+- P ⊃ (N ⊃ ~O) (premise 2)
+- (N ⊃ ~O) ⊃ (O ∨ Q) (premise 1)
+
+From 3 and 2: N ⊃ (N ⊃ ~O)
+This simplifies, but let me check option B: N ⊃ ~O
+
+Actually, using Hypothetical Syllogism on premises 3 and 2 gives N ⊃ (N ⊃ ~O), which equals N ⊃ ~O (by absorption/exportation reasoning).
+
+Then from N ⊃ ~O and premise 1, we get O ∨ Q by Modus Ponens — but that requires N ⊃ ~O as established.
+
+The answer is **B**."
+mmlu_formal_logic_52,formal_logic,1,D,D
+mmlu_formal_logic_53,formal_logic,1,D,D
+mmlu_formal_logic_54,formal_logic,1,B,B
+mmlu_formal_logic_55,formal_logic,1,B,B
+mmlu_formal_logic_56,formal_logic,1,B,"I need to determine if `I ≡ ~H` and `~(~I ≡ H)` are logically equivalent, contradictory, consistent, or inconsistent.
+
+Let me construct a truth table for both propositions.
+
+| I | H | ~H | ~I | I ≡ ~H | ~I ≡ H | ~(~I ≡ H) |
+|---|---|----|----|---------|---------|-----------|
+| T | T | F  | F  | T≡F = F | F≡T = F | T         |
+| T | F | T  | F  | T≡T = T | F≡F = T | F         |
+| F | T | F  | T  | F≡F = T | T≡T = T | F         |
+| F | F | T  | T  | F≡T = F | T≡F = F | T         |
+
+Now comparing the two columns:
+- Row 1: F vs T → different
+- Row 2: T vs F → different
+- Row 3: T vs F → different
+- Row 4: F vs T → different
+
+The two propositions have opposite truth values in every row, making them **logically equivalent** to each other's negation — wait, they are always opposite, so they are **contradictory**.
+
+Wait, let me recheck. Contradictory means they always have opposite truth values (one true when other false). That's exactly what we see here.
+
+The answer is **B. Contradictory**"
+mmlu_formal_logic_57,formal_logic,1,B,"I need to determine if this set of propositions is consistent using indirect truth tables.
+
+The three propositions are:
+1. (T ⊃ U) ⊃ (W ⊃ U)
+2. T ⊃ ~(U ⊃ X)
+3. (T ⊃ ~X) ⊃ W
+
+Let me test the valuations given in the options.
+
+**Option B: U, W, X true; T false**
+
+1. (F ⊃ T) ⊃ (T ⊃ T) = T ⊃ T = T ✓
+2. F ⊃ ~(T ⊃ T) = F ⊃ ~T = F ⊃ F = T ✓
+3. (F ⊃ ~T) ⊃ T = (F ⊃ F) ⊃ T = T ⊃ T = T ✓
+
+All three are true! This is consistent.
+
+**Option D: T, U true; W, X false**
+
+1. (T ⊃ T) ⊃ (F ⊃ T) = T ⊃ T = T ✓
+2. T ⊃ ~(T ⊃ F) = T ⊃ ~F = T ⊃ T = T ✓
+3. (T ⊃ ~F) ⊃ F = (T ⊃ T) ⊃ F = T ⊃ F = F ✗
+
+Not consistent with this valuation.
+
+**Option C: W, X true; T, U false**
+
+1. (F ⊃ F) ⊃ (T ⊃ F) = T ⊃ F = F ✗
+
+Not consistent.
+
+The answer is **B**."
+mmlu_formal_logic_58,formal_logic,1,B,B
+mmlu_formal_logic_59,formal_logic,1,D,"I need to symbolize: ""Either England's importing beef is a sufficient condition for France's subsidizing agriculture, or China doesn't promote human rights when and only when South Africa supplies diamonds.""
+
+Let me define:
+- E = England imports beef
+- F = France subsidizes agriculture
+- C = China promotes human rights
+- S = South Africa supplies diamonds
+
+Breaking it down:
+1. ""England's importing beef is a sufficient condition for France's subsidizing agriculture"" = E ⊃ F
+
+2. ""China doesn't promote human rights when and only when South Africa supplies diamonds"" = ~C ≡ S
+
+The whole sentence: (E ⊃ F) ∨ (~C ≡ S)
+
+The answer is **D**."
+mmlu_abstract_algebra_0,abstract_algebra,1,B,"Since sqrt(18) = 3*sqrt(2), it's already in Q(sqrt(2), sqrt(3)). So the extension is just Q(sqrt(2), sqrt(3)) over Q, which has degree 4.
+
+B"
+mmlu_abstract_algebra_1,abstract_algebra,1,C,"The permutation p = (1, 2, 5, 4)(2, 3) in S_5.
+
+First, I need to find the order of p by computing the cycle structure.
+
+Let me find where each element goes:
+- (1, 2, 5, 4) sends: 1→2, 2→5, 5→4, 4→1
+- (2, 3) sends: 2→3, 3→2
+
+Composing (apply (2,3) first, then (1,2,5,4)):
+- 1: (2,3) fixes 1 → 1, then (1,2,5,4) sends 1→2. So 1→2
+- 2: (2,3) sends 2→3, then (1,2,5,4) fixes 3. So 2→3
+- 3: (2,3) sends 3→2, then (1,2,5,4) sends 2→5. So 3→5
+- 4: (2,3) fixes 4, then (1,2,5,4) sends 4→1. So 4→1
+- 5: (2,3) fixes 5, then (1,2,5,4) sends 5→4. So 5→4
+
+So p = (1, 2, 3, 5, 4) as a single 5-cycle.
+
+The order of p is 5.
+
+Index of ⟨p⟩ in S_5 = |S_5|/|⟨p⟩| = 120/5 = 24.
+
+The answer is **C**."
+mmlu_abstract_algebra_2,abstract_algebra,1,D,"I need to find all zeros of x^5 + 3x^3 + x^2 + 2x in Z_5.
+
+Factor out x: x(x^4 + 3x^2 + x + 2)
+
+So x = 0 is always a zero.
+
+Now test x = 1, 2, 3, 4 in x^4 + 3x^2 + x + 2:
+
+**x = 1:** 1 + 3 + 1 + 2 = 7 ≡ 2 (mod 5) ≠ 0
+
+**x = 2:** 16 + 3(4) + 2 + 2 = 16 + 12 + 4 = 32 ≡ 2 (mod 5) ≠ 0
+
+**x = 3:** 81 + 3(9) + 3 + 2 = 81 + 27 + 5 = 113 ≡ 3 (mod 5) ≠ 0
+
+**x = 4:** 256 + 3(16) + 4 + 2 = 256 + 48 + 6 = 310 ≡ 0 (mod 5) ✓
+
+So zeros are x = 0 and x = 4.
+
+**D**"
+mmlu_abstract_algebra_3,abstract_algebra,1,B,B
+mmlu_abstract_algebra_4,abstract_algebra,1,B,"We need to find f(x)·g(x) where f(x) = 4x - 5 and g(x) = 2x² - 4x + 2 in Z_8[x].
+
+Multiply:
+(4x - 5)(2x² - 4x + 2)
+
+= 4x·2x² + 4x·(-4x) + 4x·2 + (-5)·2x² + (-5)·(-4x) + (-5)·2
+
+= 8x³ - 16x² + 8x - 10x² + 20x - 10
+
+In Z_8:
+- 8x³ ≡ 0
+- -16x² ≡ 0
+- 8x ≡ 0
+- -10x² ≡ -10 ≡ -2 ≡ 6 (mod 8), so 6x²
+- 20x ≡ 4x (mod 8)
+- -10 ≡ -2 ≡ 6 (mod 8)
+
+Result: 6x² + 4x + 6
+
+Answer: **B**"
+mmlu_abstract_algebra_5,abstract_algebra,1,A,A
+mmlu_abstract_algebra_6,abstract_algebra,1,A,A
+mmlu_abstract_algebra_7,abstract_algebra,0,D,C
+mmlu_abstract_algebra_8,abstract_algebra,1,B,B
+mmlu_abstract_algebra_9,abstract_algebra,1,C,"I need to find zeros of x³ + 2x + 2 in Z_7 by testing all elements 0-6.
+
+x = 0: 0 + 0 + 2 = 2 ≠ 0
+x = 1: 1 + 2 + 2 = 5 ≠ 0
+x = 2: 8 + 4 + 2 = 14 = 0 (mod 7) ✓
+x = 3: 27 + 6 + 2 = 35 = 0 (mod 7) ✓
+x = 4: 64 + 8 + 2 = 74 = 74 - 70 = 4 ≠ 0
+x = 5: 125 + 10 + 2 = 137 = 137 - 133 = 4 ≠ 0
+x = 6: 216 + 12 + 2 = 230 = 230 - 224 = 6 ≠ 0
+
+Zeros are 2 and 3.
+
+**C**"
+mmlu_abstract_algebra_10,abstract_algebra,1,C,C
+mmlu_abstract_algebra_11,abstract_algebra,1,C,C
+mmlu_abstract_algebra_12,abstract_algebra,1,A,"The order of the factor group is |Z_11 × Z_15| / |<(1,1)>|.
+
+|Z_11 × Z_15| = 11 × 15 = 165.
+
+The order of (1,1) in Z_11 × Z_15 is lcm(11, 15) = 165.
+
+So the factor group has order 165/165 = 1.
+
+Answer: A"
+mmlu_abstract_algebra_13,abstract_algebra,1,C,"I need to factor x³ + 2x² + 2x + 1 in Z_7[x].
+
+First, let me find the roots by testing values 0-6 in Z_7.
+
+x = 0: 0 + 0 + 0 + 1 = 1 ≠ 0
+x = 1: 1 + 2 + 2 + 1 = 6 ≠ 0
+x = 2: 8 + 8 + 4 + 1 = 21 = 0 ✓ (mod 7)
+x = 3: 27 + 18 + 6 + 1 = 52 = 52 - 49 = 3 ≠ 0
+x = 4: 64 + 32 + 8 + 1 = 105 = 0 ✓ (mod 7, since 105 = 15×7)
+x = 5: 125 + 50 + 10 + 1 = 186 = 186 - 182 = 4 ≠ 0
+x = 6: 216 + 72 + 12 + 1 = 301 = 43×7 = 301 ✓ (mod 7)
+
+So roots are x = 2, 4, 6.
+
+The factorization is (x - 2)(x - 4)(x - 6) in Z_7[x].
+
+Now x - 6 ≡ x + 1 (mod 7), x - 4 stays as x - 4 or x + 3, x - 2 stays.
+
+So: (x - 2)(x - 4)(x + 1)
+
+Let me check the options:
+B. (x + 1)(x + 4)(x − 2): roots are x = -1 = 6, x = -4 = 3, x = 2. Root 3 doesn't work.
+C. (x + 1)(x − 4)(x − 2): roots are x = 6, x = 4, x = 2. ✓
+
+Answer: **C**"
+mmlu_abstract_algebra_14,abstract_algebra,1,C,"For S_10, I need to find the maximum order of an element, which equals the maximum LCM of partitions of 10.
+
+The order of a permutation is the LCM of its cycle lengths. I need to find a partition of 10 that maximizes the LCM.
+
+Let me check some partitions:
+- 2+3+5 = 10, LCM(2,3,5) = 30
+- 2+3+4 = 9 ≤ 10, LCM = 12
+- 4+3+2+1 = 10, LCM(4,3,2) = 12
+- 7+3 = 10, LCM = 21
+- 2+8 = 10, LCM = 8
+- 3+7 = 10, LCM = 21
+- 4+6 = 10, LCM = 12
+- 5+4+1 = 10, LCM = 20
+- 2+3+5 = 10, LCM = 30
+
+30 appears to be the maximum.
+
+The answer is **C**."
+mmlu_abstract_algebra_15,abstract_algebra,1,B,B
+mmlu_abstract_algebra_16,abstract_algebra,1,C,C
+mmlu_abstract_algebra_17,abstract_algebra,1,C,"The product (2,3)(3,5) in Z_5 × Z_9:
+
+First component: 2·3 = 6 ≡ 1 (mod 5)
+Second component: 3·5 = 15 ≡ 6 (mod 9)
+
+Answer: C"
+mmlu_abstract_algebra_18,abstract_algebra,1,D,D
+mmlu_abstract_algebra_19,abstract_algebra,1,A,A
+mmlu_abstract_algebra_20,abstract_algebra,1,A,"Looking at each statement:
+
+**Statement 1:** ""For finite groups G and H, |G + H| = |G||H|. (G + H is the internal direct product.)""
+
+The internal direct product G + H requires G and H to be subgroups of some larger group, with G ∩ H = {e} and GH = the whole group. In that case, |G + H| = |G||H| is indeed true (it's isomorphic to the external direct product). So Statement 1 is **True**.
+
+**Statement 2:** ""If r divides m and s divides n then Z_m + Z_n has a subgroup isomorphic to Z_r + Z_s.""
+
+If r | m, then Z_m has a subgroup isomorphic to Z_r. If s | n, then Z_n has a subgroup isomorphic to Z_s. Therefore Z_m + Z_n has a subgroup isomorphic to Z_r + Z_s. So Statement 2 is **True**.
+
+The answer is **A**."
+mmlu_abstract_algebra_21,abstract_algebra,1,A,"The sum f(x) + g(x) = (4x - 5) + (2x^2 - 4x + 2) = 2x^2 + (4x - 4x) + (-5 + 2) = 2x^2 + 0x - 3
+
+In Z_8[x], -3 ≡ 5 (mod 8)
+
+So the result is 2x^2 + 5.
+
+A"
+mmlu_abstract_algebra_22,abstract_algebra,1,D,D
+mmlu_abstract_algebra_23,abstract_algebra,1,D,D
+mmlu_abstract_algebra_24,abstract_algebra,0,B,A
+mmlu_abstract_algebra_25,abstract_algebra,1,C,C
+mmlu_abstract_algebra_26,abstract_algebra,1,C,C
+mmlu_abstract_algebra_27,abstract_algebra,1,B,"Looking at the polynomial 8x³ + 6x² - 9x + 24, I need to check the Eisenstein criterion with various primes.
+
+**Eisenstein Criterion:** A prime p works if:
+- p divides all coefficients except the leading one
+- p does NOT divide the leading coefficient
+- p² does NOT divide the constant term
+
+**Try p = 2:**
+- Leading coefficient: 8 → 2 divides 8? Yes, but we need p to NOT divide the leading coefficient. ❌
+
+**Try p = 3:**
+- Leading coefficient: 8 → 3 does NOT divide 8 ✓
+- 6x² coefficient: 6 → 3 divides 6 ✓
+- -9x coefficient: -9 → 3 divides -9 ✓
+- Constant term: 24 → 3 divides 24 ✓
+- Check p²= 9: Does 9 divide 24? 24/9 is not an integer ✓
+
+All conditions satisfied for p = 3!
+
+The answer is **B**."
+mmlu_abstract_algebra_28,abstract_algebra,1,D,D
+mmlu_abstract_algebra_29,abstract_algebra,1,A,A
+mmlu_abstract_algebra_30,abstract_algebra,1,B,B
+mmlu_abstract_algebra_31,abstract_algebra,1,B,"We need (ab)^-1 = a^-1b^-1.
+
+But we know (ab)^-1 = b^-1a^-1.
+
+So b^-1a^-1 = a^-1b^-1 for all a, b in G.
+
+Replacing a with a^-1 and b with b^-1: ba = ab for all a, b in G.
+
+So G is abelian.
+
+Answer: B"
+mmlu_abstract_algebra_32,abstract_algebra,1,A,A
+mmlu_abstract_algebra_33,abstract_algebra,1,C,C
+mmlu_abstract_algebra_34,abstract_algebra,0,A,"Looking at each statement:
+
+**Statement 1:** ""If T: V → W is a linear transformation and dim(V) < dim(W) < 1, then T must be injective.""
+
+dim(W) < 1 means dim(W) = 0 (since dimensions are non-negative integers), which means W = {0}. But then dim(V) < dim(W) = 0 is impossible since dimensions are non-negative. This statement has vacuous truth (the hypothesis can never be satisfied) or is considered false due to the impossible condition. However, a vacuously true statement would be true... but more likely this is meant to be interpreted as a false statement since the premise is impossible/nonsensical, or the problem intends dim(W) ≥ 1.
+
+Actually, if we interpret this as a trick: if dim(V) < dim(W), by rank-nullity, T need not be injective (e.g., zero map). The condition ""dim(W) < 1"" makes the hypothesis impossible, making it vacuously true. But the intended answer likely treats Statement 1 as **False** (the general principle that dim(V) < dim(W) doesn't force injectivity).
+
+**Statement 2:** ""Let dim(V) = n and suppose T: V → V is linear. If T is injective, then it is a bijection.""
+
+For finite-dimensional vector spaces, an injective linear map from V to V is indeed bijective (by rank-nullity theorem: nullity = 0 implies rank = n = dim(V), so T is surjective). This is **True**.
+
+The answer is **D. False, True**.
+
+D"
+mmlu_abstract_algebra_35,abstract_algebra,1,B,B
+mmlu_abstract_algebra_36,abstract_algebra,1,D,"(20)(-8) = -160 in Z_26.
+
+-160 mod 26: 160 = 6×26 + 4, so 160 ≡ 4 (mod 26), thus -160 ≡ -4 ≡ 22 (mod 26).
+
+D"
+mmlu_abstract_algebra_37,abstract_algebra,1,B,"For x² - 12, we need a prime p such that:
+1. p divides all coefficients except the leading one
+2. p does not divide the leading coefficient
+3. p² does not divide the constant term
+
+The constant term is -12 = -2² × 3.
+
+For p = 2: p divides -12 ✓, p does not divide 1 (leading coefficient) ✓, but p² = 4 divides 12 ✗
+
+For p = 3: p divides -12 ✓, p does not divide 1 ✓, p² = 9 does not divide 12 ✓
+
+So Eisenstein's criterion is satisfied with p = 3.
+
+Answer: B"
+mmlu_abstract_algebra_38,abstract_algebra,1,C,"I need to find a generator (primitive root) for the multiplicative group of Z_7.
+
+The multiplicative group Z_7* has order 6. A generator must have order 6.
+
+Testing 3:
+- 3^1 = 3
+- 3^2 = 9 = 2
+- 3^3 = 6
+- 3^4 = 18 = 4
+- 3^5 = 12 = 5
+- 3^6 = 15 = 1
+
+3 generates all elements {1,2,3,4,5,6}, so 3 is a primitive root/generator.
+
+Answer: C"
+mmlu_abstract_algebra_39,abstract_algebra,1,D,D
+mmlu_abstract_algebra_40,abstract_algebra,1,C,"For identity element e: a*e = a
+a + e + 1 = a
+e + 1 = 0
+e = -1
+
+C"
+mmlu_abstract_algebra_41,abstract_algebra,1,A,"The ring Z_3 x 3Z has characteristic 0, because 3Z is a subring of Z with characteristic 0. The characteristic of a product ring is the lcm of the characteristics. Since 3Z has characteristic 0 (no positive integer n satisfies n·a = 0 for all a in 3Z), the characteristic of the product is 0.
+
+A"
+mmlu_abstract_algebra_42,abstract_algebra,1,B,"Looking at Statement 1: An abelian group of order 45 = 3² × 5. By the fundamental theorem of finitely generated abelian groups, the possible groups are Z_45 or Z_9 × Z_5 (or Z_3 × Z_3 × Z_5). For a subgroup of order 10 to exist, by Lagrange's theorem, 10 must divide 45. But 10 does not divide 45 (45/10 = 4.5), so no subgroup of order 10 can exist. Statement 1 is **False**.
+
+Looking at Statement 2: A subgroup H is normal if and only if gH = Hg for all g in G, which means left cosets equal right cosets. The number of left cosets always equals the number of right cosets (both equal [G:H]), so this condition is always satisfied and doesn't characterize normality. Statement 2 is **False**.
+
+The answer is **B**."
+mmlu_abstract_algebra_43,abstract_algebra,1,C,C
+mmlu_abstract_algebra_44,abstract_algebra,1,C,C
+mmlu_abstract_algebra_45,abstract_algebra,1,C,C
+mmlu_abstract_algebra_46,abstract_algebra,1,B,B
+mmlu_abstract_algebra_47,abstract_algebra,1,B,"I need to find all c in Z_3 such that Z_3[x]/(x^3 + x^2 + c) is a field.
+
+For Z_3[x]/(f(x)) to be a field, f(x) must be irreducible over Z_3.
+
+A cubic polynomial is irreducible over Z_3 if and only if it has no roots in Z_3.
+
+I need to test x = 0, 1, 2 in Z_3 for each value of c.
+
+**Case c = 0:** f(x) = x^3 + x^2
+- f(0) = 0 + 0 = 0 ✓ (root found)
+- Not irreducible.
+
+**Case c = 1:** f(x) = x^3 + x^2 + 1
+- f(0) = 0 + 0 + 1 = 1 ≠ 0
+- f(1) = 1 + 1 + 1 = 3 = 0 (mod 3) ✓ (root found)
+- Not irreducible.
+
+**Case c = 2:** f(x) = x^3 + x^2 + 2
+- f(0) = 0 + 0 + 2 = 2 ≠ 0
+- f(1) = 1 + 1 + 2 = 4 = 1 ≠ 0 (mod 3)
+- f(2) = 8 + 4 + 2 = 14 = 2 ≠ 0 (mod 3)
+- No roots, so irreducible!
+
+The answer is **B. 2**"
+mmlu_abstract_algebra_48,abstract_algebra,1,C,C
+mmlu_abstract_algebra_49,abstract_algebra,1,B,"The maximum order of an element in Z_8 × Z_10 × Z_24 is lcm(8, 10, 24).
+
+lcm(8, 10, 24):
+- 8 = 2³
+- 10 = 2 × 5
+- 24 = 2³ × 3
+
+lcm = 2³ × 3 × 5 = 120
+
+Answer: B"
+mmlu_abstract_algebra_50,abstract_algebra,1,D,D
+mmlu_abstract_algebra_51,abstract_algebra,1,B,"I need to find all c in Z_3 such that x^3 + cx^2 + 1 is irreducible over Z_3.
+
+A polynomial of degree 3 is irreducible over Z_3 if and only if it has no roots in Z_3.
+
+Test x = 0, 1, 2 for each value of c.
+
+**c = 0:** x^3 + 1
+- x=0: 0+1=1 ≠ 0
+- x=1: 1+1=2 ≠ 0
+- x=2: 8+1=9=0 (mod 3) ✗ (has a root)
+
+**c = 1:** x^3 + x^2 + 1
+- x=0: 1 ≠ 0
+- x=1: 1+1+1=3=0 (mod 3) ✗ (has a root)
+
+**c = 2:** x^3 + 2x^2 + 1
+- x=0: 1 ≠ 0
+- x=1: 1+2+1=4=1 ≠ 0
+- x=2: 8+8+1=17=2 ≠ 0 ✓ (no roots, irreducible)
+
+The answer is **B. 2**"
+mmlu_abstract_algebra_52,abstract_algebra,1,A,"Looking at the group G = {2, 4, 6, 8} under multiplication modulo 10, I need to find the identity element e such that e·a ≡ a (mod 10) for all a in G.
+
+Testing 6:
+- 6·2 = 12 ≡ 2 (mod 10) ✓
+- 6·4 = 24 ≡ 4 (mod 10) ✓
+- 6·6 = 36 ≡ 6 (mod 10) ✓
+- 6·8 = 48 ≡ 8 (mod 10) ✓
+
+The answer is **A**."
+mmlu_abstract_algebra_53,abstract_algebra,1,C,"Looking at each statement:
+
+**Statement 1:** ""If G, H and K are groups of order 4, at least two of them are isomorphic.""
+
+There are only two groups of order 4 up to isomorphism: Z_4 (cyclic) and Z_2 × Z_2 (Klein four-group). If we have three groups G, H, K each of order 4, by the pigeonhole principle, at least two must be isomorphic to the same one of these two types, hence isomorphic to each other. **Statement 1 is TRUE.**
+
+**Statement 2:** ""If Z_r + Z_s is isomorphic to a subgroup of Z_m + Z_n, then r divides m and s divides n.""
+
+This is false. For example, Z_2 + Z_2 is isomorphic to a subgroup of Z_4 + Z_2 (wait, let me think more carefully). Consider Z_3 + Z_3 as a subgroup of Z_3 + Z_9: here r=3 divides m=3 and s=3 divides n=9, that works. 
+
+A counterexample: Z_2 + Z_2 is isomorphic to a subgroup of Z_2 + Z_4 (take Z_2 + {0,2} ≅ Z_2 + Z_2). Here r=2 divides m=2 ✓ and s=2 divides n=4 ✓.
+
+Try: Z_1 + Z_6 ≅ Z_6 is isomorphic to a subgroup of Z_2 + Z_6 (the subgroup generated by (1,1) has order lcm(2,6)=6, so yes). Here r=1, s=6, m=2, n=6. r=1 divides m=2 ✓, s=6 divides n=6 ✓.
+
+Try: Z_2 + Z_2 as subgroup of Z_4 + Z_1: Z_4 + Z_1 ≅ Z_4, which has only one subgroup of order 2 (cyclic), not Z_2 + Z_2. 
+
+Consider Z_6 ≅ Z_2 + Z_3 as subgroup of Z_4 + Z_3: does Z_4 + Z_3 contain Z_2 + Z_3? Yes: {0,2} × Z_3 ≅ Z_2 + Z_3. So Z_r + Z_s = Z_2 + Z_3 is a subgroup of Z_m + Z_n = Z_4 + Z_3. Here r=2 divides m=4 ✓, s=3 divides n=3 ✓.
+
+Try to find where it fails: Z_2 + Z_2 as subgroup of Z_4 + Z_2. The subgroup {0,2} × Z_2 ≅ Z_2 + Z_2. r=2|4=m ✓, s=2|2=n ✓.
+
+What about Z_2 + Z_4 as subgroup of Z_4 + Z_2? Order would be 8, but |Z_4 + Z_2|=8, so it would have to be the whole group. Z_4 + Z_2 is not isomorphic to Z_2 + Z_4... they are isomorphic. So that's trivial.
+
+Consider Z_3 as subgroup of Z_9: Z_3 + Z_1 ⊂ Z_9 + Z_1, r=3|9 ✓.
+
+The statement seems plausible but is actually false in general. For instance, Z_2 + Z_2 is a subgroup of Z_4 (no, Z_4 is cyclic). 
+
+Actually a known counterexample: Z_2 + Z_2 is isomorphic to a subgroup of Z_2 + Z_4, but also consider Z_p + Z_p ⊂ Z_p + Z_{p^2}: r=p|p ✓, s=p|p^2 ✓.
+
+The statement is generally considered **FALSE** because the correspondence need not respect the decomposition directly.
+
+**Statement 1 is True, Statement 2 is False → Answer: C**
+
+The answer is **C**."
+mmlu_abstract_algebra_54,abstract_algebra,1,B,B
+mmlu_abstract_algebra_55,abstract_algebra,1,A,A
+mmlu_abstract_algebra_56,abstract_algebra,1,D,D
+mmlu_abstract_algebra_57,abstract_algebra,1,B,"I need to find a generator (primitive root) for the multiplicative group of Z_11.
+
+The multiplicative group Z_11* has order 10. A generator must have order 10.
+
+Testing 2:
+- 2^1 = 2
+- 2^2 = 4
+- 2^5 = 32 = 10 (mod 11)
+- 2^10 = 100 = 1 (mod 11)
+
+Check if order is exactly 10 (not a divisor like 1, 2, 5):
+- 2^1 = 2 ≠ 1
+- 2^2 = 4 ≠ 1
+- 2^5 = 10 ≠ 1
+
+So 2 has order 10 and is a generator.
+
+Answer: B"
+mmlu_abstract_algebra_58,abstract_algebra,1,A,"Looking at this problem, I need to evaluate both statements.
+
+**Statement 1: Every group of order 159 is cyclic.**
+
+159 = 3 × 53
+
+For a group of order n = p × q where p < q are primes, the group is cyclic if p does not divide (q-1).
+
+Here p = 3, q = 53. Check: does 3 divide (53-1) = 52? 52 = 3 × 17 + 1, so 3 does not divide 52.
+
+Therefore, every group of order 159 is cyclic. **Statement 1 is TRUE.**
+
+**Statement 2: Every group of order 102 has a nontrivial proper normal subgroup.**
+
+102 = 2 × 3 × 17
+
+By Sylow's theorem, look at the Sylow 17-subgroup. The number of Sylow 17-subgroups n₁₇ must divide 6 (= 102/17) and n₁₇ ≡ 1 (mod 17). The divisors of 6 are 1, 2, 3, 6. Only 1 satisfies n₁₇ ≡ 1 (mod 17).
+
+So there is a unique (hence normal) Sylow 17-subgroup. This is a nontrivial proper normal subgroup. **Statement 2 is TRUE.**
+
+The answer is **A**."
+mmlu_abstract_algebra_59,abstract_algebra,1,A,A
+mmlu_college_mathematics_0,college_mathematics,1,B,"The function f(x) = e^x + x - 2.
+
+At x=0: f(0) = 1 + 0 - 2 = -1 < 0
+At x=1: f(1) = e + 1 - 2 = e - 1 > 0
+
+By IVT, there's at least one root in [0,1]. Since f'(x) = e^x + 1 > 0, f is strictly increasing, so exactly one root in [0,1].
+
+For x outside [0,1]: f is strictly increasing, negative for all x < 0 (since at x=0 it's -1 and decreasing as x decreases), and positive for x > 1. So no other real solutions.
+
+k = 1, n = 0.
+
+B"
+mmlu_college_mathematics_1,college_mathematics,1,D,"We need additive abelian groups of order 16 where 4x = 0 for all x.
+
+By the classification of finite abelian groups, groups of order 16 = 2^4 are:
+1. Z_16
+2. Z_8 × Z_2
+3. Z_4 × Z_4
+4. Z_4 × Z_2 × Z_2
+5. Z_2 × Z_2 × Z_2 × Z_2
+
+The condition 4x = 0 for all x means every element has order dividing 4, so the exponent of the group divides 4.
+
+- Z_16: has elements of order 16. No.
+- Z_8 × Z_2: has elements of order 8. No.
+- Z_4 × Z_4: exponent is 4. Yes.
+- Z_4 × Z_2 × Z_2: exponent is 4. Yes.
+- Z_2 × Z_2 × Z_2 × Z_2: exponent is 2, which divides 4. Yes.
+
+That gives 3 groups.
+
+The answer is **D**."
+mmlu_college_mathematics_2,college_mathematics,1,D,"The space P consists of polynomials with coefficients in Z_5 and degree ≤ 7, so a basis is {1, x, x², x³, x⁴, x⁵, x⁶, x⁷}, giving dimension 8.
+
+The derivative D sends:
+- constants to 0
+- x^k to k·x^(k-1)
+
+The null space consists of polynomials whose derivative is 0. In Z_5, D(x^5) = 5x^4 = 0, so x^5 is also in the null space. Thus the null space contains {1, x^5}, giving n = 2.
+
+By rank-nullity theorem: r = 8 - 2 = 6.
+
+The answer is **D**."
+mmlu_college_mathematics_3,college_mathematics,1,A,"The curve is xy = 8. By symmetry, the closest point has x = y, so x² = 8, x = 2√2. Distance = √(8+8) = 4.
+
+Answer: A"
+mmlu_college_mathematics_4,college_mathematics,1,C,"We need P(exactly 2 damaged out of 3 selected).
+
+C(5,2) × C(20,1) / C(25,3)
+
+= 10 × 20 / 2300
+
+= 200/2300
+
+= 2/23
+
+Answer: C"
+mmlu_college_mathematics_5,college_mathematics,1,D,"Looking at S = {0, 2, 4, 6, 8} under modulo 10:
+
+**A. Closed under addition mod 10:**
+Adding any two even numbers gives an even number, and mod 10 of an even number is even. TRUE.
+
+**B. Closed under multiplication mod 10:**
+Product of two even numbers is even, and mod 10 stays even. TRUE.
+
+**C. Has an identity under addition mod 10:**
+The additive identity would be 0, which is in S. TRUE.
+
+**D. Has no identity under multiplication mod 10:**
+We need to check if there's an element e in S such that e·s ≡ s (mod 10) for all s in S.
+
+Check e = 6:
+- 6·0 = 0 ✓
+- 6·2 = 12 ≡ 2 ✓
+- 6·4 = 24 ≡ 4 ✓
+- 6·6 = 36 ≡ 6 ✓
+- 6·8 = 48 ≡ 8 ✓
+
+So 6 acts as a multiplicative identity for S. This means S **does** have a multiplicative identity (which is 6, not 1). Therefore statement D is FALSE.
+
+The answer is **D**."
+mmlu_college_mathematics_6,college_mathematics,1,C,"Using the Pythagorean theorem: x² + y² = 81
+
+Differentiating: 2x(dx/dt) + 2y(dy/dt) = 0
+
+When y = 3: x² = 81 - 9 = 72, so x = 6√2
+
+dx/dt = 2 m/s
+
+2(6√2)(2) + 2(3)(dy/dt) = 0
+
+24√2 + 6(dy/dt) = 0
+
+dy/dt = -4√2
+
+The top end slides downward at 4√2 meters per second.
+
+C"
+mmlu_college_mathematics_7,college_mathematics,1,C,C
+mmlu_college_mathematics_8,college_mathematics,1,C,C
+mmlu_college_mathematics_9,college_mathematics,1,A,A
+mmlu_college_mathematics_10,college_mathematics,1,D,D
+mmlu_college_mathematics_11,college_mathematics,1,B,"The probability that X > 3 = sum from n=4 to infinity of 1/2^n = 1/2^3 = 1/8.
+
+P(X ≤ 3) = 1/2 + 1/4 + 1/8 = 7/8.
+
+P(at least one > 3) = 1 - P(both ≤ 3) = 1 - (7/8)² = 1 - 49/64 = 15/64.
+
+B"
+mmlu_college_mathematics_12,college_mathematics,1,A,"Using the dimension formula: dim(V ∩ W) = dim(V) + dim(W) - dim(V + W)
+
+dim(V ∩ W) = 4 + 4 - dim(V + W) = 8 - dim(V + W)
+
+Since V + W ⊆ X, dim(V + W) ≤ 7, so dim(V ∩ W) ≥ 8 - 7 = 1.
+
+Therefore, dim(V ∩ W) cannot be 0.
+
+Answer: A"
+mmlu_college_mathematics_13,college_mathematics,1,B,B
+mmlu_college_mathematics_14,college_mathematics,1,D,"The pairs where one is the square of the other: (1,1) since 1²=1, (2,4) and (4,2) since 2²=4, (3,9) and (9,3) since 3²=9.
+
+Total outcomes: 10 × 10 = 100
+
+Favorable outcomes where one is the square of the other:
+- (1,1): 1 way
+- (2,4) and (4,2): 2 ways
+- (3,9) and (9,3): 2 ways
+
+Total unfavorable: 5
+
+Probability neither is square of other = (100 - 5)/100 = 95/100 = 0.95
+
+D"
+mmlu_college_mathematics_15,college_mathematics,1,D,D
+mmlu_college_mathematics_16,college_mathematics,1,B,"I need to analyze each statement about the vector space of matrices M(V) (which is isomorphic to M_n(R), the space of n×n matrices).
+
+**Statement I:** If V has a basis of eigenvectors of T, then T is diagonalizable, so T = diag(λ₁,...,λₙ) in some basis. U = {X : TX = XT} is the set of matrices commuting with T.
+
+If T has distinct eigenvalues, then only diagonal matrices commute with T, so U ≠ M(V). But if T = λI (scalar matrix), then all matrices commute with T, giving U = M(V).
+
+However, if T is diagonalizable with repeated eigenvalues (but not scalar), U is larger than diagonal matrices but still not all of M(V). For example, T = diag(1,1,2) - matrices commuting with T have a specific block structure, not all matrices.
+
+Wait - if T = λI (identity times scalar), then every vector is an eigenvector, and U = M(V). But if T has a basis of eigenvectors with not all eigenvalues equal, U ≠ M(V).
+
+So Statement I is **FALSE** in general (counterexample: T diagonal with distinct eigenvalues).
+
+**Statement II:** dim(U) + dim(W) = n²
+
+Consider the linear map φ: M(V) → M(V) defined by φ(X) = TX - XT.
+- W = image(φ), so dim(W) = rank(φ)
+- Kernel of φ = U, so dim(U) = nullity(φ)
+
+By rank-nullity theorem: dim(U) + dim(W) = dim(M(V)) = n².
+
+Statement II is **TRUE**.
+
+**Statement III:** dim(U) < n
+
+This says the centralizer of T always has dimension less than n. But if T = λI (scalar matrix), then U = M(V), which has dimension n². Since n² ≥ n for n ≥ 1, and n² > n for n > 1, this would mean dim(U) = n² which is NOT less than n (for n ≥ 2).
+
+Even for n = 1: dim(U) = 1 = n, so dim(U) < n is false.
+
+Statement III is **FALSE**.
+
+The answer is **B** (II only).
+
+The answer is **B**."
+mmlu_college_mathematics_17,college_mathematics,1,C,"The force F is a unit vector parallel to (-1, 0, 1). The unit vector is (-1/√2, 0, 1/√2).
+
+Work = ∫F · dr where dr = (1, 2t, 3t²)dt
+
+F · dr/dt = (-1/√2)(1) + (0)(2t) + (1/√2)(3t²) = (-1 + 3t²)/√2
+
+Work = ∫₀¹ (-1 + 3t²)/√2 dt = (1/√2)[-t + t³]₀¹ = (1/√2)(-1 + 1) = 0
+
+Answer: C"
+mmlu_college_mathematics_18,college_mathematics,0,D,"I need to analyze each statement about topological spaces where A ⊂ B ⊂ C.
+
+**Statement I: If A and C are connected, then B is connected.**
+
+Consider X = ℝ, C = [-1, 1] (connected), A = {0} (connected, a single point).
+Let B = [-1, 0) ∪ {0} ∪ (0, 1] ... wait, that's still connected.
+
+Let me try: X = ℝ, A = {0}, C = [-1, 1], B = [-1, -0.5] ∪ {0} ∪ [0.5, 1].
+- A = {0} is connected ✓
+- C = [-1, 1] is connected ✓
+- B = [-1, -0.5] ∪ {0} ∪ [0.5, 1] is disconnected ✓
+
+So Statement I is **FALSE**.
+
+**Statement II: If A and C are compact, then B is compact.**
+
+Consider X = ℝ with standard topology. A = {0}, C = [0, 1] ... but then B must satisfy A ⊂ B ⊂ C, so B ⊆ [0, 1].
+
+Wait - in a general topological space, B is between A and C. If C is compact and B ⊆ C, B is compact if it's closed. But B need not be closed.
+
+Example: X = ℝ, A = {0}, C = [0, 1], B = [0, 1) ∪ {0} = [0, 1).
+- A = {0} compact ✓
+- C = [0, 1] compact ✓  
+- B = [0, 1) is not compact ✓
+
+So Statement II is **FALSE**.
+
+**Statement III: If A and C are Hausdorff, then B is Hausdorff.**
+
+The Hausdorff property is hereditary - any subspace of a Hausdorff space is Hausdorff. Since B ⊆ C and C is Hausdorff, B inherits the Hausdorff property from C.
+
+Wait, but C being Hausdorff means C with its subspace topology is Hausdorff. Since B ⊂ C, B's topology is a subspace of C's topology, which is a subspace of X's topology. So B is a subspace of C, and subspaces of Hausdorff spaces are Hausdorff.
+
+Therefore B is Hausdorff. Statement III is **TRUE**.
+
+The answer is **B** (III only)."
+mmlu_college_mathematics_19,college_mathematics,1,A,"If the sequence converges to L, then L = sqrt(3 + 2L), so L² = 3 + 2L, giving L² - 2L - 3 = 0, (L-3)(L+1) = 0. Since L must be positive, L = 3.
+
+A"
+mmlu_college_mathematics_20,college_mathematics,1,D,D
+mmlu_college_mathematics_21,college_mathematics,1,D,"To find how many positive integers k have k! ending in exactly 99 zeros, I need to find how many trailing zeros k! has.
+
+The number of trailing zeros in k! is given by:
+$$\sum_{i=1}^{\infty} \left\lfloor \frac{k}{5^i} \right\rfloor$$
+
+I need this sum to equal 99.
+
+Let me find the value of k where this equals 99.
+
+Try k = 400:
+⌊400/5⌋ + ⌊400/25⌋ + ⌊400/125⌋ + ⌊400/625⌋ = 80 + 16 + 3 + 0 = 99 ✓
+
+So k = 400 gives exactly 99 zeros.
+
+Now check k = 401, 402, 403, 404:
+- None of these are divisible by 5, so the count stays at 99.
+
+Check k = 405:
+⌊405/5⌋ + ⌊405/25⌋ + ⌊405/125⌋ = 81 + 16 + 3 = 100
+
+So k = 405 gives 100 zeros.
+
+Therefore k = 400, 401, 402, 403, 404 all give exactly 99 zeros — that's **5** values.
+
+The answer is **D**."
+mmlu_college_mathematics_22,college_mathematics,1,B,B
+mmlu_college_mathematics_23,college_mathematics,1,A,"Let p = probability of rolling an odd number.
+Odd numbers: 1, 3, 5 → each has probability p
+Even numbers: 2, 4, 6 → each has probability 2p
+
+Total: 3p + 3(2p) = 9p = 1, so p = 1/9
+
+P(rolling 5) = 1/9
+P(rolling 6) = 2/9
+
+P(first roll 5 AND second roll 6) = (1/9)(2/9) = 2/81
+
+Answer: A"
+mmlu_college_mathematics_24,college_mathematics,1,B,B
+mmlu_college_mathematics_25,college_mathematics,1,D,"I need to analyze the binary operation m • n = m + n + mn on Z.
+
+**Check Associativity:**
+(m • n) • p = (m + n + mn) • p = (m + n + mn) + p + (m + n + mn)p
+= m + n + mn + p + mp + np + mnp
+
+m • (n • p) = m • (n + p + np) = m + (n + p + np) + m(n + p + np)
+= m + n + p + np + mn + mp + mnp
+
+Both are equal, so the operation **is associative**. Statement I is false.
+
+**Check Identity:**
+Need e such that m • e = m + e + me = m, so e + me = 0, thus e(1 + m) = 0 for all m.
+This means e = 0 works when m ≠ -1, but let's verify: m • 0 = m + 0 + 0 = m ✓
+And 0 • m = 0 + m + 0 = m ✓
+So **e = 0 is the identity**. Statement II is false.
+
+**Check Inverses:**
+Need m • n = 0: m + n + mn = 0, so n(1 + m) = -m, thus n = -m/(1+m).
+
+For m = -1: we need -1 + n + (-1)n = 0 → -1 + n - n = 0 → -1 = 0, which is impossible.
+
+So **m = -1 has no inverse** in Z. Statement III is true.
+
+Note: (Z, •) is not a group because not all elements have inverses. Statement IV is false.
+
+The answer is **D** (III only)."
+mmlu_college_mathematics_26,college_mathematics,1,D,"I need to find how long Kate and John would take working simultaneously.
+
+## Setting Up Equations
+
+Kate's rate: 1/k tests per day
+John's rate: 1/j tests per day
+
+**When Kate starts (10 days):**
+Pattern: Kate works days 1-2, John works days 3-4, Kate works days 5-6, John works days 7-8, Kate works days 9-10.
+
+Kate works: shifts 1,3,5 = 6 days total
+John works: shifts 2,4 = 4 days total
+
+Equation: 6/k + 4/j = 1
+
+**When John starts (10.5 days):**
+Pattern: John works days 1-2, Kate works days 3-4, John works days 5-6, Kate works days 7-8, John works days 9-10, Kate works day 10.5 (0.5 days).
+
+Wait, let me reconsider. 10.5 days with alternating 2-day shifts.
+
+John starts: John(1-2), Kate(3-4), John(5-6), Kate(7-8), John(9-10), Kate(10-10.5)
+John works: 6 days, Kate works: 4.5 days
+
+Equation: 4.5/k + 6/j = 1
+
+## Solving the System
+
+Let a = 1/k, b = 1/j:
+- 6a + 4b = 1
+- 4.5a + 6b = 1
+
+From equation 1: 6a + 4b = 1
+From equation 2: 4.5a + 6b = 1
+
+Multiply eq 1 by 3/2: 9a + 6b = 3/2
+Subtract eq 2: 9a + 6b - 4.5a - 6b = 3/2 - 1
+4.5a = 1/2
+a = 1/9, so k = 9
+
+From eq 1: 6(1/9) + 4b = 1 → 2/3 + 4b = 1 → 4b = 1/3 → b = 1/12, so j = 12
+
+## Verification
+
+Kate starts: 6/9 + 4/12 = 2/3 + 1/3 = 1 ✓
+John starts: 4.5/9 + 6/12 = 1/2 + 1/2 = 1 ✓
+
+## Working Simultaneously
+
+Combined rate: 1/9 + 1/12 = 4/36 + 3/36 = 7/36
+
+Time = 36/7 days
+
+**Answer: D**"
+mmlu_college_mathematics_27,college_mathematics,1,A,A
+mmlu_college_mathematics_28,college_mathematics,1,A,"To find critical points, compute partial derivatives:
+
+∂f/∂x = 2x - 2y = 0 → x = y
+
+∂f/∂y = -2x + 3y² = 0
+
+Substituting x = y: -2y + 3y² = 0 → y(3y - 2) = 0 → y = 0 or y = 2/3
+
+Critical points: (0,0) and (2/3, 2/3)
+
+Check second-order conditions:
+- f_xx = 2, f_yy = 6y, f_xy = -2
+- D = f_xx·f_yy - (f_xy)² = 2(6y) - 4 = 12y - 4
+
+At (0,0): D = -4 < 0 → saddle point
+At (2/3, 2/3): D = 12(2/3) - 4 = 8 - 4 = 4 > 0, f_xx = 2 > 0 → relative minimum
+
+All relative extrema occur where x = y (from the first equation), confirming option A. But let's check the options:
+
+A says all relative extrema are on x = y — this is true since critical points require x = y.
+B says on parabola x = y² — not necessarily true.
+C says relative minimum at (0,0) — false, it's a saddle point.
+D says absolute minimum at (2/3, 2/3) — not absolute (f is unbounded below).
+
+The answer is **A**."
+mmlu_college_mathematics_29,college_mathematics,1,B,B
+mmlu_college_mathematics_30,college_mathematics,1,C,"The key insight: if S(k) is true → S(k+1) is true (contrapositive: if S(k+1) is false → S(k) is false).
+
+Since S(n0) is not true, by contrapositive, S(n0-1) is not true, S(n0-2) is not true, etc. So S(n) is not true for any n ≤ n0.
+
+The answer is **C**."
+mmlu_college_mathematics_31,college_mathematics,1,B,"The closest point on the plane to the origin is found by moving along the normal direction from the origin.
+
+The normal vector to the plane 2x + y + 3z = 3 is (2, 1, 3).
+
+The point on the plane closest to the origin is at t(2, 1, 3) for some t, where:
+2(2t) + (t) + 3(3t) = 3
+4t + t + 9t = 3
+14t = 3
+t = 3/14
+
+So the point is (6/14, 3/14, 9/14) = (3/7, 3/14, 9/14).
+
+The answer is **B**."
+mmlu_college_mathematics_32,college_mathematics,1,B,"The question asks for which integers n (3 ≤ n ≤ 11) there is only one group of order n up to isomorphism.
+
+- n=3: prime, only Z_3. ✓
+- n=4: Z_4 and Z_2×Z_2, two groups. ✗
+- n=5: prime, only Z_5. ✓
+- n=6: Z_6 and S_3, two groups. ✗
+- n=7: prime, only Z_7. ✓
+- n=8: multiple groups (Z_8, Z_4×Z_2, Z_2×Z_2×Z_2, D_4, Q_8). ✗
+- n=9: Z_9 and Z_3×Z_3, two groups. ✗
+- n=10: Z_10 and D_5, two groups. ✗
+- n=11: prime, only Z_11. ✓
+
+So only for 3, 5, 7, and 11.
+
+Answer: **B**"
+mmlu_college_mathematics_33,college_mathematics,1,C,C
+mmlu_college_mathematics_34,college_mathematics,1,D,D
+mmlu_college_mathematics_35,college_mathematics,1,D,"When revolving the circle (y-3)² + z² = 1 around the z-axis, a point (x, y, z) is on the torus if the distance from the point to the z-axis is r = √(x² + y²), and we need (r - 3)² + z² = 1.
+
+So: (√(x² + y²) - 3)² + z² = 1
+
+Expanding: x² + y² - 6√(x² + y²) + 9 + z² = 1
+
+Rearranging: x² + y² + z² + 8 = 6√(x² + y²)
+
+Squaring both sides: (x² + y² + z² + 8)² = 36(x² + y²)
+
+The answer is **D**."
+mmlu_college_mathematics_36,college_mathematics,1,A,"At x = 0: y = 0 + e^0 = 1, so the point is (0, 1).
+
+y' = 1 + e^x, at x = 0: y' = 1 + 1 = 2.
+
+Tangent line: y = 2x + 1.
+
+Answer: A"
+mmlu_college_mathematics_37,college_mathematics,1,A,"V has dimension 2×3 = 6. T maps onto W, so the image has dimension 4. By rank-nullity theorem, dim(kernel) = 6 - 4 = 2.
+
+A"
+mmlu_college_mathematics_38,college_mathematics,1,A,"For Statement 1: The Riemann rearrangement theorem states that if a series is conditionally convergent (converges but not absolutely), then it can be rearranged to converge to any real number. The condition given is that ∑|a_i| diverges (not absolutely convergent) and ∑a_i = 2 (converges), so it's conditionally convergent. Therefore, a rearrangement to sum to 4 exists. Statement 1 is **True**.
+
+For Statement 2: ""Closed and bounded"" is not a topologically invariant property - it depends on the metric space. Consider X = [0,1] with the standard metric (closed and bounded), and Y = ℝ with a different metric. Actually, let me think more carefully.
+
+Consider X = (0,1] ... no, we need X closed and bounded.
+
+Take X = [1, ∞) with the metric d(x,y) = |arctan(x) - arctan(y)|. Under this metric, X is closed (it's a closed subset) and bounded (arctan values are bounded). The map f: X → ℝ (standard metric) defined by f(x) = x is continuous. f(X) = [1,∞) which is closed but unbounded in ℝ.
+
+Wait, but is X actually bounded under that metric? arctan maps [1,∞) to [π/4, π/2), so the diameter is less than π/4. Yes, bounded. Is it closed? In the metric space (ℝ, d), the closure... arctan(x) → π/2 as x→∞, and π/2 is a limit point not in X under this metric. So X might not be closed in (ℝ, d).
+
+Let me use a simpler example: X = ℝ with the metric d(x,y) = |arctan x - arctan y|. This is a bounded metric. ℝ is closed in itself. f: (ℝ, d) → (ℝ, standard) by f(x) = x is continuous (since standard convergence implies d-convergence... actually we need d-convergence implies standard convergence, which isn't true).
+
+Actually, consider X = (0,1) with discrete metric - it's bounded, but not closed as a subset... 
+
+Simpler: Let X = ℝ with the metric d(x,y) = min(1, |x-y|). X is closed and bounded. f(x) = x maps to (ℝ, standard metric). f(X) = ℝ is not bounded. f is continuous since the discrete-like metric is stronger. Statement 2 is **True**.
+
+The answer is **A**."
+mmlu_college_mathematics_39,college_mathematics,1,C,C
+mmlu_college_mathematics_40,college_mathematics,1,B,B
+mmlu_college_mathematics_41,college_mathematics,1,D,D
+mmlu_college_mathematics_42,college_mathematics,0,D,"Using the mean value theorem: f(3) - f(0) = f'(c) · 3 for some c in (0,3).
+
+f(0) = f(3) - 3f'(c) ≤ 5 - 3(-1) = 5 + 3 = 8.
+
+D"
+mmlu_college_mathematics_43,college_mathematics,1,A,"I need to evaluate each statement about n × n matrices.
+
+**Statement I: The trace of A² is nonnegative.**
+
+The trace of A² equals the sum of squares of all entries... wait, that's for the Frobenius norm. Let me reconsider.
+
+tr(A²) = sum of eigenvalues squared (if diagonalizable), but eigenvalues can be complex. For a real matrix, complex eigenvalues come in conjugate pairs. If λ = a+bi is an eigenvalue, then λ² = a²-b²+2abi, and its conjugate pair contributes 2(a²-b²) to the trace, which can be negative.
+
+Example: A = [[0,1],[-1,0]], eigenvalues ±i. A² = [[-1,0],[0,-1]], tr(A²) = -2 < 0.
+
+**Statement I is FALSE.**
+
+**Statement II: If A² = A, then tr(A) is nonnegative.**
+
+If A² = A, then A is idempotent. The eigenvalues of an idempotent matrix are 0 or 1 (since λ² = λ implies λ = 0 or 1). The trace equals the sum of eigenvalues, which are all 0 or 1, so tr(A) ≥ 0.
+
+**Statement II is TRUE.**
+
+**Statement III: tr(AB) = tr(A)·tr(B)**
+
+This is false in general. tr(AB) = tr(BA) (cyclic property), but it doesn't equal the product of traces.
+
+Example: A = B = I (identity, n=2). tr(AB) = tr(I) = 2, but tr(A)·tr(B) = 2·2 = 4. These are not equal.
+
+**Statement III is FALSE.**
+
+The answer is **A. II only**."
+mmlu_college_mathematics_44,college_mathematics,1,D,"7^1=7, 7^2=49, 7^3=343, 7^4=2401, cycle of 4. 25 mod 4 = 1, so units digit is 7.
+
+D"
+mmlu_college_mathematics_45,college_mathematics,1,A,A
+mmlu_college_mathematics_46,college_mathematics,1,B,"Using the shell method, the volume is:
+
+V = 2π ∫₀¹ x(x - x²) dx = 2π ∫₀¹ (x² - x³) dx
+
+= 2π [x³/3 - x⁴/4]₀¹ = 2π(1/3 - 1/4) = 2π(1/12) = π/6
+
+The answer is **B**."
+mmlu_college_mathematics_47,college_mathematics,1,B,B
+mmlu_college_mathematics_48,college_mathematics,1,C,"The valid intervals of convergence for a power series must be of the form (a-R, a+R) with possible inclusion of endpoints, centered at some point a with radius R ≥ 0.
+
+(I) [-1, 3): center = 1, radius = 2. This is a valid interval of convergence.
+
+(II) (-∞, 0]: This would require infinite radius, but then it must be (-∞, ∞). A half-infinite interval cannot be an interval of convergence. Invalid.
+
+(III) [2,2] ∪ [3,3] = {2} ∪ {3}: This is not an interval (it's two separate points). Invalid.
+
+(IV) (-∞, ∞): This corresponds to R = ∞, which is valid.
+
+So (I) and (IV) are valid.
+
+The answer is **C**."
+mmlu_college_mathematics_49,college_mathematics,1,D,D
+mmlu_college_mathematics_50,college_mathematics,1,A,"Taking logarithms of both sides:
+log x · log y = log x · log y
+
+Wait, let me redo this. Taking log of both sides:
+(log y)(log x) = (log x)(log y)
+
+That's always true... but we need x > 0 and y > 0 for the logs to be defined.
+
+Let me reconsider. Taking log of both sides:
+log x · log y = log x · log y
+
+This is always true for x > 0, y > 0. So the graph is the entire open first quadrant?
+
+Wait, but we need x^(log y) to be defined, which requires x > 0. And y > 0 for log y. So the equation holds for all (x, y) in the open first quadrant.
+
+The answer is A."
+mmlu_college_mathematics_51,college_mathematics,1,B,B
+mmlu_college_mathematics_52,college_mathematics,1,C,C
+mmlu_college_mathematics_53,college_mathematics,1,C,"For an equilateral triangle with inscribed circle radius r, the relationship between the inradius and side length a is:
+
+r = a/(2√3)
+
+So a = 2r√3 = 4√3
+
+Area = (√3/4)a² = (√3/4)(48) = 12√3
+
+The answer is **C**."
+mmlu_college_mathematics_54,college_mathematics,1,A,"For each option, I need to find the number of abelian groups up to isomorphism.
+
+The number of abelian groups of order n = p1^a1 · p2^a2 · ... is the product of the number of partitions of each ai.
+
+**A. n = 4 = 2²**
+Partitions of 2: {2}, {1,1} → 2 partitions
+So exactly 2 abelian groups: Z₄ and Z₂×Z₂. ✓
+
+**B. n = 7 = 7¹**
+Partitions of 1: {1} → 1 partition
+Only 1 abelian group.
+
+**C. n = 8 = 2³**
+Partitions of 3: {3}, {2,1}, {1,1,1} → 3 partitions
+3 abelian groups.
+
+**D. n = 12 = 2² · 3**
+Partitions of 2: 2; partitions of 1: 1 → 2×1 = 2 abelian groups.
+
+Both A and D give exactly 2, but A = 4 is listed first and is the standard answer.
+
+The answer is **A**."
+mmlu_college_mathematics_55,college_mathematics,1,D,D
+mmlu_college_mathematics_56,college_mathematics,1,B,"V has dimension 4 (polynomials of degree at most 3).
+
+For W: p(0) = 0 means no constant term, so p(x) = ax³ + bx² + cx.
+p(1) = a + b + c = 0
+p(-1) = -a + b - c = 0
+
+From these two equations:
+Adding: 2b = 0, so b = 0
+Subtracting: 2a + 2c = 0, so c = -a
+
+Thus p(x) = ax³ - ax = a(x³ - x), and W has dimension 1.
+
+dim V + dim W = 4 + 1 = 5
+
+Answer: B"
+mmlu_college_mathematics_57,college_mathematics,1,D,D
+mmlu_college_mathematics_58,college_mathematics,1,C,"I need to find where the curves intersect and compute the area between them.
+
+## Finding Intersections
+
+The curves intersect when (sin x + cos x)^4 = (sin x - cos x)^4.
+
+This means sin x + cos x = ±(sin x - cos x).
+
+**Case 1:** sin x + cos x = sin x - cos x → 2cos x = 0 → x = π/2, 3π/2, ...
+
+**Case 2:** sin x + cos x = -(sin x - cos x) → sin x + cos x = -sin x + cos x → 2sin x = 0 → x = π, 2π, ...
+
+So intersections occur at x = π/2, π, 3π/2, 2π, ...
+
+The smallest positive value is **a = π/2**.
+
+## Computing the Area
+
+Area = ∫₀^(π/2) |(sin x + cos x)^4 - (sin x - cos x)^4| dx
+
+Let me expand using the identity A^4 - B^4 = (A²-B²)(A²+B²).
+
+**A² = (sin x + cos x)² = 1 + 2sin x cos x = 1 + sin 2x**
+**B² = (sin x - cos x)² = 1 - 2sin x cos x = 1 - sin 2x**
+
+A² - B² = 2sin 2x
+A² + B² = 2
+
+So A^4 - B^4 = (2sin 2x)(2) = 4sin 2x
+
+On [0, π/2], sin 2x ≥ 0, so the integrand is 4sin 2x.
+
+Area = ∫₀^(π/2) 4sin 2x dx = 4[-cos 2x/2]₀^(π/2)
+
+= 4[(-cos π)/2 - (-cos 0)/2]
+
+= 4[(1/2) - (-1/2)]
+
+= 4[1] = **4**
+
+The answer is **C**."
+mmlu_college_mathematics_59,college_mathematics,1,A,"We need to find f(3,5) where f is linear, f(1,1)=1, f(-1,0)=2.
+
+Since f is linear: f(a,b) = pa + qb for some constants p, q.
+
+From f(1,1)=1: p + q = 1
+From f(-1,0)=2: -p = 2, so p = -2
+
+Then q = 1 - (-2) = 3
+
+f(3,5) = -2(3) + 3(5) = -6 + 15 = 9
+
+Answer: A"
+mmlu_philosophy_0,philosophy,1,C,C
+mmlu_philosophy_1,philosophy,1,D,D
+mmlu_philosophy_2,philosophy,1,D,D
+mmlu_philosophy_3,philosophy,1,D,D
+mmlu_philosophy_4,philosophy,1,B,B
+mmlu_philosophy_5,philosophy,1,D,D
+mmlu_philosophy_6,philosophy,1,C,C
+mmlu_philosophy_7,philosophy,1,D,D
+mmlu_philosophy_8,philosophy,1,A,A
+mmlu_philosophy_9,philosophy,1,B,B
+mmlu_philosophy_10,philosophy,1,C,C
+mmlu_philosophy_11,philosophy,1,C,C
+mmlu_philosophy_12,philosophy,1,B,B
+mmlu_philosophy_13,philosophy,1,A,A
+mmlu_philosophy_14,philosophy,1,D,D
+mmlu_philosophy_15,philosophy,1,A,A
+mmlu_philosophy_16,philosophy,1,A,A
+mmlu_philosophy_17,philosophy,1,D,D
+mmlu_philosophy_18,philosophy,1,A,A
+mmlu_philosophy_19,philosophy,1,D,D
+mmlu_philosophy_20,philosophy,1,C,C
+mmlu_philosophy_21,philosophy,1,A,A
+mmlu_philosophy_22,philosophy,1,C,C
+mmlu_philosophy_23,philosophy,1,B,B
+mmlu_philosophy_24,philosophy,1,B,B
+mmlu_philosophy_25,philosophy,1,B,B
+mmlu_philosophy_26,philosophy,1,A,A
+mmlu_philosophy_27,philosophy,1,C,C
+mmlu_philosophy_28,philosophy,1,B,B
+mmlu_philosophy_29,philosophy,1,D,D
+mmlu_philosophy_30,philosophy,1,A,A
+mmlu_philosophy_31,philosophy,1,B,B
+mmlu_philosophy_32,philosophy,1,C,C
+mmlu_philosophy_33,philosophy,1,A,A
+mmlu_philosophy_34,philosophy,1,D,D
+mmlu_philosophy_35,philosophy,1,B,B
+mmlu_philosophy_36,philosophy,1,B,B
+mmlu_philosophy_37,philosophy,1,C,C
+mmlu_philosophy_38,philosophy,1,D,D
+mmlu_philosophy_39,philosophy,1,B,B
+mmlu_philosophy_40,philosophy,1,C,C
+mmlu_philosophy_41,philosophy,1,C,C
+mmlu_philosophy_42,philosophy,0,C,D
+mmlu_philosophy_43,philosophy,1,B,B
+mmlu_philosophy_44,philosophy,1,C,C
+mmlu_philosophy_45,philosophy,1,D,D
+mmlu_philosophy_46,philosophy,1,A,A
+mmlu_philosophy_47,philosophy,1,C,C
+mmlu_philosophy_48,philosophy,1,B,B
+mmlu_philosophy_49,philosophy,1,D,D
+mmlu_philosophy_50,philosophy,1,D,D
+mmlu_philosophy_51,philosophy,1,D,D
+mmlu_philosophy_52,philosophy,1,D,D
+mmlu_philosophy_53,philosophy,1,C,C
+mmlu_philosophy_54,philosophy,1,B,B
+mmlu_philosophy_55,philosophy,1,C,C
+mmlu_philosophy_56,philosophy,1,B,B
+mmlu_philosophy_57,philosophy,1,C,C
+mmlu_philosophy_58,philosophy,1,C,C
+mmlu_philosophy_59,philosophy,0,C,B
+mmlu_college_computer_science_0,college_computer_science,1,A,A
+mmlu_college_computer_science_1,college_computer_science,1,C,C
+mmlu_college_computer_science_2,college_computer_science,1,B,"For version 1 (1,000 byte blocks):
+- Disk seek: 25 msec
+- Disk latency: 8 msec
+- Disk transfer: 1 msec per 1,000 bytes = 1 msec
+- OS overhead: 1 msec per 1,000 bytes + 10 msec = 11 msec
+- Total per block: 45 msec per 1,000 bytes
+
+For version 2 (4,000 byte blocks):
+- Disk seek: 25 msec
+- Disk latency: 8 msec
+- Disk transfer: 1 msec per 1,000 bytes × 4 = 4 msec
+- OS overhead: 1 msec per 1,000 bytes × 4 + 10 msec = 14 msec
+- Total per block: 51 msec per 4,000 bytes
+
+For a large file of N bytes:
+- Version 1: (N/1,000) × 45 msec
+- Version 2: (N/4,000) × 51 msec
+
+Ratio V2/V1 = [(N/4,000) × 51] / [(N/1,000) × 45]
+= (51/4,000) / (45/1,000)
+= (51/4,000) × (1,000/45)
+= 51/(4 × 45)
+= 51/180
+≈ 0.283
+
+So ratio is approximately 1:3.5
+
+The answer is **B**."
+mmlu_college_computer_science_3,college_computer_science,1,A,A
+mmlu_college_computer_science_4,college_computer_science,1,C,C
+mmlu_college_computer_science_5,college_computer_science,1,C,"Looking at this problem, I need to find the maximum and minimum number of connected components in undirected graphs with 10 nodes and 6 edges (no self-loops, at most one edge between any pair).
+
+## Finding Maximum Connected Components (M)
+
+To maximize connected components, I want to use edges as efficiently as possible while leaving as many nodes isolated as possible.
+
+Each edge connects nodes. To maximize isolated nodes, I should concentrate edges among as few nodes as possible.
+
+With 6 edges, I can form a connected subgraph using the minimum number of nodes. A tree with k nodes uses k-1 edges. With 6 edges in a tree, I need 7 nodes, leaving 3 nodes isolated.
+
+Wait, but I can also use cycles. A triangle (3 nodes, 3 edges) uses 3 nodes for 3 edges. Two triangles use 6 nodes for 6 edges, leaving 4 nodes isolated.
+
+- 2 triangles: 6 nodes used, 4 isolated → components = 2 + 4 = 6
+
+Can I do better? Use one triangle (3 nodes, 3 edges) + remaining 3 edges as a path or tree on minimum nodes.
+- Triangle: 3 nodes, 3 edges, 1 component
+- Remaining 3 edges: can form a tree on 4 nodes (3 edges), 1 component
+- Isolated: 10 - 3 - 4 = 3 nodes
+- Total components: 1 + 1 + 3 = 5
+
+That's worse than 6. What about using single edges?
+- 6 separate edges: 12 nodes needed, but we only have 10.
+- With 10 nodes: 5 separate edges use 10 nodes (0 isolated), giving 5 components. The 6th edge must connect two already-connected nodes → 5 components still, or connect within existing pairs → 4 components.
+
+Actually: 5 separate edges = 10 nodes, 5 components, then 6th edge creates a cycle within one pair → still 5 components.
+
+Alternatively: 4 separate edges (8 nodes) + 1 edge connecting two of those pairs (using existing nodes) + remaining edges...
+
+Let me reconsider: 4 separate edges use 8 nodes → 4 components + 2 isolated = 6 components, using 4 edges. Remaining 2 edges must be placed. If I add edges within existing components (cycles), components stay at 6. Yes! Add 2 more edges within the existing 4 pairs (creating cycles among them).
+
+- 4 pairs connected by edges: 8 nodes, 4 edges, 4 components
+- 2 isolated nodes: 2 components
+- Total so far: 6 components, 4 edges used
+- Add 2 more edges within existing components (e.g., connect nodes within pairs to form triangles — but pairs only have 2 nodes each, so a second edge would be a multi-edge, which is not allowed)
+
+So I need to add edges between nodes already in the same component without adding new components. Connect two pairs together: that reduces components by 1 each time.
+
+Hmm. Let me try: Use a triangle (3 nodes, 3 edges, 1 component) + 3 separate edges (6 nodes, 3 edges, 3 components) + 1 isolated node = 10 nodes, 6 edges, components = 1 + 3 + 1 = 5.
+
+Two triangles: 6 nodes, 6 edges, 2 components + 4 isolated = **6 components**. This seems to be the maximum.
+
+Can I get 7? I'd need 7 components with 6 edges and 10 nodes. That means at most 3 nodes in non-isolated components. But 3 nodes with 6 edges isn't possible (max edges among 3 nodes = 3). So M = 6.
+
+## Finding Minimum Connected Components (m)
+
+To minimize components, maximize connectivity. With 10 nodes and 6 edges, a spanning tree needs 9 edges. With 6 edges, minimum components:
+
+A tree on k nodes uses k-1 edges. With 6 edges, one connected component can have at most 7 nodes (tree). Remaining 3 nodes are isolated → 4 components.
+
+Can we do better? If we use cycles, we ""waste"" edges. So minimum is achieved with a tree: 7 nodes connected + 3 isolated = **4 components**.
+
+## Answer
+
+M = 6, m = 4
+
+The answer is **C**."
+mmlu_college_computer_science_6,college_computer_science,1,C,C
+mmlu_college_computer_science_7,college_computer_science,1,B,B
+mmlu_college_computer_science_8,college_computer_science,1,C,C
+mmlu_college_computer_science_9,college_computer_science,1,C,C
+mmlu_college_computer_science_10,college_computer_science,1,D,D
+mmlu_college_computer_science_11,college_computer_science,1,A,A
+mmlu_college_computer_science_12,college_computer_science,1,A,"Let me trace through the insertions:
+
+Hash function: h(i) = i mod 5
+
+1. Insert 13: h(13) = 13 mod 5 = 3 → Bucket 3 is empty → Place 13 in bucket 3
+   - Buckets: [_, _, _, 13, _]
+
+2. Insert 8: h(8) = 8 mod 5 = 3 → Bucket 3 is filled → Try bucket 4 → empty → Place 8 in bucket 4
+   - Buckets: [_, _, _, 13, 8]
+
+3. Insert 24: h(24) = 24 mod 5 = 4 → Bucket 4 is filled → Try bucket 0 → empty → Place 24 in bucket 0
+   - Buckets: [24, _, _, 13, 8]
+
+4. Insert 10: h(10) = 10 mod 5 = 0 → Bucket 0 is filled → Try bucket 1 → empty → Place 10 in bucket 1
+   - Buckets: [24, 10, _, 13, 8]
+
+5. Insert 3: h(3) = 3 mod 5 = 3 → Bucket 3 is filled → Try bucket 4 → filled → Try bucket 0 → filled → Try bucket 1 → filled → Try bucket 2 → empty → Place 3 in bucket 2
+   - Buckets: [24, 10, 3, 13, 8]
+
+Bucket 2 contains **3**.
+
+**A**"
+mmlu_college_computer_science_13,college_computer_science,1,C,C
+mmlu_college_computer_science_14,college_computer_science,1,A,A
+mmlu_college_computer_science_15,college_computer_science,1,D,"I need to analyze the function x^M defined recursively.
+
+The definition is:
+- e^M = e (empty string maps to empty string)
+- (aw)^M = aw^Ma (where a has length 1, w is a string)
+
+First, let me understand what this function does by computing some examples.
+
+Let me compute (ab)^M where a, b have length 1:
+- (ab)^M = a(b)^Ma = a·b^M·a
+- b^M = (be)^M = b·e^M·b = b·e·b = bb? 
+
+Wait, let me re-read. b has length 1, so b = b·e where e is empty.
+- b^M = (be)^M... but the rule is (aw)^M = aw^Ma where a is length 1 and w is a string.
+- So (b·e)^M = b·e^M·b = b·e·b = bb
+
+Hmm, that seems odd. Let me try (ab)^M:
+- (ab)^M = a·(b)^M·a = a·bb·a = abba
+
+And (ba)^M:
+- (ba)^M = b·(a)^M·b = b·aa·b = baab
+
+So this function is NOT the reverse (mirror) function since reverse of ""ab"" would be ""ba"", not ""abba"".
+
+**Check option A: a^M = a**
+- a^M = (a·e)^M = a·e^M·a = a·e·a = aa
+- So a^M = aa ≠ a
+- **A is false**
+
+**Check option B: (ax)^M = (xa)^M**
+Let me try a = 'a', x = 'b':
+- (ax)^M = (ab)^M = abba (computed above)
+- (xa)^M = (ba)^M = baab (computed above)
+- abba ≠ baab
+- **B is false**
+
+**Check option C: (xy)^M = y^M·x^M**
+Let me try x = 'a', y = 'b' (both length 1):
+- (xy)^M = (ab)^M = abba
+- y^M·x^M = b^M·a^M = bb·aa = bbaa
+- abba ≠ bbaa
+- **C is false**
+
+So the answer is **D**.
+
+D"
+mmlu_college_computer_science_16,college_computer_science,1,D,D
+mmlu_college_computer_science_17,college_computer_science,1,B,B
+mmlu_college_computer_science_18,college_computer_science,1,A,A
+mmlu_college_computer_science_19,college_computer_science,0,D,B
+mmlu_college_computer_science_20,college_computer_science,1,D,D
+mmlu_college_computer_science_21,college_computer_science,1,B,B
+mmlu_college_computer_science_22,college_computer_science,1,A,A
+mmlu_college_computer_science_23,college_computer_science,1,A,"In a complete K-ary tree of depth N:
+- Total nodes = (K^(N+1) - 1)/(K - 1)
+- Leaf nodes (terminal) = K^N
+- Nonterminal nodes = Total - Leaves = (K^(N+1) - 1)/(K - 1) - K^N
+
+The ratio of nonterminal to total nodes:
+
+Nonterminal/Total = [Total - K^N] / Total = 1 - K^N/Total
+
+K^N / Total = K^N * (K-1) / (K^(N+1) - 1) ≈ K^N * (K-1) / K^(N+1) = (K-1)/K
+
+So nonterminal/total ≈ 1 - (K-1)/K = 1/K
+
+The answer is **A**."
+mmlu_college_computer_science_24,college_computer_science,1,A,A
+mmlu_college_computer_science_25,college_computer_science,1,D,D
+mmlu_college_computer_science_26,college_computer_science,1,C,C
+mmlu_college_computer_science_27,college_computer_science,1,D,D
+mmlu_college_computer_science_28,college_computer_science,1,D,D
+mmlu_college_computer_science_29,college_computer_science,1,C,C
+mmlu_college_computer_science_30,college_computer_science,1,C,C
+mmlu_college_computer_science_31,college_computer_science,1,D,D
+mmlu_college_computer_science_32,college_computer_science,1,D,D
+mmlu_college_computer_science_33,college_computer_science,1,A,A
+mmlu_college_computer_science_34,college_computer_science,1,B,B
+mmlu_college_computer_science_35,college_computer_science,1,C,C
+mmlu_college_computer_science_36,college_computer_science,1,C,C
+mmlu_college_computer_science_37,college_computer_science,1,D,"Using Amdahl's Law:
+
+- Sequential portion: 40% = 40 seconds
+- Parallelizable portion: 60% = 60 seconds
+
+With 2 processors:
+- Time = 40 + 60/2 = 40 + 30 = 70 seconds
+
+With 4 processors:
+- Time = 40 + 60/4 = 40 + 15 = 55 seconds
+
+The answer is **D**."
+mmlu_college_computer_science_38,college_computer_science,1,D,D
+mmlu_college_computer_science_39,college_computer_science,1,B,B
+mmlu_college_computer_science_40,college_computer_science,1,A,A
+mmlu_college_computer_science_41,college_computer_science,1,D,D
+mmlu_college_computer_science_42,college_computer_science,1,A,"I need to determine which conditions can be expressed using Boolean formulas with only ∧ and ∨ (no negation).
+
+**Key insight:** Formulas using only ∧ and ∨ are monotone - if a formula is true for some assignment, it remains true if we change any variable from false to true. This means conditions that are NOT monotone cannot be expressed.
+
+**Condition I: At least three of p_1, p_2, p_3, p_4 are true.**
+
+This is monotone - if at least 3 are true and we set another to true, still at least 3 are true. We can express this as the OR of all combinations of 3 variables:
+(p1∧p2∧p3) ∨ (p1∧p2∧p4) ∨ (p1∧p3∧p4) ∨ (p2∧p3∧p4)
+
+This works. ✓
+
+**Condition II: Exactly three of p_1, p_2, p_3, p_4 are true.**
+
+This is NOT monotone - if exactly 3 are true (say p1,p2,p3 true, p4 false), setting p4 to true gives 4 true variables, making the condition false. Since the condition can go from true to false by setting a variable to true, it's not monotone and cannot be expressed with only ∧ and ∨. ✗
+
+**Condition III: An even number of p_1, p_2, p_3, p_4 are true.**
+
+This is NOT monotone - for example, if 2 are true (even), setting another to true gives 3 (odd), making the condition false. Not monotone, cannot be expressed. ✗
+
+**Answer: A (I only)**
+
+The answer is **A**."
+mmlu_college_computer_science_43,college_computer_science,1,D,"For a fully interconnected network with n processors:
+- Number of links: n(n-1)/2
+- Worst-case path length: 1 (every node directly connected)
+- Figure of merit: n(n-1)/2 × 1 = n(n-1)/2
+
+For a ring network with n processors:
+- Number of links: n
+- Worst-case path length: n/2 (for even n, the farthest node is n/2 steps away)
+- Figure of merit: n × n/2 = n²/2
+
+Ratio (fully interconnected / ring):
+= [n(n-1)/2] / [n²/2]
+= n(n-1)/2 × 2/n²
+= (n-1)/n
+
+The answer is **D**."
+mmlu_college_computer_science_44,college_computer_science,1,D,D
+mmlu_college_computer_science_45,college_computer_science,1,C,C
+mmlu_college_computer_science_46,college_computer_science,1,D,D
+mmlu_college_computer_science_47,college_computer_science,1,A,A
+mmlu_college_computer_science_48,college_computer_science,0,A,"I need to determine how many bytes are written to memory with a write-back policy.
+
+## Cache Setup
+- Cache size: 2KB = 2048 bytes
+- Block size: 8 bytes
+- Direct-mapped
+- Number of cache lines: 2048/8 = 256 lines
+
+## Address Analysis
+- Array A: starts at 4096, 256 elements × 4 bytes = 1024 bytes
+  - Physical addresses: 4096 to 5119
+- Array B: starts at 8192, 512 elements × 4 bytes = 2048 bytes
+  - Physical addresses: 8192 to 10239
+
+## Cache Index Calculation
+Cache index bits: log2(256) = 8 bits (bits 3-10, since offset uses bits 0-2)
+
+**Array A cache indices:**
+- A[0] at 4096 = 0x1000: index = (0x1000 >> 3) & 0xFF = 0x200 & 0xFF = 0
+- A[i] at 4096 + 4i: index = ((4096 + 4i) >> 3) & 0xFF = (512 + i/2) & 0xFF
+- For i=0 to 255: indices range from 0 to 127 (each index holds 2 elements)
+- A occupies cache lines 0-127
+
+**Array B cache indices:**
+- B[2i] at 8192 + 8i: index = ((8192 + 8i) >> 3) & 0xFF = (1024 + i) & 0xFF = i & 0xFF
+- For i=0 to 255: B[2i] occupies indices 0-255
+
+## Conflict Analysis
+A[i] maps to index = (512 + i/2) mod 256 = i/2 mod 256 (since 512 mod 256 = 0)
+- A[i] → cache line i/2 (lines 0-127)
+
+B[2i] maps to index = i (lines 0-255)
+
+So A[i] (at line i/2) conflicts with B[2i] (at line i) when i/2 = i mod 256, which means i=0 only... 
+
+Wait, let me reconsider. A[i] maps to line i/2, B[2i] maps to line i.
+
+For each iteration i:
+- Need B[2i] at cache line i
+- Need A[i] at cache line i/2
+
+These conflict when i/2 = i → only i=0.
+
+But also, within the loop, B[2i] at line i might conflict with A[j] where j/2 = i, i.e., j=2i or 2i+1.
+
+For iteration i, we access B[2i] (line i) then A[i] (line i/2).
+- B[2i] at line i could evict A[2i] or A[2i+1] (which map to line i)
+
+So when we access B[2i] at cache line i, it evicts whatever was there. A[2i] and A[2i+1] both map to line i.
+
+**Sequence for each i:**
+1. Load A[i]: maps to line i/2. 
+2. Load B[2i]: maps to line i. This evicts A[2i] or A[2i+1] if they were there.
+3. Write A[i]: maps to line i/2 (dirty).
+
+When i reaches 2i (later iteration), A[2i] needs to be loaded into line i, but B[2i] (at line i... wait B[2*2i]=B[4i] maps to line 2i, not line i).
+
+Let me reconsider: at iteration i, B[2i] maps to line i. At iteration 2i, A[2i] maps to line i. So B[2i] (loaded at iteration i) will be evicted when A[2i] is loaded at iteration 2i.
+
+At iteration 2i: load A[2i] into line i → evicts B[2i] (clean, no write). Then load B[4i] into line 2i. Then write A[2i] (dirty in line i).
+
+The dirty lines are A[i] writes. Each A[i] write dirties a cache line. Each cache line holds 2 A-elements (8 bytes / 4 bytes = 2 elements).
+
+A occupies lines 0-127. Each line gets written (dirtied) and must eventually be evicted. When does line i/2 get evicted? When B[2*(i/2)] = B[i] is accessed... at iteration i/2... that's before we write A[i].
+
+After the loop completes, all dirty cache lines containing A data will be written back when evicted or at end. With write-back, dirty lines written to memory = all modified A cache lines.
+
+A has 256 elements in 128 cache lines, all written → 128 × 8 = **1024 bytes**.
+
+Answer: **C**"
+mmlu_college_computer_science_49,college_computer_science,1,D,D
+mmlu_college_computer_science_50,college_computer_science,1,D,D
+mmlu_college_computer_science_51,college_computer_science,1,B,B
+mmlu_college_computer_science_52,college_computer_science,1,C,C
+mmlu_college_computer_science_53,college_computer_science,1,C,C
+mmlu_college_computer_science_54,college_computer_science,1,A,A
+mmlu_college_computer_science_55,college_computer_science,1,C,"I need to find the minimum number of time units when using parallel processors, but getting the same result as sequential execution.
+
+First, let me determine what values each variable should have after sequential execution:
+
+Initial values: A, B, C, D, E, F (original values)
+
+Sequential execution:
+1. A := B + C (A gets B+C)
+2. B := A - B (B gets (B+C) - B = C)
+3. C := A * E (C gets (B+C) * E)
+4. D := A/F (D gets (B+C)/F)
+5. E := B - C (E gets C - (B+C)*E)
+6. F := A + B (F gets (B+C) + C)
+
+Now I need to find dependencies to determine what can be parallelized while achieving the same results.
+
+The key is: we need the same RESULT as sequential execution, so we need to track what values are used.
+
+Let me use subscripts: A₀, B₀, C₀, D₀, E₀, F₀ for initial values.
+
+Sequential results:
+- A₁ = B₀ + C₀
+- B₁ = A₁ - B₀ = C₀
+- C₁ = A₁ * E₀ = (B₀+C₀)*E₀
+- D₁ = A₁/F₀ = (B₀+C₀)/F₀
+- E₁ = B₁ - C₁ = C₀ - (B₀+C₀)*E₀
+- F₁ = A₁ + B₁ = (B₀+C₀) + C₀
+
+Now, for parallel execution, I need to figure out which statements can execute simultaneously, using the original values where needed.
+
+Statement dependencies (based on sequential semantics - each uses the CURRENT value at time of execution):
+- A := B + C: uses B₀, C₀
+- B := A - B: uses A₁ (new A), B₀
+- C := A * E: uses A₁ (new A), E₀
+- D := A/F: uses A₁ (new A), F₀
+- E := B - C: uses B₁ (new B), C₁ (new C)
+- F := A + B: uses A₁ (new A), B₁ (new B)
+
+Dependency graph:
+- Statement 1 (A): no dependencies on new values
+- Statement 2 (B): needs new A → depends on stmt 1
+- Statement 3 (C): needs new A → depends on stmt 1
+- Statement 4 (D): needs new A → depends on stmt 1
+- Statement 5 (E): needs new B and new C → depends on stmts 2 and 3
+- Statement 6 (F): needs new A and new B → depends on stmts 1 and 2
+
+Now find the critical path:
+- Time 1: Execute statement 1 (A := B + C)
+- Time 2: Execute statements 2, 3, 4 in parallel (all depend only on stmt 1)
+- Time 3: Execute statements 5 and 6 in parallel (stmt 5 needs stmts 2,3; stmt 6 needs stmts 1,2)
+
+So minimum time = 3 units.
+
+Answer: **C**"
+mmlu_college_computer_science_56,college_computer_science,1,D,"I need to determine which pairs of expressions can be unified.
+
+The expressions are:
+- I. f(w, w)
+- II. f(x, 1)
+- III. f(y, g(z))
+
+**Pair (I, II): f(w,w) and f(x,1)**
+
+To unify, we need the arguments to match:
+- First args: w = x
+- Second args: w = 1
+
+So w = 1 and x = 1. Then f(1,1) = f(1,1). ✓
+
+This pair IS unifiable.
+
+**Pair (I, III): f(w,w) and f(y,g(z))**
+
+To unify:
+- First args: w = y
+- Second args: w = g(z)
+
+So w = g(z) and y = g(z). Then both become f(g(z), g(z)). ✓
+
+This pair IS unifiable.
+
+**Pair (II, III): f(x,1) and f(y,g(z))**
+
+To unify:
+- First args: x = y
+- Second args: 1 = g(z)
+
+The constant 1 cannot be unified with g(z) (a function term). ✗
+
+This pair is NOT unifiable.
+
+So (I,II) and (I,III) are unifiable pairs.
+
+The answer is **D**."
+mmlu_college_computer_science_57,college_computer_science,1,D,D
+mmlu_college_computer_science_58,college_computer_science,1,B,B
+mmlu_college_computer_science_59,college_computer_science,1,D,D
+mmlu_high_school_computer_science_0,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_1,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_2,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_3,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_4,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_5,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_6,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_7,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_8,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_9,high_school_computer_science,0,B,C
+mmlu_high_school_computer_science_10,high_school_computer_science,0,B,D
+mmlu_high_school_computer_science_11,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_12,high_school_computer_science,1,C,"The program initializes `sum` to `numList[1]` (which is 0), then adds every element in the list including the first element again. So for [0, 1, 4, 5]:
+- sum starts at 0
+- adds 0 → sum = 0
+- adds 1 → sum = 1
+- adds 4 → sum = 5
+- adds 5 → sum = 10
+
+The correct sum should be 0+1+4+5 = 10, but the program gives 10 only because the first element is 0. If the first element were non-zero, the result would be wrong (it would add the first element twice).
+
+The test case [0, 1, 4, 5] happens to give the correct answer because numList[1] = 0, masking the bug. The conclusion is incorrect because this single test case is insufficient to confirm correctness.
+
+**C**"
+mmlu_high_school_computer_science_13,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_14,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_15,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_16,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_17,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_18,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_19,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_20,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_21,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_22,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_23,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_24,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_25,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_26,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_27,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_28,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_29,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_30,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_31,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_32,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_33,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_34,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_35,high_school_computer_science,1,B,"The expression is `1 + 3 % 3`.
+
+`%` has higher precedence than `+`, so:
+- `3 % 3 = 0`
+- `1 + 0 = 1`
+
+**B. 1**"
+mmlu_high_school_computer_science_36,high_school_computer_science,1,A,"The binary number 1001 0011 equals... adding 1:
+
+1001 0011 + 1 = 1001 0100
+
+Answer: A"
+mmlu_high_school_computer_science_37,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_38,high_school_computer_science,1,C,"231 in decimal to hexadecimal:
+231 ÷ 16 = 14 remainder 7
+14 = E in hexadecimal
+So 231₁₀ = E7₁₆
+
+C"
+mmlu_high_school_computer_science_39,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_40,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_41,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_42,high_school_computer_science,1,A,"Looking at the code:
+- If a = 0, then b ← a + 10 = 0 + 10 = 10
+- If a ≠ 0, then b ← a + 20
+
+**Option A:** Changing line 3 to b ← 10
+- When a = 0: b = 10 (same result since a + 10 = 0 + 10 = 10)
+- This does NOT affect results ✓
+
+**Option B:** Changing line 3 to a ← b + 10
+- This changes what variable is assigned and b would be undefined
+- This WOULD affect results
+
+**Option C:** Changing line 7 to b ← 20
+- When a ≠ 0: original gives b = a + 20, new gives b = 20
+- These differ when a ≠ 0, so this WOULD affect results
+
+**Option D:** Changing line 7 to a ← b + 10
+- Changes the variable assigned and the expression
+- This WOULD affect results
+
+The answer is **A**"
+mmlu_high_school_computer_science_43,high_school_computer_science,1,A,"Binary search on 120 elements: log₂(120) ≈ 6.9, so maximum 7 comparisons.
+
+Answer: A"
+mmlu_high_school_computer_science_44,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_45,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_46,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_47,high_school_computer_science,1,A,"The expression `a[i] == max || !(max != a[i])`
+
+`!(max != a[i])` is equivalent to `a[i] == max`
+
+So the expression becomes `a[i] == max || a[i] == max` which simplifies to `a[i] == max`
+
+**A**"
+mmlu_high_school_computer_science_48,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_49,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_50,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_51,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_52,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_53,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_54,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_55,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_56,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_57,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_58,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_59,high_school_computer_science,1,A,A
+mmlu_professional_psychology_0,professional_psychology,1,D,D
+mmlu_professional_psychology_1,professional_psychology,1,C,C
+mmlu_professional_psychology_2,professional_psychology,1,B,B
+mmlu_professional_psychology_3,professional_psychology,1,B,B
+mmlu_professional_psychology_4,professional_psychology,1,A,A
+mmlu_professional_psychology_5,professional_psychology,1,B,B
+mmlu_professional_psychology_6,professional_psychology,1,A,A
+mmlu_professional_psychology_7,professional_psychology,1,A,A
+mmlu_professional_psychology_8,professional_psychology,1,A,A
+mmlu_professional_psychology_9,professional_psychology,1,A,A
+mmlu_professional_psychology_10,professional_psychology,1,B,B
+mmlu_professional_psychology_11,professional_psychology,1,D,D
+mmlu_professional_psychology_12,professional_psychology,1,D,D
+mmlu_professional_psychology_13,professional_psychology,1,B,B
+mmlu_professional_psychology_14,professional_psychology,1,A,A
+mmlu_professional_psychology_15,professional_psychology,1,B,B
+mmlu_professional_psychology_16,professional_psychology,1,C,C
+mmlu_professional_psychology_17,professional_psychology,1,B,B
+mmlu_professional_psychology_18,professional_psychology,1,B,B
+mmlu_professional_psychology_19,professional_psychology,1,C,C
+mmlu_professional_psychology_20,professional_psychology,1,B,B
+mmlu_professional_psychology_21,professional_psychology,1,B,B
+mmlu_professional_psychology_22,professional_psychology,1,D,D
+mmlu_professional_psychology_23,professional_psychology,1,A,A
+mmlu_professional_psychology_24,professional_psychology,1,A,A
+mmlu_professional_psychology_25,professional_psychology,0,A,B
+mmlu_professional_psychology_26,professional_psychology,1,A,A
+mmlu_professional_psychology_27,professional_psychology,1,B,B
+mmlu_professional_psychology_28,professional_psychology,1,A,A
+mmlu_professional_psychology_29,professional_psychology,1,B,B
+mmlu_professional_psychology_30,professional_psychology,1,B,B
+mmlu_professional_psychology_31,professional_psychology,1,C,C
+mmlu_professional_psychology_32,professional_psychology,0,D,C
+mmlu_professional_psychology_33,professional_psychology,1,A,A
+mmlu_professional_psychology_34,professional_psychology,1,C,C
+mmlu_professional_psychology_35,professional_psychology,1,B,B
+mmlu_professional_psychology_36,professional_psychology,1,D,D
+mmlu_professional_psychology_37,professional_psychology,1,B,B
+mmlu_professional_psychology_38,professional_psychology,1,C,C
+mmlu_professional_psychology_39,professional_psychology,0,A,D
+mmlu_professional_psychology_40,professional_psychology,1,B,B
+mmlu_professional_psychology_41,professional_psychology,1,D,D
+mmlu_professional_psychology_42,professional_psychology,1,B,B
+mmlu_professional_psychology_43,professional_psychology,1,D,D
+mmlu_professional_psychology_44,professional_psychology,0,A,B
+mmlu_professional_psychology_45,professional_psychology,1,D,D
+mmlu_professional_psychology_46,professional_psychology,0,C,D
+mmlu_professional_psychology_47,professional_psychology,0,C,B
+mmlu_professional_psychology_48,professional_psychology,1,D,D
+mmlu_professional_psychology_49,professional_psychology,1,D,D
+mmlu_professional_psychology_50,professional_psychology,1,B,B
+mmlu_professional_psychology_51,professional_psychology,1,C,C
+mmlu_professional_psychology_52,professional_psychology,1,A,A
+mmlu_professional_psychology_53,professional_psychology,1,C,C
+mmlu_professional_psychology_54,professional_psychology,1,D,D
+mmlu_professional_psychology_55,professional_psychology,1,C,C
+mmlu_professional_psychology_56,professional_psychology,1,D,D
+mmlu_professional_psychology_57,professional_psychology,1,D,D
+mmlu_professional_psychology_58,professional_psychology,1,D,D
+mmlu_professional_psychology_59,professional_psychology,1,A,A
+mmlu_logical_fallacies_0,logical_fallacies,1,A,A
+mmlu_logical_fallacies_1,logical_fallacies,1,C,C
+mmlu_logical_fallacies_2,logical_fallacies,1,C,C
+mmlu_logical_fallacies_3,logical_fallacies,1,D,D
+mmlu_logical_fallacies_4,logical_fallacies,1,C,C
+mmlu_logical_fallacies_5,logical_fallacies,1,D,D
+mmlu_logical_fallacies_6,logical_fallacies,1,A,A
+mmlu_logical_fallacies_7,logical_fallacies,1,A,A
+mmlu_logical_fallacies_8,logical_fallacies,1,A,A
+mmlu_logical_fallacies_9,logical_fallacies,0,B,"The question asks about concluding someone is honest because their associates are honest - this is reasoning from the character of associates to the character of the person, which is the inverse of ""guilt by association"" (where someone is judged negatively by their associates). Here, it's a positive version - sometimes called ""honor by association"" or ""laudatory personality.""
+
+The answer is **A. Laudatory personality**"
+mmlu_logical_fallacies_10,logical_fallacies,1,D,D
+mmlu_logical_fallacies_11,logical_fallacies,1,C,C
+mmlu_logical_fallacies_12,logical_fallacies,1,D,D
+mmlu_logical_fallacies_13,logical_fallacies,1,C,C
+mmlu_logical_fallacies_14,logical_fallacies,1,B,B
+mmlu_logical_fallacies_15,logical_fallacies,1,C,C
+mmlu_logical_fallacies_16,logical_fallacies,1,D,D
+mmlu_logical_fallacies_17,logical_fallacies,1,C,C
+mmlu_logical_fallacies_18,logical_fallacies,1,C,C
+mmlu_logical_fallacies_19,logical_fallacies,1,D,D
+mmlu_logical_fallacies_20,logical_fallacies,1,D,D
+mmlu_logical_fallacies_21,logical_fallacies,1,C,C
+mmlu_logical_fallacies_22,logical_fallacies,1,B,B
+mmlu_logical_fallacies_23,logical_fallacies,1,B,B
+mmlu_logical_fallacies_24,logical_fallacies,1,C,"Looking at this question, I need to identify what ""ad crumenam"" is and which category it falls under.
+
+""Ad crumenam"" (also called ""argumentum ad crumenam"") is the fallacy of appealing to wealth or money - arguing that something is correct or better because the person is wealthy, or that wealth indicates truth or virtue.
+
+This is a type of false sign fallacy - it uses wealth as a false indicator (sign) of being right or correct.
+
+The answer is **C. False sign**"
+mmlu_logical_fallacies_25,logical_fallacies,1,D,D
+mmlu_logical_fallacies_26,logical_fallacies,1,A,A
+mmlu_logical_fallacies_27,logical_fallacies,1,B,B
+mmlu_logical_fallacies_28,logical_fallacies,1,B,B
+mmlu_logical_fallacies_29,logical_fallacies,1,B,B
+mmlu_logical_fallacies_30,logical_fallacies,1,D,D
+mmlu_logical_fallacies_31,logical_fallacies,1,D,D
+mmlu_logical_fallacies_32,logical_fallacies,1,C,C
+mmlu_logical_fallacies_33,logical_fallacies,1,D,D
+mmlu_logical_fallacies_34,logical_fallacies,1,A,"Looking at this question, I need to identify what ""reprehensible personality"" is a specific type of.
+
+The fallacy of reprehensible personality involves attacking someone's character or moral standing to discredit their argument. This is a specific form of *argumentum ad hominem* (argument against the person).
+
+However, the options given are:
+A. the fallacy of accident
+B. False dilemma
+C. Begging the question
+D. Circular reasoning
+
+Wait - looking at the options more carefully, none of them explicitly say ""argument against the person."" But begging the question and circular reasoning are essentially the same thing (D mirrors C).
+
+Actually, ""reprehensible personality"" is a type of *ad hominem* (abusive), which falls under argument against the person. But since that's not listed...
+
+Reconsidering: The fallacy of reprehensible personality could be connected to **begging the question** in some classifications, but more likely this is a trick question where the answer relates to circular reasoning or begging the question as a form of misdirection.
+
+Given the available options and that circular reasoning (D) and begging the question (C) are essentially the same fallacy, and that ""reprehensible personality"" as an ad hominem attack is sometimes classified under certain fallacy taxonomies...
+
+The answer is **A** - but actually, reprehensible personality is a subtype of argument against the person/ad hominem, which isn't listed. Among these options, the most likely intended answer is:
+
+**A**"
+mmlu_logical_fallacies_35,logical_fallacies,1,D,D
+mmlu_logical_fallacies_36,logical_fallacies,1,C,C
+mmlu_logical_fallacies_37,logical_fallacies,1,C,C
+mmlu_logical_fallacies_38,logical_fallacies,1,A,A
+mmlu_logical_fallacies_39,logical_fallacies,1,A,A
+mmlu_logical_fallacies_40,logical_fallacies,1,D,D
+mmlu_logical_fallacies_41,logical_fallacies,1,B,B
+mmlu_logical_fallacies_42,logical_fallacies,1,B,B
+mmlu_logical_fallacies_43,logical_fallacies,1,B,B
+mmlu_logical_fallacies_44,logical_fallacies,1,D,D
+mmlu_logical_fallacies_45,logical_fallacies,1,A,A
+mmlu_logical_fallacies_46,logical_fallacies,1,A,A
+mmlu_logical_fallacies_47,logical_fallacies,1,A,A
+mmlu_logical_fallacies_48,logical_fallacies,1,C,C
+mmlu_logical_fallacies_49,logical_fallacies,0,C,A
+mmlu_logical_fallacies_50,logical_fallacies,1,A,A
+mmlu_logical_fallacies_51,logical_fallacies,1,B,B
+mmlu_logical_fallacies_52,logical_fallacies,1,D,D
+mmlu_logical_fallacies_53,logical_fallacies,1,A,A
+mmlu_logical_fallacies_54,logical_fallacies,1,A,A
+mmlu_logical_fallacies_55,logical_fallacies,1,D,D
+mmlu_logical_fallacies_56,logical_fallacies,1,B,B
+mmlu_logical_fallacies_57,logical_fallacies,1,C,C
+mmlu_logical_fallacies_58,logical_fallacies,0,B,D
+mmlu_logical_fallacies_59,logical_fallacies,1,C,C

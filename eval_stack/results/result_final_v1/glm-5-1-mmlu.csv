@@ -1,0 +1,583 @@
+question_id,category,score,ground_truth,response
+mmlu_formal_logic_0,formal_logic,1,D,D
+mmlu_formal_logic_1,formal_logic,1,A,A
+mmlu_formal_logic_2,formal_logic,1,C,C
+mmlu_formal_logic_3,formal_logic,1,A,A
+mmlu_formal_logic_4,formal_logic,1,B,B
+mmlu_formal_logic_5,formal_logic,1,D,D
+mmlu_formal_logic_6,formal_logic,1,D,D
+mmlu_formal_logic_7,formal_logic,1,B,B
+mmlu_formal_logic_8,formal_logic,1,D,D
+mmlu_formal_logic_9,formal_logic,1,D,D
+mmlu_formal_logic_10,formal_logic,1,A,A
+mmlu_formal_logic_11,formal_logic,1,B,B
+mmlu_formal_logic_12,formal_logic,1,D,D
+mmlu_formal_logic_13,formal_logic,1,C,C
+mmlu_formal_logic_14,formal_logic,1,D,D
+mmlu_formal_logic_15,formal_logic,1,B,B
+mmlu_formal_logic_16,formal_logic,1,D,D
+mmlu_formal_logic_17,formal_logic,1,D,D
+mmlu_formal_logic_18,formal_logic,1,B,B
+mmlu_formal_logic_19,formal_logic,1,B,B
+mmlu_formal_logic_20,formal_logic,1,B,B
+mmlu_formal_logic_21,formal_logic,1,D,D
+mmlu_formal_logic_22,formal_logic,1,B,B
+mmlu_formal_logic_23,formal_logic,1,C,C
+mmlu_formal_logic_24,formal_logic,1,D,D
+mmlu_formal_logic_25,formal_logic,1,A,A
+mmlu_formal_logic_26,formal_logic,1,D,D
+mmlu_formal_logic_27,formal_logic,1,A,A
+mmlu_formal_logic_28,formal_logic,1,A,A
+mmlu_formal_logic_29,formal_logic,1,A,A
+mmlu_formal_logic_30,formal_logic,1,B,B
+mmlu_formal_logic_31,formal_logic,1,A,A
+mmlu_formal_logic_32,formal_logic,1,D,D
+mmlu_formal_logic_33,formal_logic,1,B,B
+mmlu_formal_logic_34,formal_logic,1,D,D
+mmlu_formal_logic_35,formal_logic,1,C,C
+mmlu_formal_logic_36,formal_logic,1,B,B
+mmlu_formal_logic_37,formal_logic,1,D,D
+mmlu_formal_logic_38,formal_logic,1,B,B
+mmlu_formal_logic_39,formal_logic,1,D,D
+mmlu_formal_logic_40,formal_logic,1,A,A
+mmlu_formal_logic_41,formal_logic,1,A,A
+mmlu_formal_logic_42,formal_logic,1,C,C
+mmlu_formal_logic_43,formal_logic,1,A,A
+mmlu_formal_logic_44,formal_logic,1,A,A
+mmlu_formal_logic_45,formal_logic,1,A,A
+mmlu_formal_logic_46,formal_logic,1,D,D
+mmlu_formal_logic_47,formal_logic,1,A,A
+mmlu_formal_logic_48,formal_logic,1,D,D
+mmlu_formal_logic_49,formal_logic,1,B,B
+mmlu_formal_logic_50,formal_logic,1,B,B
+mmlu_formal_logic_51,formal_logic,0,A,B
+mmlu_formal_logic_52,formal_logic,1,D,D
+mmlu_formal_logic_53,formal_logic,1,D,D
+mmlu_formal_logic_54,formal_logic,1,B,B
+mmlu_formal_logic_55,formal_logic,1,B,B
+mmlu_formal_logic_56,formal_logic,1,B,B
+mmlu_formal_logic_57,formal_logic,1,B,B
+mmlu_formal_logic_58,formal_logic,1,B,B
+mmlu_formal_logic_59,formal_logic,1,D,D
+mmlu_abstract_algebra_0,abstract_algebra,1,B,B
+mmlu_abstract_algebra_1,abstract_algebra,1,C,C
+mmlu_abstract_algebra_2,abstract_algebra,1,D,D
+mmlu_abstract_algebra_3,abstract_algebra,1,B,B
+mmlu_abstract_algebra_4,abstract_algebra,1,B,B
+mmlu_abstract_algebra_5,abstract_algebra,1,A,A
+mmlu_abstract_algebra_6,abstract_algebra,1,A,A
+mmlu_abstract_algebra_7,abstract_algebra,0,D,C
+mmlu_abstract_algebra_8,abstract_algebra,1,B,B
+mmlu_abstract_algebra_9,abstract_algebra,1,C,C
+mmlu_abstract_algebra_10,abstract_algebra,1,C,C
+mmlu_abstract_algebra_11,abstract_algebra,1,C,C
+mmlu_abstract_algebra_12,abstract_algebra,1,A,A
+mmlu_abstract_algebra_13,abstract_algebra,1,C,C
+mmlu_abstract_algebra_14,abstract_algebra,1,C,C
+mmlu_abstract_algebra_15,abstract_algebra,1,B,B
+mmlu_abstract_algebra_16,abstract_algebra,1,C,C
+mmlu_abstract_algebra_17,abstract_algebra,1,C,C
+mmlu_abstract_algebra_18,abstract_algebra,1,D,D
+mmlu_abstract_algebra_19,abstract_algebra,1,A,A
+mmlu_abstract_algebra_20,abstract_algebra,1,A,A
+mmlu_abstract_algebra_21,abstract_algebra,1,A,A
+mmlu_abstract_algebra_22,abstract_algebra,1,D,D
+mmlu_abstract_algebra_23,abstract_algebra,1,D,D
+mmlu_abstract_algebra_24,abstract_algebra,0,B,A
+mmlu_abstract_algebra_25,abstract_algebra,1,C,C
+mmlu_abstract_algebra_26,abstract_algebra,1,C,C
+mmlu_abstract_algebra_27,abstract_algebra,0,B,D
+mmlu_abstract_algebra_28,abstract_algebra,1,D,D
+mmlu_abstract_algebra_29,abstract_algebra,1,A,A
+mmlu_abstract_algebra_30,abstract_algebra,1,B,B
+mmlu_abstract_algebra_31,abstract_algebra,1,B,B
+mmlu_abstract_algebra_32,abstract_algebra,1,A,A
+mmlu_abstract_algebra_33,abstract_algebra,1,C,C
+mmlu_abstract_algebra_34,abstract_algebra,0,A,D
+mmlu_abstract_algebra_35,abstract_algebra,1,B,B
+mmlu_abstract_algebra_36,abstract_algebra,1,D,D
+mmlu_abstract_algebra_37,abstract_algebra,1,B,B
+mmlu_abstract_algebra_38,abstract_algebra,1,C,C
+mmlu_abstract_algebra_39,abstract_algebra,1,D,D
+mmlu_abstract_algebra_40,abstract_algebra,1,C,C
+mmlu_abstract_algebra_41,abstract_algebra,1,A,A
+mmlu_abstract_algebra_42,abstract_algebra,1,B,B
+mmlu_abstract_algebra_43,abstract_algebra,1,C,C
+mmlu_abstract_algebra_44,abstract_algebra,1,C,C
+mmlu_abstract_algebra_45,abstract_algebra,1,C,C
+mmlu_abstract_algebra_46,abstract_algebra,1,B,B
+mmlu_abstract_algebra_47,abstract_algebra,1,B,B
+mmlu_abstract_algebra_48,abstract_algebra,1,C,C
+mmlu_abstract_algebra_49,abstract_algebra,1,B,B
+mmlu_abstract_algebra_50,abstract_algebra,1,D,D
+mmlu_abstract_algebra_51,abstract_algebra,1,B,B
+mmlu_abstract_algebra_52,abstract_algebra,1,A,A
+mmlu_abstract_algebra_53,abstract_algebra,1,C,C
+mmlu_abstract_algebra_54,abstract_algebra,1,B,B
+mmlu_abstract_algebra_55,abstract_algebra,1,A,A
+mmlu_abstract_algebra_56,abstract_algebra,1,D,D
+mmlu_abstract_algebra_57,abstract_algebra,1,B,B
+mmlu_abstract_algebra_58,abstract_algebra,1,A,A
+mmlu_abstract_algebra_59,abstract_algebra,1,A,A
+mmlu_college_mathematics_0,college_mathematics,1,B,B
+mmlu_college_mathematics_1,college_mathematics,1,D,D
+mmlu_college_mathematics_2,college_mathematics,1,D,D
+mmlu_college_mathematics_3,college_mathematics,1,A,A
+mmlu_college_mathematics_4,college_mathematics,1,C,C
+mmlu_college_mathematics_5,college_mathematics,1,D,D
+mmlu_college_mathematics_6,college_mathematics,1,C,C
+mmlu_college_mathematics_7,college_mathematics,1,C,C
+mmlu_college_mathematics_8,college_mathematics,1,C,C
+mmlu_college_mathematics_9,college_mathematics,1,A,A
+mmlu_college_mathematics_10,college_mathematics,1,D,D
+mmlu_college_mathematics_11,college_mathematics,1,B,B
+mmlu_college_mathematics_12,college_mathematics,1,A,A
+mmlu_college_mathematics_13,college_mathematics,0,B,"To determine the minimum number of teams required, we can model this situation using graph theory. 
+
+Let each student be represented by a vertex in a directed graph. If a student dislikes a classmate, we draw a directed edge from their vertex to the classmate's vertex. Since each student dislikes exactly 3 classmates, every vertex in the graph has an out-degree of 3. 
+
+We want to divide the students into teams such that no student is on the same team as someone they dislike or someone who dislikes them. In terms of our graph, this means we need to color the underlying undirected graph (where directed edges are treated as undirected edges) such that no two connected vertices share the same color. The minimum number of teams needed in the worst-case scenario is the chromatic number of this graph.
+
+Let's find the maximum possible chromatic number for such a graph:
+1. In a directed graph with $n$ vertices where every vertex has an out-degree of 3, the total number of directed edges is $3n$.
+2. When we convert this to an undirected graph, the number of edges remains $3n$.
+3. The sum of the degrees of all vertices in the undirected graph is $2 \times 3n = 6n$.
+4. The average degree of a vertex in this undirected graph is $\frac{6n}{n} = 6$.
+5. Because the average degree is 6, there must exist at least one vertex with a degree of 6 or less. We can iteratively remove vertices of degree 6 or less from the graph. Since removing a vertex maintains the average degree of 6 for the remaining subgraph, we can always find such a vertex to remove until the graph is empty. 
+6. This implies that the graph is 6-degenerate. By the properties of degeneracy, any graph with a degeneracy of $k$ can be colored using at most $k + 1$ colors. Therefore, our graph can always be colored with $6 + 1 = 7$ colors.
+
+To show that 7 teams are sometimes necessary, we can construct a class of 7 students where each student dislikes exactly 3 other students, and the dislikes form a cycle (specifically, a regular tournament). In this arrangement, every student dislikes 3 students and is disliked by 3 students, making the underlying undirected graph a complete graph $K_7$. A complete graph of 7 vertices requires exactly 7 colors.
+
+Thus, 7 teams are always sufficient and sometimes necessary to ensure no student is grouped with someone they dislike.
+
+B"
+mmlu_college_mathematics_14,college_mathematics,1,D,D
+mmlu_college_mathematics_15,college_mathematics,1,D,D
+mmlu_college_mathematics_16,college_mathematics,0,B,"To determine which of the statements must be true, let's analyze each one.
+
+**Statement I:** If $V$ has a basis containing only eigenvectors of $T$, then $T$ is diagonalizable. However, $U = M(V)$ implies that $T$ commutes with every matrix in $M(V)$, which is only true if $T$ is a scalar multiple of the identity matrix. A diagonalizable matrix (e.g., a diagonal matrix with distinct eigenvalues) does not necessarily commute with all matrices. Thus, Statement I is false.
+
+**Statement II:** The set $U = \{X \in M(V) : TX = XT\}$ is the kernel of the linear transformation $\text{ad}_T : M(V) \to M(V)$ defined by $\text{ad}_T(X) = TX - XT$. The set $W = \{TX - XT : X \in M(V)\}$ is exactly the image of this same linear transformation. By the Rank-Nullity Theorem, the dimension of the kernel plus the dimension of the image equals the dimension of the domain. Since the domain is $M(V)$, which is the vector space of all $n \times n$ matrices, its dimension is $n^2$. Therefore, $\dim(U) + \dim(W) = n^2$. Statement II is true.
+
+**Statement III:** The dimension of the centralizer $U$ of $T$ is at least $n$. For example, if $T$ is the identity matrix, then $TX = XT$ for all $X \in M(V)$, meaning $U = M(V)$ and $\dim(U) = n^2$, which is not less than $n$ (for $n \ge 1$). Thus, Statement III is false.
+
+Only Statement II must be true.
+
+B"
+mmlu_college_mathematics_17,college_mathematics,1,C,C
+mmlu_college_mathematics_18,college_mathematics,0,D,B
+mmlu_college_mathematics_19,college_mathematics,1,A,A
+mmlu_college_mathematics_20,college_mathematics,1,D,D
+mmlu_college_mathematics_21,college_mathematics,1,D,D
+mmlu_college_mathematics_22,college_mathematics,1,B,B
+mmlu_college_mathematics_23,college_mathematics,1,A,A
+mmlu_college_mathematics_24,college_mathematics,1,B,B
+mmlu_college_mathematics_25,college_mathematics,1,D,D
+mmlu_college_mathematics_26,college_mathematics,1,D,D
+mmlu_college_mathematics_27,college_mathematics,1,A,A
+mmlu_college_mathematics_28,college_mathematics,1,A,A
+mmlu_college_mathematics_29,college_mathematics,1,B,B
+mmlu_college_mathematics_30,college_mathematics,1,C,C
+mmlu_college_mathematics_31,college_mathematics,1,B,B
+mmlu_college_mathematics_32,college_mathematics,1,B,B
+mmlu_college_mathematics_33,college_mathematics,1,C,C
+mmlu_college_mathematics_34,college_mathematics,1,D,D
+mmlu_college_mathematics_35,college_mathematics,1,D,D
+mmlu_college_mathematics_36,college_mathematics,1,A,A
+mmlu_college_mathematics_37,college_mathematics,1,A,A
+mmlu_college_mathematics_38,college_mathematics,1,A,A
+mmlu_college_mathematics_39,college_mathematics,1,C,C
+mmlu_college_mathematics_40,college_mathematics,1,B,B
+mmlu_college_mathematics_41,college_mathematics,1,D,D
+mmlu_college_mathematics_42,college_mathematics,1,D,D
+mmlu_college_mathematics_43,college_mathematics,1,A,A
+mmlu_college_mathematics_44,college_mathematics,1,D,D
+mmlu_college_mathematics_45,college_mathematics,1,A,A
+mmlu_college_mathematics_46,college_mathematics,1,B,B
+mmlu_college_mathematics_47,college_mathematics,1,B,B
+mmlu_college_mathematics_48,college_mathematics,1,C,C
+mmlu_college_mathematics_49,college_mathematics,1,D,D
+mmlu_college_mathematics_50,college_mathematics,1,A,A
+mmlu_college_mathematics_51,college_mathematics,1,B,B
+mmlu_college_mathematics_52,college_mathematics,1,C,C
+mmlu_college_mathematics_53,college_mathematics,1,C,C
+mmlu_college_mathematics_54,college_mathematics,0,A,D
+mmlu_college_mathematics_55,college_mathematics,1,D,D
+mmlu_college_mathematics_56,college_mathematics,1,B,B
+mmlu_college_mathematics_57,college_mathematics,1,D,D
+mmlu_college_mathematics_58,college_mathematics,1,C,C
+mmlu_college_mathematics_59,college_mathematics,1,A,A
+mmlu_philosophy_0,philosophy,1,C,C
+mmlu_philosophy_1,philosophy,1,D,D
+mmlu_philosophy_2,philosophy,1,D,D
+mmlu_philosophy_3,philosophy,1,D,D
+mmlu_philosophy_4,philosophy,1,B,B
+mmlu_philosophy_5,philosophy,1,D,D
+mmlu_philosophy_6,philosophy,1,C,C
+mmlu_philosophy_7,philosophy,1,D,D
+mmlu_philosophy_8,philosophy,1,A,A
+mmlu_philosophy_9,philosophy,1,B,B
+mmlu_philosophy_10,philosophy,1,C,C
+mmlu_philosophy_11,philosophy,1,C,C
+mmlu_philosophy_12,philosophy,1,B,B
+mmlu_philosophy_13,philosophy,1,A,A
+mmlu_philosophy_14,philosophy,1,D,D
+mmlu_philosophy_15,philosophy,1,A,A
+mmlu_philosophy_16,philosophy,1,A,A
+mmlu_philosophy_17,philosophy,1,D,D
+mmlu_philosophy_19,philosophy,1,D,D
+mmlu_philosophy_20,philosophy,1,C,C
+mmlu_philosophy_21,philosophy,1,A,A
+mmlu_philosophy_22,philosophy,1,C,C
+mmlu_philosophy_23,philosophy,1,B,B
+mmlu_philosophy_24,philosophy,1,B,B
+mmlu_philosophy_25,philosophy,1,B,B
+mmlu_philosophy_26,philosophy,1,A,A
+mmlu_philosophy_27,philosophy,1,C,C
+mmlu_philosophy_28,philosophy,1,B,B
+mmlu_philosophy_29,philosophy,1,D,D
+mmlu_philosophy_30,philosophy,1,A,A
+mmlu_philosophy_31,philosophy,1,B,B
+mmlu_philosophy_32,philosophy,1,C,C
+mmlu_philosophy_33,philosophy,1,A,A
+mmlu_philosophy_35,philosophy,1,B,B
+mmlu_philosophy_36,philosophy,1,B,B
+mmlu_philosophy_37,philosophy,1,C,C
+mmlu_philosophy_38,philosophy,1,D,D
+mmlu_philosophy_39,philosophy,1,B,B
+mmlu_philosophy_40,philosophy,1,C,C
+mmlu_philosophy_41,philosophy,1,C,C
+mmlu_philosophy_42,philosophy,1,C,C
+mmlu_philosophy_43,philosophy,1,B,B
+mmlu_philosophy_44,philosophy,1,C,C
+mmlu_philosophy_45,philosophy,1,D,D
+mmlu_philosophy_46,philosophy,1,A,A
+mmlu_philosophy_47,philosophy,1,C,C
+mmlu_philosophy_48,philosophy,1,B,B
+mmlu_philosophy_49,philosophy,1,D,D
+mmlu_philosophy_50,philosophy,1,D,D
+mmlu_philosophy_51,philosophy,1,D,D
+mmlu_philosophy_52,philosophy,1,D,D
+mmlu_philosophy_53,philosophy,1,C,C
+mmlu_philosophy_54,philosophy,1,B,B
+mmlu_philosophy_55,philosophy,1,C,C
+mmlu_philosophy_56,philosophy,1,B,B
+mmlu_philosophy_57,philosophy,1,C,C
+mmlu_philosophy_58,philosophy,1,C,C
+mmlu_philosophy_59,philosophy,0,C,B
+mmlu_college_computer_science_0,college_computer_science,1,A,A
+mmlu_college_computer_science_1,college_computer_science,1,C,C
+mmlu_college_computer_science_2,college_computer_science,0,B,D
+mmlu_college_computer_science_3,college_computer_science,1,A,A
+mmlu_college_computer_science_4,college_computer_science,1,C,C
+mmlu_college_computer_science_5,college_computer_science,0,C,"To find the maximum and minimum number of connected components, we analyze the properties of undirected graphs with 10 nodes and 6 edges.
+
+**Minimum number of connected components (m):**
+To minimize the number of connected components, we want to connect as many nodes as possible into a single component using the available edges. A connected component with $k$ nodes requires at least $k-1$ edges (forming a tree). 
+With 6 edges, the largest possible connected component we can form is a tree of 7 nodes (which uses exactly 6 edges). The remaining 3 nodes must be isolated (components of size 1). 
+Thus, the minimum number of connected components is 1 (the 7-node tree) + 3 (the isolated nodes) = 4. 
+We cannot have fewer than 4 components because connecting 10 nodes into 3 components would require at least $(10-3) = 7$ edges, but we only have 6. So, $m = 4$.
+
+**Maximum number of connected components (M):**
+To maximize the number of connected components, we want to use the 6 edges to connect as few nodes as possible, leaving the rest of the nodes as isolated components. The most ""edge-dense"" connected component is a complete graph $K_n$, which has $n$ nodes and $n(n-1)/2$ edges. 
+We want to find the smallest number of nodes that can hold 6 edges. A complete graph on 4 nodes, $K_4$, has $4(4-1)/2 = 6$ edges. 
+By placing all 6 edges on just 4 nodes to form a $K_4$, we use up all our edges and create 1 connected component. The remaining $10 - 4 = 6$ nodes are left isolated, each forming their own component of size 1.
+Thus, the maximum number of connected components is 1 (the $K_4$) + 6 (the isolated nodes) = 7.
+We cannot have more than 7 components because any distribution of 6 edges that uses more than 4 nodes (e.g., two $K_3$'s using 6 nodes) leaves fewer isolated nodes, resulting in fewer total components (e.g., $2 + 4 = 6$ components). So, $M = 7$.
+
+Therefore, $M = 7$ and $m = 4$.
+
+C"
+mmlu_college_computer_science_6,college_computer_science,1,C,C
+mmlu_college_computer_science_7,college_computer_science,1,B,B
+mmlu_college_computer_science_8,college_computer_science,1,C,C
+mmlu_college_computer_science_9,college_computer_science,1,C,C
+mmlu_college_computer_science_10,college_computer_science,1,D,D
+mmlu_college_computer_science_11,college_computer_science,1,A,A
+mmlu_college_computer_science_12,college_computer_science,1,A,A
+mmlu_college_computer_science_13,college_computer_science,1,C,C
+mmlu_college_computer_science_14,college_computer_science,1,A,A
+mmlu_college_computer_science_15,college_computer_science,1,D,D
+mmlu_college_computer_science_16,college_computer_science,1,D,D
+mmlu_college_computer_science_17,college_computer_science,1,B,B
+mmlu_college_computer_science_18,college_computer_science,1,A,A
+mmlu_college_computer_science_19,college_computer_science,1,D,D
+mmlu_college_computer_science_20,college_computer_science,1,D,D
+mmlu_college_computer_science_21,college_computer_science,1,B,B
+mmlu_college_computer_science_22,college_computer_science,1,A,A
+mmlu_college_computer_science_23,college_computer_science,1,A,A
+mmlu_college_computer_science_24,college_computer_science,1,A,A
+mmlu_college_computer_science_25,college_computer_science,1,D,D
+mmlu_college_computer_science_26,college_computer_science,1,C,C
+mmlu_college_computer_science_27,college_computer_science,1,D,D
+mmlu_college_computer_science_28,college_computer_science,1,D,D
+mmlu_college_computer_science_29,college_computer_science,1,C,C
+mmlu_college_computer_science_30,college_computer_science,1,C,C
+mmlu_college_computer_science_31,college_computer_science,1,D,D
+mmlu_college_computer_science_32,college_computer_science,1,D,D
+mmlu_college_computer_science_33,college_computer_science,1,A,A
+mmlu_college_computer_science_34,college_computer_science,1,B,B
+mmlu_college_computer_science_35,college_computer_science,1,C,C
+mmlu_college_computer_science_36,college_computer_science,1,C,C
+mmlu_college_computer_science_37,college_computer_science,1,D,D
+mmlu_college_computer_science_38,college_computer_science,1,D,D
+mmlu_college_computer_science_39,college_computer_science,1,B,B
+mmlu_college_computer_science_40,college_computer_science,1,A,A
+mmlu_college_computer_science_41,college_computer_science,1,D,D
+mmlu_college_computer_science_42,college_computer_science,1,A,A
+mmlu_college_computer_science_43,college_computer_science,1,D,D
+mmlu_college_computer_science_44,college_computer_science,1,D,D
+mmlu_college_computer_science_45,college_computer_science,1,C,C
+mmlu_college_computer_science_46,college_computer_science,1,D,D
+mmlu_college_computer_science_47,college_computer_science,1,A,A
+mmlu_college_computer_science_49,college_computer_science,1,D,D
+mmlu_college_computer_science_50,college_computer_science,1,D,D
+mmlu_college_computer_science_51,college_computer_science,1,B,B
+mmlu_college_computer_science_53,college_computer_science,1,C,C
+mmlu_college_computer_science_54,college_computer_science,1,A,A
+mmlu_college_computer_science_55,college_computer_science,1,C,C
+mmlu_college_computer_science_56,college_computer_science,1,D,D
+mmlu_college_computer_science_57,college_computer_science,1,D,D
+mmlu_college_computer_science_58,college_computer_science,1,B,B
+mmlu_college_computer_science_59,college_computer_science,1,D,D
+mmlu_high_school_computer_science_0,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_1,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_2,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_3,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_4,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_5,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_6,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_7,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_8,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_9,high_school_computer_science,0,B,C
+mmlu_high_school_computer_science_10,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_11,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_12,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_13,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_14,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_15,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_16,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_17,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_18,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_19,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_20,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_21,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_22,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_23,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_24,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_25,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_26,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_27,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_28,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_29,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_30,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_31,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_32,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_33,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_34,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_35,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_36,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_37,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_38,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_39,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_40,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_41,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_42,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_43,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_44,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_45,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_46,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_47,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_48,high_school_computer_science,1,B,B
+mmlu_high_school_computer_science_49,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_50,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_51,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_52,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_53,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_54,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_55,high_school_computer_science,1,A,A
+mmlu_high_school_computer_science_56,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_57,high_school_computer_science,1,D,D
+mmlu_high_school_computer_science_58,high_school_computer_science,1,C,C
+mmlu_high_school_computer_science_59,high_school_computer_science,1,A,A
+mmlu_professional_psychology_0,professional_psychology,1,D,D
+mmlu_professional_psychology_1,professional_psychology,1,C,C
+mmlu_professional_psychology_2,professional_psychology,1,B,B
+mmlu_professional_psychology_3,professional_psychology,1,B,B
+mmlu_professional_psychology_4,professional_psychology,1,A,A
+mmlu_professional_psychology_5,professional_psychology,1,B,B
+mmlu_professional_psychology_6,professional_psychology,1,A,A
+mmlu_professional_psychology_7,professional_psychology,1,A,A
+mmlu_professional_psychology_8,professional_psychology,1,A,A
+mmlu_professional_psychology_9,professional_psychology,1,A,A
+mmlu_professional_psychology_10,professional_psychology,1,B,B
+mmlu_professional_psychology_11,professional_psychology,1,D,D
+mmlu_professional_psychology_12,professional_psychology,1,D,D
+mmlu_professional_psychology_13,professional_psychology,1,B,B
+mmlu_professional_psychology_14,professional_psychology,1,A,A
+mmlu_professional_psychology_15,professional_psychology,1,B,B
+mmlu_professional_psychology_16,professional_psychology,1,C,C
+mmlu_professional_psychology_17,professional_psychology,1,B,B
+mmlu_professional_psychology_18,professional_psychology,1,B,B
+mmlu_professional_psychology_19,professional_psychology,1,C,C
+mmlu_professional_psychology_20,professional_psychology,1,B,B
+mmlu_professional_psychology_21,professional_psychology,1,B,B
+mmlu_professional_psychology_22,professional_psychology,1,D,D
+mmlu_professional_psychology_23,professional_psychology,1,A,A
+mmlu_professional_psychology_24,professional_psychology,1,A,A
+mmlu_professional_psychology_25,professional_psychology,0,A,D
+mmlu_professional_psychology_26,professional_psychology,1,A,A
+mmlu_professional_psychology_27,professional_psychology,1,B,B
+mmlu_professional_psychology_28,professional_psychology,1,A,A
+mmlu_professional_psychology_29,professional_psychology,1,B,B
+mmlu_professional_psychology_30,professional_psychology,1,B,B
+mmlu_professional_psychology_31,professional_psychology,1,C,C
+mmlu_professional_psychology_32,professional_psychology,1,D,D
+mmlu_professional_psychology_33,professional_psychology,1,A,A
+mmlu_professional_psychology_34,professional_psychology,1,C,C
+mmlu_professional_psychology_35,professional_psychology,1,B,B
+mmlu_professional_psychology_36,professional_psychology,1,D,D
+mmlu_professional_psychology_37,professional_psychology,1,B,B
+mmlu_professional_psychology_38,professional_psychology,1,C,C
+mmlu_professional_psychology_39,professional_psychology,1,A,A
+mmlu_professional_psychology_40,professional_psychology,1,B,B
+mmlu_professional_psychology_41,professional_psychology,1,D,D
+mmlu_professional_psychology_42,professional_psychology,1,B,B
+mmlu_professional_psychology_43,professional_psychology,1,D,D
+mmlu_professional_psychology_44,professional_psychology,0,A,D
+mmlu_professional_psychology_45,professional_psychology,1,D,D
+mmlu_professional_psychology_46,professional_psychology,1,C,C
+mmlu_professional_psychology_47,professional_psychology,1,C,C
+mmlu_professional_psychology_48,professional_psychology,1,D,D
+mmlu_professional_psychology_49,professional_psychology,1,D,D
+mmlu_professional_psychology_50,professional_psychology,1,B,B
+mmlu_professional_psychology_51,professional_psychology,1,C,C
+mmlu_professional_psychology_52,professional_psychology,1,A,A
+mmlu_professional_psychology_53,professional_psychology,1,C,C
+mmlu_professional_psychology_54,professional_psychology,1,D,D
+mmlu_professional_psychology_55,professional_psychology,1,C,C
+mmlu_professional_psychology_56,professional_psychology,1,D,D
+mmlu_professional_psychology_57,professional_psychology,1,D,D
+mmlu_professional_psychology_58,professional_psychology,1,D,D
+mmlu_professional_psychology_59,professional_psychology,1,A,A
+mmlu_logical_fallacies_0,logical_fallacies,1,A,A
+mmlu_logical_fallacies_1,logical_fallacies,1,C,C
+mmlu_logical_fallacies_2,logical_fallacies,1,C,C
+mmlu_logical_fallacies_3,logical_fallacies,1,D,D
+mmlu_logical_fallacies_4,logical_fallacies,1,C,C
+mmlu_logical_fallacies_5,logical_fallacies,1,D,D
+mmlu_logical_fallacies_6,logical_fallacies,1,A,A
+mmlu_logical_fallacies_7,logical_fallacies,1,A,A
+mmlu_logical_fallacies_8,logical_fallacies,1,A,A
+mmlu_logical_fallacies_9,logical_fallacies,0,B,A
+mmlu_logical_fallacies_10,logical_fallacies,1,D,D
+mmlu_logical_fallacies_11,logical_fallacies,1,C,C
+mmlu_logical_fallacies_12,logical_fallacies,1,D,D
+mmlu_logical_fallacies_13,logical_fallacies,1,C,C
+mmlu_logical_fallacies_14,logical_fallacies,1,B,B
+mmlu_logical_fallacies_15,logical_fallacies,1,C,C
+mmlu_logical_fallacies_16,logical_fallacies,1,D,D
+mmlu_logical_fallacies_17,logical_fallacies,0,C,B
+mmlu_logical_fallacies_18,logical_fallacies,1,C,C
+mmlu_logical_fallacies_19,logical_fallacies,1,D,D
+mmlu_logical_fallacies_20,logical_fallacies,1,D,D
+mmlu_logical_fallacies_21,logical_fallacies,0,C,A
+mmlu_logical_fallacies_22,logical_fallacies,1,B,B
+mmlu_logical_fallacies_23,logical_fallacies,1,B,B
+mmlu_logical_fallacies_24,logical_fallacies,1,C,C
+mmlu_logical_fallacies_25,logical_fallacies,1,D,D
+mmlu_logical_fallacies_26,logical_fallacies,1,A,A
+mmlu_logical_fallacies_27,logical_fallacies,1,B,B
+mmlu_logical_fallacies_28,logical_fallacies,1,B,B
+mmlu_logical_fallacies_29,logical_fallacies,1,B,B
+mmlu_logical_fallacies_30,logical_fallacies,1,D,D
+mmlu_logical_fallacies_31,logical_fallacies,1,D,D
+mmlu_logical_fallacies_32,logical_fallacies,1,C,C
+mmlu_logical_fallacies_33,logical_fallacies,1,D,D
+mmlu_logical_fallacies_35,logical_fallacies,1,D,D
+mmlu_logical_fallacies_36,logical_fallacies,1,C,C
+mmlu_logical_fallacies_37,logical_fallacies,1,C,C
+mmlu_logical_fallacies_38,logical_fallacies,1,A,A
+mmlu_logical_fallacies_39,logical_fallacies,1,A,A
+mmlu_logical_fallacies_40,logical_fallacies,1,D,D
+mmlu_logical_fallacies_41,logical_fallacies,1,B,B
+mmlu_logical_fallacies_42,logical_fallacies,1,B,B
+mmlu_logical_fallacies_43,logical_fallacies,1,B,B
+mmlu_logical_fallacies_44,logical_fallacies,1,D,D
+mmlu_logical_fallacies_45,logical_fallacies,1,A,A
+mmlu_logical_fallacies_46,logical_fallacies,1,A,A
+mmlu_logical_fallacies_47,logical_fallacies,1,A,A
+mmlu_logical_fallacies_48,logical_fallacies,1,C,C
+mmlu_logical_fallacies_49,logical_fallacies,1,C,C
+mmlu_logical_fallacies_50,logical_fallacies,1,A,A
+mmlu_logical_fallacies_51,logical_fallacies,1,B,B
+mmlu_logical_fallacies_52,logical_fallacies,1,D,D
+mmlu_logical_fallacies_53,logical_fallacies,1,A,A
+mmlu_logical_fallacies_54,logical_fallacies,1,A,A
+mmlu_logical_fallacies_55,logical_fallacies,1,D,D
+mmlu_logical_fallacies_57,logical_fallacies,1,C,C
+mmlu_logical_fallacies_58,logical_fallacies,0,B,D
+mmlu_logical_fallacies_59,logical_fallacies,1,C,C
+mmlu_philosophy_18,philosophy,1,A,A
+mmlu_philosophy_34,philosophy,1,D,D
+mmlu_college_computer_science_48,college_computer_science,1,A,"To determine the number of bytes written to memory, we must analyze the cache mapping and the sequence of memory accesses during the loop.
+
+**1. Cache Mapping:**
+*   Cache size = 2 KB = 2048 bytes.
+*   Block size = 8 bytes.
+*   Number of cache blocks = 2048 / 8 = 256. The cache indices are 0 to 255.
+*   Array A starts at physical address 4096 (which is a multiple of 2048, so its starting index is 0). Since each element is 4 bytes, A[i] is at address 4096 + 4i. The block containing A[i] has an index of `( (4096 + 4i) / 8 ) mod 256 = (512 + i/2) mod 256 = i/2`.
+*   Array B starts at physical address 8192 (which is also a multiple of 2048, so its starting index is 0). B[j] is at address 8192 + 4j. The block containing B[j] has an index of `( (8192 + 4j) / 8 ) mod 256 = (1024 + j/2) mod 256 = j/2`.
+
+**2. Loop Accesses:**
+The loop `for (i = 0; i < 256; i++) A[i] = A[i] + B[2*i];` performs the following for each `i`:
+*   Read A[i] (maps to index `i/2`)
+*   Read B[2*i] (maps to index `(2*i)/2 = i`)
+*   Write A[i] (maps to index `i/2`)
+
+**3. Conflict Analysis:**
+Let's trace the accesses to a specific cache index `k` (where `0 <= k <= 127`):
+*   At `i = k`: B[2k] is read. This loads block B[2k..2k+1] into index `k`.
+*   At `i = 2k`: A[2k] is read. This loads block A[2k..2k+1] into index `k`, evicting B[2k..2k+1]. Since B was only read, the evicted block is clean (no write-back). A[2k] is then written, making the A[2k..2k+1] block dirty.
+*   At `i = 2k+1`: A[2k+1] is read (hit) and written (hit). The block remains dirty.
+
+After `i = 2k+1`, the loop never accesses index `k` again. Thus, the dirty block A[2k..2k+1] is never evicted from the cache.
+
+For `k = 0`:
+*   `i = 0`: A[0] is read (loads A[0..1] to index 0). B[0] is read (loads B[0..1] to index 0, evicting clean A[0..1]). A[0] is written (loads A[0..1] to index 0, evicting clean B[0..1]). A[0..1] becomes dirty.
+*   `i = 1`: A[1] is read (hit) and written (hit). The block remains dirty.
+Index 0 is never accessed again, so A[0..1] is never evicted.
+
+For indices `128 <= k <= 255`:
+*   Only B[2k] is accessed at `i = k`. The block is read and remains clean. It is never evicted by subsequent A accesses because A only maps to indices 0-127.
+
+**4. Conclusion:**
+Because a write-back policy only writes a block to memory when it is evicted from the cache (or explicitly flushed), and no dirty blocks are ever evicted during the execution of the loop, zero bytes are written to memory.
+
+A"
+mmlu_college_computer_science_52,college_computer_science,1,C,"To determine the height $h$ of a strictly binary tree in terms of the number of nodes $N$ and the constant $c$, we can analyze the properties of the tree.
+
+1. **Strictly Binary Tree Property**: In a strictly binary tree, every internal node has exactly 2 children. Let $I$ be the number of internal nodes and $L$ be the number of leaves. It is a well-known property that for such trees, $L = I + 1$. The total number of nodes is $N = I + L = 2L - 1$, which means the number of leaves is $L = \frac{N + 1}{2}$.
+
+2. **Path Length Ratio Constraint**: We are given that the ratio of the lengths of any two root-to-leaf paths is bounded above by $c > 0$. Let $h$ be the height of the tree (the length of the longest root-to-leaf path) and $L_{min}$ be the length of the shortest root-to-leaf path. The condition gives us:
+   $$ \frac{h}{L_{min}} \le c \implies L_{min} \ge \frac{h}{c} $$
+
+3. **Lower Bound on Leaves**: Since the shortest root-to-leaf path is $L_{min}$, there can be no leaves at a depth less than $L_{min}$. Because every internal node has exactly 2 children, the number of nodes doubles at each level until depth $L_{min}$. Thus, the number of nodes at depth $L_{min}$ is exactly $2^{L_{min}}$. 
+   Every node at depth $L_{min}$ is either a leaf or an internal node. If it is an internal node, it must have at least 2 descendant leaves. Therefore, the total number of leaves $L$ must be at least the number of nodes at depth $L_{min}$:
+   $$ L \ge 2^{L_{min}} $$
+
+4. **Combining the Inequalities**: Substituting $L_{min} \ge \frac{h}{c}$ into the leaf bound, we get:
+   $$ L \ge 2^{h/c} $$
+   Substituting $L = \frac{N + 1}{2}$:
+   $$ \frac{N + 1}{2} \ge 2^{h/c} $$
+   $$ N + 1 \ge 2^{h/c + 1} $$
+   Taking the base-2 logarithm of both sides:
+   $$ \log_2(N + 1) \ge \frac{h}{c} + 1 $$
+   $$ \frac{h}{c} \le \log_2(N + 1) - 1 $$
+   Since $N > 1$, we know that $\log_2(N + 1) - 1 < \log_2(N)$. Therefore:
+   $$ \frac{h}{c} < \log_2(N) \implies h < c \log_2(N) $$
+
+This matches option C.
+
+C"
+mmlu_logical_fallacies_56,logical_fallacies,1,B,B

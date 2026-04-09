@@ -1,0 +1,5 @@
+Model,language_acc,language_n,reasoning_acc,reasoning_n
+GPT-5.4,0.4067,50,0.6735,49
+Claude Sonnet 4.6,0.8317,50,0.8600,50
+GLM-5.1,0.4490,49,0.7400,50
+MiniMax M2.7,0.4022,46,0.7755,49

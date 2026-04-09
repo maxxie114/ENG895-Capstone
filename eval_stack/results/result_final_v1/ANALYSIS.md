@@ -145,3 +145,4 @@ Missing items are due to API timeouts (MiniMax, GPT-5.4) or token exhaustion (GL
 - `figures/05_heatmap.png` — Full model × category heatmap
 - `figures/06_overall_average.png` — Average accuracy across benchmarks
 - `figures/07_radar.png` — Radar chart comparing model profiles
+- `figures/08_contamination_delta.png` — Static→Dynamic performance shift (contamination indicator)

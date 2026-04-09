@@ -21,10 +21,10 @@ Beguš scores use GPT-5.4 as LLM-as-a-judge (retained from original run).
 
 | Model | MMLU | LiveBench | Beguš | Average |
 |-------|------|-----------|-------|---------|
-| GPT-5.4 | 85.83% (480) | 53.87% (99) | 60.42% (120) | 66.71% |
-| Claude Sonnet 4.6 | 95.42% (480) | 84.58% (100) | 57.01% (120) | 79.00% |
-| GLM-5.1 | 96.03% (479) | 60.82% (97) | 59.38% (120) | 72.08% |
-| MiniMax M2.7 | 90.62% (480) | 59.47% (95) | 41.88% (117) | 63.99% |
+| GPT-5.4 | 85.83% (480) | 53.87% (99) | 60.76% (120) | 66.82% |
+| Claude Sonnet 4.6 | 95.42% (480) | 84.58% (100) | 56.25% (120) | 78.75% |
+| GLM-5.1 | 96.03% (479) | 59.60% (99) | 61.46% (120) | 72.36% |
+| MiniMax M2.7 | 90.62% (480) | 59.47% (95) | 38.13% (120) | 62.74% |
 
 ## MMLU — Category Breakdown
 
@@ -41,23 +41,23 @@ Beguš scores use GPT-5.4 as LLM-as-a-judge (retained from original run).
 |-------|---|---|
 | GPT-5.4 | 40.7% (50) | 67.3% (49) |
 | Claude Sonnet 4.6 | 83.2% (50) | 86.0% (50) |
-| GLM-5.1 | 46.8% (47) | 74.0% (50) |
+| GLM-5.1 | 44.9% (49) | 74.0% (50) |
 | MiniMax M2.7 | 40.2% (46) | 77.6% (49) |
 
 ## Beguš — Category Breakdown
 
 | Model | Ambiguity | Movement | Phonology | Recursion |
 |-------|---|---|---|---|
-| GPT-5.4 | 76.7% (30) | 6.7% (30) | 86.7% (30) | 71.7% (30) |
-| Claude Sonnet 4.6 | 76.7% (30) | 10.0% (30) | 78.9% (30) | 62.5% (30) |
-| GLM-5.1 | 68.3% (30) | 16.7% (30) | 80.0% (30) | 72.5% (30) |
-| MiniMax M2.7 | 46.7% (30) | 13.3% (30) | 63.0% (27) | 46.7% (30) |
+| GPT-5.4 | 78.3% (30) | 6.7% (30) | 85.6% (30) | 72.5% (30) |
+| Claude Sonnet 4.6 | 71.7% (30) | 10.0% (30) | 76.7% (30) | 66.7% (30) |
+| GLM-5.1 | 71.7% (30) | 16.7% (30) | 80.0% (30) | 77.5% (30) |
+| MiniMax M2.7 | 43.3% (30) | 10.0% (30) | 56.7% (30) | 42.5% (30) |
 
 ## Key Findings
 
 - **MMLU**: GLM-5.1 leads at 96.03%
 - **LiveBench**: Claude Sonnet 4.6 leads at 84.58%
-- **Beguš**: GPT-5.4 leads at 60.42%
+- **Beguš**: GLM-5.1 leads at 61.46%
 
 ### MMLU Insights
 
@@ -74,8 +74,8 @@ Beguš scores use GPT-5.4 as LLM-as-a-judge (retained from original run).
 
 ### Beguš Insights
 
-- Metalinguistic tasks are challenging for all models — no model exceeds ~60%.
-- GPT-5.4 and GLM-5.1 perform similarly (~59-60%), suggesting reasoning capabilities help on linguistic analysis.
+- Metalinguistic tasks are challenging for all models — no model exceeds ~62%.
+- GPT-5.4 and GLM-5.1 perform similarly (~61%), suggesting reasoning capabilities help on linguistic analysis.
 - MiniMax M2.7 struggles most with Beguš tasks, consistent with its smaller active parameter count.
 - Beguš scores use GPT-5.4 as judge, creating a potential conflict of interest for GPT-5.4's own scores.
 
@@ -90,7 +90,7 @@ Beguš scores use GPT-5.4 as LLM-as-a-judge (retained from original run).
 - MMLU: Regex extraction of A/B/C/D answer letters with multiple pattern fallbacks.
 - LiveBench reasoning: Exact match with enclosed-answer extraction (`<solution>`, `[[...]]`, `\boxed{}`).
 - LiveBench language: Frozenset-based word-group comparison with partial credit (official LiveBench method).
-- Beguš: GPT-5.4 LLM-as-a-judge scoring (0-1 scale). Not re-scored in this pass.
+- Beguš: GPT-5.4 LLM-as-a-judge scoring (0-1 scale). Fully re-scored in this pass.
 - Missing responses (API timeouts): Excluded from accuracy calculation. Counts shown in parentheses.
 
 ## Figures

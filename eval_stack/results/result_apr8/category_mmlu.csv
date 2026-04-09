@@ -1,0 +1,5 @@
+Model,abstract_algebra_acc,college_computer_science_acc,college_mathematics_acc,formal_logic_acc,high_school_computer_science_acc,logical_fallacies_acc,philosophy_acc,professional_psychology_acc,abstract_algebra_n,college_computer_science_n,college_mathematics_n,formal_logic_n,high_school_computer_science_n,logical_fallacies_n,philosophy_n,professional_psychology_n
+GPT-5.4,0.7667,0.8500,0.6333,0.8667,0.9500,0.9000,0.9333,0.9667,60,60,60,60,60,60,60,60
+Claude Sonnet 4.6,0.9500,0.9667,0.9667,0.9667,0.9667,0.9500,0.9667,0.9000,60,60,60,60,60,60,60,60
+GLM-5.1,0.9333,0.9667,0.9333,0.9833,0.9833,0.9322,0.9833,0.9667,60,60,60,60,60,59,60,60
+MiniMax M2.7,0.9000,0.8667,0.9167,0.8500,1.0000,0.9167,0.9333,0.8667,60,60,60,60,60,60,60,60

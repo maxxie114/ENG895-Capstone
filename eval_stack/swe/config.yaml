@@ -1,0 +1,24 @@
+# Overrides layered on top of mini-swe-agent's default swebench.yaml.
+# Pin the GLM Coding Plan endpoint, conservative limits to stretch the 5h quota.
+#
+# Token-budget reasoning: published GLM Coding Plan Pro tier ≈ 400 prompts /
+# 5h. Default mini-swe-agent step_limit=250 means worst-case one instance
+# could consume the full quota by itself. Cap at 75 — observed real instances
+# rarely need more (avg ~37 in the first 94 we ran).
+
+model:
+  model_name: "openai/glm-5.1"
+  model_kwargs:
+    drop_params: true
+    temperature: 0.0
+    parallel_tool_calls: true
+    max_tokens: 8192          # halved — GLM-5.1 still has plenty for reasoning + output
+    num_retries: 6            # litellm exponential backoff on 429/5xx
+    request_timeout: 300      # single-call ceiling
+  cost_tracking: "ignore_errors"   # GLM not in litellm price list
+
+agent:
+  step_limit: 75              # was 250 — caps runaway instances; saves quota
+
+environment:
+  timeout: 180                # per-shell-command timeout inside the container

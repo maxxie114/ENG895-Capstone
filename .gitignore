@@ -10,3 +10,8 @@ Thumbs.db
 **/.env
 **/.env.*
 !**/.env.example
+
+# PDFs — keep third-party papers out of the repo (copyright).
+# Exception: the instructor-approved capstone paper, which is our own work.
+*.pdf
+!Dynamic Benchmarking of LLMs.pdf
